@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MNEMOSYNE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@100;200;300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --black:   #1A1A1A;
+      --crimson: #9B1B30;
+      --gold:    #C9A84C;
+      --ivory:   #F5F0E8;
+      --silver:  #B8B9BD;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--ivory);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      cursor: none;
+      overflow-x: hidden;
+    }
+
+    /* CURSOR */
+    .cursor {
+      width: 8px; height: 8px;
+      background: var(--gold); border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+    }
+    .cursor.hover {
+      width: 22px; height: 22px;
+      background: transparent; border: 1px solid var(--gold);
+    }
+
+    /* GRAIN */
+    .grain {
+      position: fixed; inset: -50%; width: 200%; height: 200%;
+      pointer-events: none; z-index: 9998; opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      animation: grain 0.8s steps(1) infinite;
+    }
+    @keyframes grain {
+      0%,100%{transform:translate(0,0)}10%{transform:translate(-2%,-3%)}
+      20%{transform:translate(3%,2%)}30%{transform:translate(-1%,4%)}
+      40%{transform:translate(2%,-1%)}50%{transform:translate(-3%,3%)}
+      60%{transform:translate(4%,-2%)}70%{transform:translate(-2%,1%)}
+      80%{transform:translate(3%,-3%)}90%{transform:translate(-1%,2%)}
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 32px 64px;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: background 0.4s ease, padding 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(13,13,13,0.95); backdrop-filter: blur(12px);
+      padding: 20px 64px; border-bottom: 1px solid rgba(168,169,173,0.08);
+    }
+    .nav-logo {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 12px;
+      letter-spacing: 8px; color: var(--gold); text-decoration: none; text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 52px; list-style: none; }
+    .nav-links a {
+      font-family: 'Raleway', sans-serif; font-weight: 300; font-size: 10px;
+      letter-spacing: 4px; color: var(--silver); text-decoration: none; text-transform: uppercase;
+      position: relative; transition: color 0.3s ease;
+    }
+    /* bottom line — hover */
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--crimson); transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--ivory); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ACTIVE NAV STATE */
+    .nav-links a.active { color: var(--gold); }
+    .nav-links a.active::after { width: 100%; background: var(--gold); }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: none; padding: 4px;
+    }
+    .hamburger span { display: block; width: 24px; height: 1px; background: var(--silver); transition: all 0.3s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); background: var(--gold); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); background: var(--gold); }
+
+    /* MOBILE NAV */
+    .mobile-nav {
+      display: none; position: fixed; inset: 0;
+      background: rgba(13,13,13,0.98); z-index: 99;
+      flex-direction: column; align-items: center; justify-content: center; gap: 52px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: 'Cormorant Garamond', serif; font-size: 36px;
+      color: var(--ivory); text-decoration: none; letter-spacing: 6px; transition: color 0.3s ease;
+    }
+    .mobile-nav a:hover { color: var(--gold); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }
+
+    /* SECTIONS */
+    section { padding: 140px 80px; max-width: 1400px; margin: 0 auto; }
+    .section-header { margin-bottom: 80px; text-align: center; }
+    .section-title {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 13px;
+      letter-spacing: 10px; color: var(--silver); text-transform: uppercase; margin-bottom: 20px;
+      text-indent: 10px;
+    }
+    .section-line {
+      width: 100%; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(168,169,173,0.4), transparent);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 0; max-width: 100%; position: relative; overflow: hidden;
+    }
+    .hero-bg-text {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(80px, 18vw, 240px); letter-spacing: clamp(4px, 2vw, 24px);
+      color: transparent; -webkit-text-stroke: 1px rgba(201,168,76,0.06);
+      white-space: nowrap; user-select: none; pointer-events: none;
+      animation: bgFade 3s ease forwards;
+    }
+    @keyframes bgFade { from{opacity:0} to{opacity:1} }
+    .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
+    .hero-logo-placeholder {
+      width: 160px; height: 160px; border: 1px solid rgba(201,168,76,0.15);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 56px; position: relative; animation: heroFade 2s ease forwards;
+    }
+    .hero-logo-placeholder::before { content: ''; position: absolute; inset: -8px; border: 1px solid rgba(201,168,76,0.04); }
+    .logo-label { font-size: 9px; letter-spacing: 3px; color: rgba(201,168,76,0.2); text-transform: uppercase; }
+    .hero-wordmark {
+      font-family: 'Raleway', sans-serif; font-weight: 100;
+      font-size: clamp(24px, 4vw, 48px); letter-spacing: clamp(14px, 4vw, 32px);
+      color: var(--ivory); margin-bottom: 32px; animation: heroFade 2.5s ease forwards;
+      text-indent: clamp(14px, 4vw, 32px);
+    }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(15px, 2vw, 20px); color: var(--silver);
+      letter-spacing: 2px; margin-bottom: 20px; animation: heroFade 3s ease forwards;
+    }
+    .hero-sub {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px;
+      letter-spacing: 6px; color: rgba(168,169,173,0.4); text-transform: uppercase;
+      animation: heroFade 3.5s ease forwards;
+    }
+    @keyframes heroFade { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .scroll-indicator {
+      position: absolute; bottom: 48px;
+      left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column;
+      align-items: center; width: 2px;
+      animation: heroFade 4s ease forwards;
+    }
+    .scroll-text { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px; letter-spacing: 4px; color: rgba(168,169,173,0.3); text-transform: uppercase; }
+    .scroll-line { width: 1px; height: 56px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2.5s ease infinite; }
+    @keyframes scrollPulse { 0%,100%{opacity:0.2} 50%{opacity:1} }
+
+    /* MARQUEE */
+    .marquee-wrap {
+      width: 100%; overflow: hidden;
+      border-top: 1px solid rgba(168,169,173,0.07); border-bottom: 1px solid rgba(168,169,173,0.07);
+      padding: 22px 0; background: rgba(201,168,76,0.015);
+    }
+    .marquee-track { display: flex; animation: marquee 40s linear infinite; width: max-content; }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .marquee-item {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px;
+      letter-spacing: 6px; color: var(--silver); text-transform: uppercase;
+      padding: 0 40px; white-space: nowrap;
+    }
+    .marquee-item span { color: var(--gold); margin: 0 12px; }
+
+    /* ── PULL DIVIDERS with parallax ── */
+    .pull-divider {
+      width: 100%; padding: 140px 80px;
+      display: flex; align-items: center; justify-content: center;
+      border-top: 1px solid rgba(168,169,173,0.05);
+      border-bottom: 1px solid rgba(168,169,173,0.05);
+      overflow: hidden; position: relative;
+    }
+    /* parallax bg text — moved by JS */
+    .pull-quote-bg {
+      position: absolute;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(100px, 20vw, 260px);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(201,168,76,0.05); 
+      user-select: none; pointer-events: none;
+      white-space: nowrap; letter-spacing: -4px;
+      will-change: transform;
+      /* base position centered */
+      left: 50%; transform: translateX(-50%) translateY(0px);
+    }
+    .pull-quote {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+      font-size: clamp(26px, 4.5vw, 60px); color: var(--ivory);
+      text-align: center; letter-spacing: 1px; line-height: 1.3;
+      max-width: 900px; position: relative; z-index: 1;
+    }
+    .pull-quote em { color: var(--gold); font-style: normal; }
+
+    /* ROSTER */
+    #roster { border-top: 1px solid rgba(168,169,173,0.08); }
+    .roster-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: var(--silver); margin-top: 14px; letter-spacing: 1px; text-align: center; }
+    .wave { margin-bottom: 80px; }
+    .wave-label { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 7px; color: var(--gold); text-transform: uppercase; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 1px solid rgba(201,168,76,0.1); text-align: center; text-indent: 7px; }
+    .artist-grid { display: flex; flex-direction: column; gap: 0; }
+    .artist-card {
+      cursor: none; display: grid;
+      grid-template-columns: 320px 1fr;
+      border-bottom: 1px solid rgba(168,169,173,0.07);
+      transition: background 0.4s ease;
+      min-height: 220px;
+    }
+    .artist-card:first-child { border-top: 1px solid rgba(168,169,173,0.07); }
+    .artist-card:hover { background: rgba(201,168,76,0.02); }
+    .artist-img {
+      width: 100%; height: 100%; min-height: 220px;
+      background: #111;
+      border-right: 1px solid rgba(168,169,173,0.07);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; transition: border-color 0.4s ease;
+    }
+    .artist-img::after { content: ''; position: absolute; inset: 0; background: rgba(155,27,48,0); transition: background 0.4s ease; }
+    .artist-card:hover .artist-img { border-color: var(--crimson); }
+    .artist-card:hover .artist-img::after { background: rgba(155,27,48,0.06); }
+    .artist-img .click-hint {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s ease; background: rgba(26,26,26,0.6);
+    }
+    .artist-card:hover .click-hint { opacity: 1; }
+    .click-hint span { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+    .artist-img-placeholder { font-size: 8px; letter-spacing: 2px; color: rgba(168,169,173,0.12); text-transform: uppercase; }
+    .artist-info {
+      padding: 48px 56px;
+      display: flex; flex-direction: column; justify-content: center; gap: 12px;
+    }
+    .artist-name {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(32px, 4vw, 52px); color: var(--ivory);
+      letter-spacing: 2px; line-height: 1; transition: color 0.3s ease;
+    }
+    .artist-card:hover .artist-name { color: var(--gold); }
+    .artist-role { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 4px; color: var(--silver); text-transform: uppercase; }
+    .artist-number {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 13px; color: rgba(201,168,76,0.4); letter-spacing: 1px;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(13,13,13,0.92); backdrop-filter: blur(16px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.4s ease; padding: 40px;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: #111; border: 1px solid rgba(201,168,76,0.15);
+      max-width: 640px; width: 100%;
+      display: grid; grid-template-columns: 220px 1fr;
+      position: relative; transform: translateY(20px); transition: transform 0.4s ease;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal-img {
+      background: #0D0D0D; aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      border-right: 1px solid rgba(201,168,76,0.1);
+    }
+    .modal-img-placeholder { font-size: 8px; letter-spacing: 2px; color: rgba(168,169,173,0.12); text-transform: uppercase; }
+    .modal-body { padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+    .modal-wave { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
+    .modal-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 36px; color: var(--ivory); letter-spacing: 1px; line-height: 1; }
+    .modal-role { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 4px; color: var(--silver); text-transform: uppercase; }
+    .modal-divider { width: 40px; height: 1px; background: rgba(201,168,76,0.3); }
+    .modal-bio { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: rgba(245,240,232,0.65); line-height: 1.8; letter-spacing: 0.3px; }
+    .modal-handle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--gold); letter-spacing: 1px; }
+    .modal-close {
+      position: absolute; top: 20px; right: 24px;
+      background: none; border: none; cursor: none;
+      font-family: 'Raleway', sans-serif; font-weight: 200;
+      font-size: 9px; letter-spacing: 4px; color: var(--silver);
+      text-transform: uppercase; transition: color 0.3s ease;
+    }
+    .modal-close:hover { color: var(--crimson); }
+
+    /* RELEASES */
+    #releases { border-top: 1px solid rgba(168,169,173,0.08); }
+    .release-entry { display: grid; grid-template-columns: 130px 1fr; gap: 48px; align-items: center; padding: 48px 0; border-bottom: 1px solid rgba(168,169,173,0.07); }
+    .release-entry:first-child { border-top: 1px solid rgba(168,169,173,0.07); }
+    .release-entry.featured { grid-template-columns: 180px 1fr; padding: 72px 0; }
+    .release-img { aspect-ratio: 1; background: #111; border: 1px solid rgba(168,169,173,0.07); display: flex; align-items: center; justify-content: center; }
+    .release-img-placeholder { font-size: 8px; letter-spacing: 1px; color: rgba(168,169,173,0.12); text-transform: uppercase; }
+    .release-artist { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; }
+    .release-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(24px, 3vw, 40px); color: var(--ivory); letter-spacing: 1px; margin-bottom: 14px; line-height: 1.1; }
+    .release-meta { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 3px; color: var(--silver); text-transform: uppercase; }
+
+    /* ABOUT */
+    #about { border-top: 1px solid rgba(168,169,173,0.08); }
+    .about-pull { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(26px, 4vw, 50px); color: var(--ivory); letter-spacing: 1px; line-height: 1.3; margin-bottom: 100px; max-width: 900px; }
+    .about-pull em { color: var(--gold); font-style: normal; }
+    .about-body { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; margin-bottom: 120px; }
+    .about-text p { font-family: 'Cormorant Garamond', serif; font-size: 19px; line-height: 2; color: rgba(245,240,232,0.7); margin-bottom: 32px; letter-spacing: 0.3px; }
+    .about-text p strong { color: var(--gold); font-weight: 400; }
+    .about-stat { padding: 28px 0; border-bottom: 1px solid rgba(168,169,173,0.07); }
+    .about-stat:first-child { border-top: 1px solid rgba(168,169,173,0.07); }
+    .stat-label { font-family: 'Raleway', sans-serif; font-size: 9px; letter-spacing: 5px; color: var(--silver); text-transform: uppercase; margin-bottom: 10px; }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--ivory); letter-spacing: 1px; }
+    .staff-section { margin-top: 100px; padding-top: 60px; border-top: 1px solid rgba(168,169,173,0.08); }
+    .staff-title { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 8px; color: var(--silver); text-transform: uppercase; margin-bottom: 60px; text-align: center; text-indent: 8px; }
+    .staff-block { margin-bottom: 72px; }
+    .staff-block-label { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 32px; padding-bottom: 14px; border-bottom: 1px solid rgba(201,168,76,0.12); }
+    .staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(168,169,173,0.06); }
+    .staff-card {
+      background: var(--black);
+      padding: 40px 36px;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: background 0.3s ease;
+      position: relative;
+    }
+    .staff-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .staff-card:hover { background: rgba(201,168,76,0.025); }
+    .staff-card:hover::before { opacity: 1; }
+    .staff-role { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 4px; color: var(--silver); text-transform: uppercase; }
+    .staff-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--ivory); letter-spacing: 1px; line-height: 1.2; }
+    .staff-name-multi { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: rgba(245,240,232,0.75); letter-spacing: 0.5px; line-height: 1.8; }
+
+    /* CONTACT */
+    #contact { border-top: 1px solid rgba(168,169,173,0.08); text-align: center; }
+    .contact-intro { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: var(--silver); margin-bottom: 80px; letter-spacing: 1px; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(168,169,173,0.07); margin-bottom: 80px; }
+    .contact-item { background: var(--black); padding: 52px 32px; transition: background 0.3s ease; }
+    .contact-item:hover { background: rgba(201,168,76,0.03); }
+    .contact-type { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 18px; }
+    .contact-email { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--ivory); letter-spacing: 1px; }
+    .contact-location { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 11px; letter-spacing: 6px; color: var(--silver); text-transform: uppercase; margin-bottom: 16px; }
+    .contact-handle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--gold); letter-spacing: 1px; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid rgba(168,169,173,0.08); padding: 72px 80px; text-align: center; }
+    .footer-wordmark { font-family: 'Raleway', sans-serif; font-weight: 100; font-size: 12px; letter-spacing: 12px; color: var(--ivory); margin-bottom: 18px; text-transform: uppercase; text-indent: 12px; }
+    .footer-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--silver); letter-spacing: 1px; margin-bottom: 14px; }
+    .footer-meta { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 4px; color: rgba(168,169,173,0.3); text-transform: uppercase; margin-bottom: 48px; }
+    .footer-disclaimer { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 0.5px; color: rgba(200,201,205,0.5); line-height: 1.9; max-width: 720px; margin: 0 auto; }
+
+    /* RESPONSIVE */
+    /* touch devices */
+    @media (hover: none) {
+      body { cursor: auto; }
+      .cursor { display: none; }
+    }
+
+    @media (max-width: 960px) {
+      .artist-card { grid-template-columns: 260px 1fr; }
+      .hero-wordmark { letter-spacing: 8px !important; }
+      .hero-bg-text { font-size: 60px !important; }
+      .pull-quote { font-size: 22px !important; }
+      .about-pull { font-size: 24px !important; }
+      nav { padding: 24px 32px; } nav.scrolled { padding: 16px 32px; }
+      .nav-links { display: none; } .hamburger { display: flex; }
+      section { padding: 100px 32px; } .pull-divider { padding: 100px 32px; }
+      .about-body { grid-template-columns: 1fr; gap: 60px; }
+      .contact-grid { grid-template-columns: 1fr; } footer { padding: 60px 32px; }
+      .modal { grid-template-columns: 1fr; max-width: 360px; }
+      .modal-img { aspect-ratio: 16/9; border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
+    }
+    @media (max-width: 600px) {
+      body { cursor: auto; }
+      .cursor { display: none; }
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-logo { font-size: 10px; letter-spacing: 5px; }
+      .hero-logo-placeholder { width: 120px; height: 120px; margin-bottom: 36px; }
+      .hero-wordmark { font-size: 20px !important; letter-spacing: 6px !important; text-indent: 6px; }
+      .hero-tagline { font-size: 14px !important; }
+      .hero-sub { font-size: 9px; }
+      .hero-bg-text { font-size: 44px !important; }
+      .marquee-item { font-size: 9px; letter-spacing: 4px; padding: 0 24px; }
+      .wave-label { font-size: 8px; letter-spacing: 5px; }
+      .artist-name { font-size: 16px; }
+      .section-title { font-size: 10px; letter-spacing: 7px; }
+      .pull-quote { font-size: 18px !important; letter-spacing: 0.5px; }
+      .pull-quote-bg { font-size: 70px !important; }
+      .about-pull { font-size: 20px !important; }
+      .about-text p { font-size: 16px; }
+      .stat-value { font-size: 18px; }
+      .release-title { font-size: 20px !important; }
+      .contact-email { font-size: 13px; }
+      .footer-wordmark { font-size: 10px; letter-spacing: 8px; }
+      .footer-tagline { font-size: 13px; }
+      .footer-disclaimer { font-size: 10px; letter-spacing: 0.3px; color: rgba(200,201,205,0.55) !important; }
+      .modal { max-width: 100%; margin: 0 16px; }
+      .modal-name { font-size: 28px; }
+      .modal-bio { font-size: 15px; }
+      .staff-name { font-size: 14px; }
+      .staff-role { font-size: 10px; }
+      .staff-grid { grid-template-columns: repeat(2, 1fr); }
+      .staff-card { padding: 28px 24px; }
+      .staff-name { font-size: 18px; }
+      .staff-name-multi { font-size: 14px; }
+      .pull-quote-bg { -webkit-text-stroke: 1px rgba(201,168,76,0.18) !important; }
+      .hero-bg-text { -webkit-text-stroke: 1px rgba(201,168,76,0.14) !important; }
+      section { padding: 80px 24px; }
+      .artist-card { grid-template-columns: 120px 1fr; min-height: 140px; }
+      .artist-img { min-height: 140px; }
+      .artist-info { padding: 24px 28px; gap: 8px; }
+      .artist-name { font-size: 24px !important; letter-spacing: 1px; }
+      .artist-number { font-size: 11px; }
+      .release-entry { grid-template-columns: 80px 1fr; gap: 24px; }
+      .release-entry.featured { grid-template-columns: 100px 1fr; }
+      .staff-row { grid-template-columns: 1fr; gap: 6px; padding: 16px 0; }
+      .pull-divider { padding: 60px 24px; } footer { padding: 48px 24px; }
+      .modal-body { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="cursor" id="cursor"></div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" id="modal">
+      <div class="modal-img"><span class="modal-img-placeholder">img</span></div>
+      <div class="modal-body">
+        <p class="modal-wave" id="modalWave"></p>
+        <p class="modal-name" id="modalName"></p>
+        <p class="modal-role" id="modalRole"></p>
+        <div class="modal-divider"></div>
+        <p class="modal-bio" id="modalBio"></p>
+        <p class="modal-handle" id="modalHandle"></p>
+      </div>
+      <button class="modal-close" onclick="closeModalBtn()">✕ &nbsp;close</button>
+    </div>
+  </div>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#roster" onclick="closeMobileNav()">Roster</a>
+    <a href="#releases" onclick="closeMobileNav()">Releases</a>
+    <a href="#about" onclick="closeMobileNav()">About</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">Mnemosyne</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#roster" data-section="roster">Roster</a></li>
+      <li><a href="#releases" data-section="releases">Releases</a></li>
+      <li><a href="#about" data-section="about">About</a></li>
+      <li><a href="#contact" data-section="contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-text">MNEMOSYNE</div>
+    <div class="hero-content">
+      <div class="hero-logo-placeholder"><span class="logo-label">logo</span></div>
+      <h1 class="hero-wordmark">MNEMOSYNE</h1>
+      <p class="hero-tagline">from memory, everything is made.</p>
+      <p class="hero-sub">Seoul &nbsp;·&nbsp; Est. 2026</p>
+    </div>
+    <div class="scroll-indicator">
+      
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">CI-EL <span>·</span></span>
+      <span class="marquee-item">AUGUST <span>·</span></span>
+      <span class="marquee-item">ERIS <span>·</span></span>
+      <span class="marquee-item">JASS <span>·</span></span>
+      <span class="marquee-item">MOONBYUL <span>·</span></span>
+      <span class="marquee-item">BJORN <span>·</span></span>
+      <span class="marquee-item">ASHLEY <span>·</span></span>
+      <span class="marquee-item">WOOYOUNG <span>·</span></span>
+      <span class="marquee-item">MINNIE <span>·</span></span>
+      <span class="marquee-item">from memory, everything is made <span>·</span></span>
+      <span class="marquee-item">Seoul · Est. 2026 <span>·</span></span>
+      <span class="marquee-item">artist-owned. in-house. independent. <span>·</span></span>
+      <span class="marquee-item">CI-EL <span>·</span></span>
+      <span class="marquee-item">AUGUST <span>·</span></span>
+      <span class="marquee-item">ERIS <span>·</span></span>
+      <span class="marquee-item">JASS <span>·</span></span>
+      <span class="marquee-item">MOONBYUL <span>·</span></span>
+      <span class="marquee-item">BJORN <span>·</span></span>
+      <span class="marquee-item">ASHLEY <span>·</span></span>
+      <span class="marquee-item">WOOYOUNG <span>·</span></span>
+      <span class="marquee-item">MINNIE <span>·</span></span>
+      <span class="marquee-item">from memory, everything is made <span>·</span></span>
+      <span class="marquee-item">Seoul · Est. 2026 <span>·</span></span>
+      <span class="marquee-item">artist-owned. in-house. independent. <span>·</span></span>
+    </div>
+  </div>
+
+  <!-- ROSTER -->
+  <section id="roster">
+    <div class="section-header reveal">
+      <p class="section-title">Roster</p>
+      <div class="section-line"></div>
+      <p class="roster-sub">artists who create everything.</p>
+    </div>
+    <div class="wave reveal">
+      <p class="wave-label">— The Founders</p>
+      <div class="artist-grid">
+        <div class="artist-card" onclick="openModal('The Founders','CI-EL','Artist · CEO · Co-Founder','The architect of Mnemosyne\'s public face. Built this label because she spent years making music inside a machine that owned everything she created.','@CI-EL')">
+          <div class="artist-img"><span class="artist-img-placeholder">img</span><div class="click-hint"><span>view</span></div></div>
+          <div class="artist-info"><p class="artist-number">01</p><p class="artist-name">CI-EL</p><p class="artist-role">Artist · CEO · Co-Founder</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Founders','AUGUST','Artist · Co-Founder · Head of Production','Oversees all in-house production and creative output. Came from underground before the industry found him. Never forgot what music felt like before it became a product.','@AUGUST')">
+          <div class="artist-img"><span class="artist-img-placeholder">img</span><div class="click-hint"><span>view</span></div></div>
+          <div class="artist-info"><p class="artist-number">02</p><p class="artist-name">AUGUST</p><p class="artist-role">Artist · Producer · Co-Founder</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="wave reveal">
+      <p class="wave-label">— The Veterans</p>
+      <div class="artist-grid">
+        <div class="artist-card" onclick="openModal('The Veterans','ERIS','Group','Five artists who rose together. They carry the legacy of everything they survived and the freedom they built after.','@official_ERIS')">
+          <div class="artist-img"><span class="artist-img-placeholder">img</span><div class="click-hint"><span>view</span></div></div>
+          <div class="artist-info"><p class="artist-number">03</p><p class="artist-name">ERIS</p><p class="artist-role">Group</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Veterans','JASS','Artist · Songwriter','A voice that has always been hers. She writes, she builds, she stays. Every release is a statement on her own terms.','@jessicajung')">
+          <div class="artist-img"><span class="artist-img-placeholder">img</span><div class="click-hint"><span>view</span></div></div>
+          <div class="artist-info"><p class="artist-number">04</p><p class="artist-name">JASS</p><p class="artist-role">Artist · Songwriter</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Veterans','MOONBYUL','Artist · Choreographer · Producer','Movement is her first language. She writes music and creates stages with the same precision she brings to every performance.','@MOONBYUL')">
+          <div class="artist-img"><span class="artist-img-placeholder">img</span><div class="click-hint"><span>view</span></div></div>
+          <div class="artist-info"><p class="artist-number">05</p><p class="artist-name">MOONBYUL</p><p class="artist-role">Artist · Choreographer · Producer</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="wave reveal">
+      <p class="wave-label">— The Architects</p>
+      <div class="artist-grid">
+        <div class="artist-card" onclick="openModal('The Architects','BJORN','Artist · Producer · Choreographer','He builds from the inside out. Producer, performer, visual artist — everything he makes carries the same quiet intensity.','@jayb')">
+          <div class="artist-img"><span class="artist-img-placeholder">img</span><div class="click-hint"><span>view</span></div></div>
+          <div class="artist-info"><p class="artist-number">06</p><p class="artist-name">BJORN</p><p class="artist-role">Artist · Producer · Choreographer</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Architects','ASHLEY','Artist · Songwriter','Genre means nothing to her. She makes what she needs to make, when she needs to make it. Every record is a different skin she grows into and sheds.','@ASHLEY')">
+          <div class="artist-img"><span class="artist-img-placeholder">img</span><div class="click-hint"><span>view</span></div></div>
+          <div class="artist-info"><p class="artist-number">07</p><p class="artist-name">ASHLEY</p><p class="artist-role">Artist · Songwriter</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Architects','WOOYOUNG','Artist · Producer','He does not stop. Every skill, every sound, every medium — he approaches all of it with the same relentless commitment to craft.','@WOOYOUNG')">
+          <div class="artist-img"><span class="artist-img-placeholder">img</span><div class="click-hint"><span>view</span></div></div>
+          <div class="artist-info"><p class="artist-number">08</p><p class="artist-name">WOOYOUNG</p><p class="artist-role">Artist · Producer</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="wave reveal">
+      <p class="wave-label">— The New Generation</p>
+      <div class="artist-grid">
+          <div class="artist-card" onclick="openModal('The New Generation','MINNIE','Artist · Songwriter','Something is being built. Details will follow when they are ready to be known.','@MINNIE')">
+          <div class="artist-img"><span class="artist-img-placeholder">img</span><div class="click-hint"><span>view</span></div></div>
+          <div class="artist-info"><p class="artist-number">10</p><p class="artist-name">MINNIE</p><p class="artist-role">Group</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The New Generation','—','Group · Coming Soon','Something is being built. Details will follow when they are ready to be known.','—')">
+          <div class="artist-img"><span class="artist-img-placeholder">img</span><div class="click-hint"><span>view</span></div></div>
+          <div class="artist-info"><p class="artist-number">09</p><p class="artist-name">—</p><p class="artist-role">Group · Coming Soon</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE 1 -->
+  <div class="pull-divider" data-parallax="true">
+    <div class="pull-quote-bg" data-speed="0.3">MEMORY</div>
+    <p class="pull-quote reveal">"named after the <em>mother of all muses.</em><br/>origin of every creative discipline."</p>
+  </div>
+
+  <!-- RELEASES -->
+  <section id="releases">
+    <div class="section-header reveal">
+      <p class="section-title">Releases</p>
+      <div class="section-line"></div>
+    </div>
+    <div class="releases-list">
+      <div class="release-entry featured reveal">
+        <div class="release-img"><span class="release-img-placeholder">img</span></div>
+        <div class="release-info"><p class="release-artist">CI-EL</p><p class="release-title">TBA</p><p class="release-meta">Single &nbsp;·&nbsp; 2026</p></div>
+      </div>
+      <div class="release-entry reveal">
+        <div class="release-img"><span class="release-img-placeholder">img</span></div>
+        <div class="release-info"><p class="release-artist">AUGUST</p><p class="release-title">TBA</p><p class="release-meta">Single &nbsp;·&nbsp; 2026</p></div>
+      </div>
+      <div class="release-entry reveal">
+        <div class="release-img"><span class="release-img-placeholder">img</span></div>
+        <div class="release-info"><p class="release-artist">Mnemosyne</p><p class="release-title">More coming.</p><p class="release-meta">Stay tuned &nbsp;·&nbsp; 2026</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE 2 -->
+  <div class="pull-divider" data-parallax="true">
+    <div class="pull-quote-bg" data-speed="0.25">FIRE</div>
+    <p class="pull-quote reveal">"<em>everything worth keeping</em><br/>was made in fire."</p>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header reveal">
+      <p class="section-title">About</p>
+      <div class="section-line"></div>
+    </div>
+    <p class="about-pull reveal"><em>"built by those</em> who refused to forget."</p>
+    <div class="about-body">
+      <div class="about-text reveal">
+        <p>MNEMOSYNE was built by two siblings who spent years making art inside systems that owned it.</p>
+        <p>They left. They built something where the artist controls everything — <strong>the sound, the image, the story, the rights.</strong></p>
+        <p>Named after the Titan goddess of memory. Mother of the nine Muses. Origin of every creative discipline. Because art is just memory with the nerve to become something permanent.</p>
+        <p>This label exists for artists who make things that last.</p>
+      </div>
+      <div class="about-right reveal">
+        <div class="about-stat"><p class="stat-label">Founded</p><p class="stat-value">2026</p></div>
+        <div class="about-stat"><p class="stat-label">Headquarters</p><p class="stat-value">Seoul, South Korea</p></div>
+        <div class="about-stat"><p class="stat-label">Reach</p><p class="stat-value">International</p></div>
+        <div class="about-stat"><p class="stat-label">Model</p><p class="stat-value">Artist-owned. In-house. Independent.</p></div>
+      </div>
+    </div>
+    <div class="staff-section reveal">
+      <p class="staff-title">Leadership & Staff</p>
+
+      <div class="staff-block">
+        <p class="staff-block-label">Leadership</p>
+        <div class="staff-grid">
+          <div class="staff-card">
+            <span class="staff-role">CEO & Co-Founder</span>
+            <span class="staff-name">CI-EL</span>
+          </div>
+          <div class="staff-card">
+            <span class="staff-role">Co-Founder & Head of Production</span>
+            <span class="staff-name">AUGUST</span>
+          </div>
+          <div class="staff-card">
+            <span class="staff-role">Chief Creative Officer</span>
+            <span class="staff-name">ASHLEY</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="staff-block">
+        <p class="staff-block-label">In-House</p>
+        <div class="staff-grid">
+          <div class="staff-card">
+            <span class="staff-role">Production & Composition</span>
+            <span class="staff-name-multi">CI-EL<br/>AUGUST<br/>BJORN<br/>WOOYOUNG<br/>MOONBYUL<br/>IORI<br/>SHAWN</span>
+          </div>
+          <div class="staff-card">
+            <span class="staff-role">Songwriting & Lyrics</span>
+            <span class="staff-name-multi">CI-EL<br/>AUGUST<br/>BJORN<br/>ASHLEY<br/>WOOYOUNG</span>
+          </div>
+          <div class="staff-card">
+            <span class="staff-role">Creative Direction & Visual</span>
+            <span class="staff-name">ASHLEY<br/>AUGUST</span>
+          </div>
+          <div class="staff-card">
+            <span class="staff-role">Choreography & Performance</span>
+            <span class="staff-name-multi">MOONBYUL<br/>BJORN</span>
+          </div>
+          <div class="staff-card">
+            <span class="staff-role">A&R & Artist Relations</span>
+            <span class="staff-name">TBA</span>
+          </div>
+          <div class="staff-card">
+            <span class="staff-role">Press & Communications</span>
+            <span class="staff-name">TBA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE 3 -->
+  <div class="pull-divider" data-parallax="true">
+    <div class="pull-quote-bg" data-speed="0.35">PERMANENT</div>
+    <p class="pull-quote reveal">"this label exists for artists<br/>who make things <em>that last.</em>"</p>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header reveal">
+      <p class="section-title">Contact</p>
+      <div class="section-line"></div>
+    </div>
+    <p class="contact-intro reveal">reach us at the right door.</p>
+    <div class="contact-grid reveal">
+      <div class="contact-item"><p class="contact-type">General Inquiries</p><p class="contact-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2149444d4d4e614c4f444c4e52584f440f424e4c">[email&#160;protected]</a></p></div>
+      <div class="contact-item"><p class="contact-type">A&R & Signings</p><p class="contact-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3a5b487a57545f57554943545f14595557">[email&#160;protected]</a></p></div>
+      <div class="contact-item"><p class="contact-type">Press & Media</p><p class="contact-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="324240574141725f5c575f5d414b5c571c515d5f">[email&#160;protected]</a></p></div>
+    </div>
+    <p class="contact-location reveal">Seoul, South Korea</p>
+    <p class="contact-handle reveal">@mnemosyne_label</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-wordmark">Mnemosyne</p>
+    <p class="footer-tagline">from memory, everything is made.</p>
+    <p class="footer-meta">Seoul &nbsp;·&nbsp; Est. 2026 &nbsp;·&nbsp; @mnemosyne_label</p>
+    <p class="footer-disclaimer">MNEMOSYNE is a fictional independent music label created for roleplay and creative writing purposes. All artists, releases, concepts, and content associated with MNEMOSYNE are works of fiction. Any resemblance to real labels, companies, or organizations is coincidental. Characters portrayed within this universe are fictional representations and are not affiliated with, endorsed by, or representative of any real individual, company, or entity. MNEMOSYNE is not a real music label and does not represent actual artists or releases.</p>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // ── CURSOR ──
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .artist-card, .release-entry, .contact-item, .modal-close').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+
+    // ── NAV SCROLL STATE ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+      updateActiveNav();
+      updateParallax();
+    });
+
+    // ── ACTIVE NAV INDICATOR ──
+    const sections = ['roster','releases','about','contact'];
+    const navAnchors = document.querySelectorAll('.nav-links a[data-section]');
+
+    function updateActiveNav() {
+      const scrollY = window.scrollY + window.innerHeight * 0.35;
+      let current = '';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) current = id;
+      });
+      navAnchors.forEach(a => {
+        a.classList.toggle('active', a.dataset.section === current);
+      });
+    }
+    updateActiveNav();
+
+    // ── PARALLAX on pull quote bg text ──
+    const parallaxEls = document.querySelectorAll('.pull-quote-bg[data-speed]');
+
+    function updateParallax() {
+      parallaxEls.forEach(el => {
+        const parent  = el.closest('.pull-divider');
+        const rect    = parent.getBoundingClientRect();
+        const speed   = parseFloat(el.dataset.speed) || 0.3;
+        // how far through the viewport the divider is
+        const progress = (window.innerHeight * 0.5 - rect.top) * speed;
+        el.style.transform = `translateX(-50%) translateY(${progress}px)`;
+      });
+    }
+    updateParallax();
+
+    // ── MOBILE NAV ──
+    function toggleMobileNav() {
+      document.getElementById('mobileNav').classList.toggle('open');
+      document.getElementById('hamburger').classList.toggle('open');
+    }
+    function closeMobileNav() {
+      document.getElementById('mobileNav').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    }
+
+    // ── MODAL ──
+    function openModal(wave, name, role, bio, handle) {
+      document.getElementById('modalWave').textContent   = '— ' + wave;
+      document.getElementById('modalName').textContent   = name;
+      document.getElementById('modalRole').textContent   = role;
+      document.getElementById('modalBio').textContent    = bio;
+      document.getElementById('modalHandle').textContent = handle;
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModalBtn() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeModal(e) {
+      if (e.target === document.getElementById('modalOverlay')) closeModalBtn();
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalBtn(); });
+
+    // ── REVEAL ON SCROLL ──
+    const revealEls = document.querySelectorAll('.reveal');
+
+    function checkReveal() {
+      revealEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 1.1) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), 80);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+    window.addEventListener('load', checkReveal);
+    window.addEventListener('scroll', checkReveal);
+    checkReveal();
+  </script>
+</body>
+</html>
