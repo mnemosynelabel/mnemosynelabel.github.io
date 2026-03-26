@@ -352,12 +352,64 @@
     .release-entry { display: grid; grid-template-columns: 130px 1fr; gap: 48px; align-items: center; padding: 48px 0; border-bottom: 1px solid rgba(168,169,173,0.07); }
     .release-entry:first-child { border-top: 1px solid rgba(168,169,173,0.07); }
     .release-entry.featured { grid-template-columns: 180px 1fr; padding: 72px 0; }
-    .release-img { aspect-ratio: 1; background: #111; border: 1px solid rgba(168,169,173,0.07); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .release-img { aspect-ratio: 1; background: #111; border: 1px solid rgba(168,169,173,0.07); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
     .release-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .release-img-placeholder { font-size: 8px; letter-spacing: 1px; color: rgba(168,169,173,0.12); text-transform: uppercase; }
-    .release-artist { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; }
+
+    /* Placeholder pulse animation */
+    .release-img-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    }
+    .release-catalog {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 11px; color: rgba(201,168,76,0.25); letter-spacing: 3px;
+    }
+    .release-pulse {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(201,168,76,0.2);
+      animation: releasePulse 2.4s ease-in-out infinite;
+    }
+    .release-entry:nth-child(2) .release-pulse { animation-delay: 0.8s; }
+    .release-entry:nth-child(3) .release-pulse { animation-delay: 1.6s; }
+    @keyframes releasePulse {
+      0%,100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.6); background: rgba(201,168,76,0.5); }
+    }
+
+    .release-artist { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+    .release-catalog-label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 12px; color: rgba(201,168,76,0.35); letter-spacing: 2px; margin-bottom: 14px; }
     .release-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(24px, 3vw, 40px); color: var(--ivory); letter-spacing: 1px; margin-bottom: 14px; line-height: 1.1; }
     .release-meta { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 3px; color: var(--silver); text-transform: uppercase; }
+
+    /* LOADING SCREEN */
+    #loader {
+      position: fixed; inset: 0; z-index: 99999;
+      background: var(--black);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+      transition: opacity 0.8s ease;
+    }
+    #loader.hidden { opacity: 0; pointer-events: none; }
+    .loader-logo {
+      width: 64px; height: 64px; object-fit: contain;
+      animation: loaderFade 0.8s ease forwards;
+    }
+    .loader-wordmark {
+      font-family: 'Raleway', sans-serif; font-weight: 100;
+      font-size: 11px; letter-spacing: 12px; text-indent: 12px;
+      color: rgba(245,240,232,0.6); text-transform: uppercase;
+      animation: loaderFade 1.2s ease forwards;
+    }
+    .loader-bar-wrap {
+      width: 120px; height: 1px; background: rgba(168,169,173,0.1);
+      position: relative; overflow: hidden;
+    }
+    .loader-bar {
+      position: absolute; top: 0; left: 0; height: 100%;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      animation: loaderBar 1.6s ease forwards;
+    }
+    @keyframes loaderFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes loaderBar { from { width: 0; } to { width: 100%; } }
 
     /* ABOUT */
     #about { border-top: 1px solid rgba(168,169,173,0.08); }
@@ -402,16 +454,15 @@
       border: 1px solid rgba(168,169,173,0.08);
       border-left: 2px solid rgba(201,168,76,0.2);
       padding: 48px 40px;
-      background: rgba(201,168,76,0.015);
     }
     .staff-grid.leadership .staff-card:hover {
-      background: rgba(201,168,76,0.04);
+      background: rgba(201,168,76,0.02);
       border-left-color: var(--gold);
-      border-color: rgba(201,168,76,0.2);
+      border-color: rgba(168,169,173,0.15);
     }
     .staff-grid.leadership .staff-card .staff-role {
       font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px;
-      letter-spacing: 6px; color: var(--gold); text-transform: uppercase; opacity: 0.7;
+      letter-spacing: 6px; color: var(--silver); text-transform: uppercase; opacity: 0.7;
     }
     .staff-grid.leadership .staff-card .staff-name {
       font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.5vw, 32px);
@@ -516,7 +567,7 @@
       .ornament { padding: 12px 24px; }
 
       .about-pull { font-size: 20px !important; }
-      .about-body { grid-template-columns: 1fr; gap: 48px; }
+      .about-body { display: flex; flex-direction: column-reverse; gap: 48px; }
       .about-text p { font-size: 16px; }
       .stat-value { font-size: clamp(22px, 6vw, 32px) !important; }
 
@@ -561,6 +612,13 @@
 <body>
   <div class="grain"></div>
   <div class="cursor" id="cursor"></div>
+
+  <!-- LOADING SCREEN -->
+  <div id="loader">
+    <img src="https://raw.githubusercontent.com/mnemosynelabel/this-is-mnemosyne/69929eb252888a9286d7f510ea75b6d5055f2cad/images/logo.png" alt="Mnemosyne" class="loader-logo" />
+    <p class="loader-wordmark">Mnemosyne</p>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  </div>
 
   <!-- MODAL -->
   <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
@@ -672,7 +730,7 @@
     </div>
 
     <div class="wave reveal">
-      <p class="wave-label">— The Founders</p>
+      <p class="wave-label">I &nbsp;·&nbsp; The Founders</p>
       <div class="artist-grid">
         <div class="artist-card" onclick="openModal('The Founders','CI-EL','Artist · CEO & Creative Director','The architect of Mnemosyne\'s public face. Built this label because she spent years making music inside a machine that owned everything she created.','@dcielgzb','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg')">
           <div class="artist-img">
@@ -692,7 +750,7 @@
     </div>
 
     <div class="wave reveal">
-      <p class="wave-label">— The Veterans</p>
+      <p class="wave-label">II &nbsp;·&nbsp; The Veterans</p>
       <div class="artist-grid">
         <div class="artist-card" onclick="openModal('The Veterans','ERIS','Group','Five artists who rose together. They carry the legacy of everything they survived and the freedom they built after.','@official_ERIS','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg')">
           <div class="artist-img">
@@ -712,7 +770,7 @@
     </div>
 
     <div class="wave reveal">
-      <p class="wave-label">— The Architects</p>
+      <p class="wave-label">III &nbsp;·&nbsp; The Architects</p>
       <div class="artist-grid">
         <div class="artist-card" onclick="openModal('The Architects','SKÆZ','Group','Something is being built. Details will follow when they are ready to be known.','@SKÆZ','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
           <div class="artist-img">
@@ -746,7 +804,7 @@
     </div>
 
     <div class="wave reveal">
-      <p class="wave-label">— The New Generation</p>
+      <p class="wave-label">IV &nbsp;·&nbsp; The New Generation</p>
       <div class="artist-grid">
         <div class="artist-card" onclick="openModal('The New Generation','ASTER','Artist · Songwriter','He does not stop. Every skill, every sound, every medium — he approaches all of it with the same relentless commitment to craft.','@ASTER','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg')">
           <div class="artist-img">
@@ -771,7 +829,7 @@
   <!-- PULL QUOTE 1 -->
   <div class="pull-divider" data-parallax="true">
     <div class="pull-quote-bg" data-speed="0.3">MEMORY</div>
-    <p class="pull-quote reveal">"named after the <em>mother of all muses.</em><br/>origin of every creative discipline."</p>
+    <p class="pull-quote reveal">"named after the <em>mother of all muses.</em> origin of every creative discipline."</p>
   </div>
 
   <!-- RELEASES -->
@@ -782,16 +840,46 @@
     </div>
     <div class="releases-list">
       <div class="release-entry featured reveal">
-        <div class="release-img"><span class="release-img-placeholder">img</span></div>
-        <div class="release-info"><p class="release-artist">CI-EL</p><p class="release-title">TBA</p><p class="release-meta">Single &nbsp;·&nbsp; 2026</p></div>
+        <div class="release-img">
+          <div class="release-img-placeholder">
+            <span class="release-catalog">MNM-001</span>
+            <div class="release-pulse"></div>
+          </div>
+        </div>
+        <div class="release-info">
+          <p class="release-artist">CI-EL</p>
+          <p class="release-catalog-label">MNM-001 &nbsp;·&nbsp; Single</p>
+          <p class="release-title">TBA</p>
+          <p class="release-meta">2026</p>
+        </div>
       </div>
       <div class="release-entry reveal">
-        <div class="release-img"><span class="release-img-placeholder">img</span></div>
-        <div class="release-info"><p class="release-artist">AUGUST</p><p class="release-title">TBA</p><p class="release-meta">Single &nbsp;·&nbsp; 2026</p></div>
+        <div class="release-img">
+          <div class="release-img-placeholder">
+            <span class="release-catalog">MNM-002</span>
+            <div class="release-pulse"></div>
+          </div>
+        </div>
+        <div class="release-info">
+          <p class="release-artist">AUGUST</p>
+          <p class="release-catalog-label">MNM-002 &nbsp;·&nbsp; Single</p>
+          <p class="release-title">TBA</p>
+          <p class="release-meta">2026</p>
+        </div>
       </div>
       <div class="release-entry reveal">
-        <div class="release-img"><span class="release-img-placeholder">img</span></div>
-        <div class="release-info"><p class="release-artist">Mnemosyne</p><p class="release-title">More coming.</p><p class="release-meta">Stay tuned &nbsp;·&nbsp; 2026</p></div>
+        <div class="release-img">
+          <div class="release-img-placeholder">
+            <span class="release-catalog">MNM-···</span>
+            <div class="release-pulse"></div>
+          </div>
+        </div>
+        <div class="release-info">
+          <p class="release-artist">Mnemosyne</p>
+          <p class="release-catalog-label">More coming</p>
+          <p class="release-title">Stay tuned.</p>
+          <p class="release-meta">2026</p>
+        </div>
       </div>
     </div>
   </section>
@@ -844,7 +932,6 @@
           <div class="staff-card"><span class="staff-role">Songwriting & Lyrics</span><span class="staff-name-multi">CI-EL<br/>AUGUST<br/>BJORN<br/>ASHLEY<br/>ASTER<br/>JASS</span></div>
           <div class="staff-card"><span class="staff-role">Creative Direction & Visual</span><span class="staff-name-multi">CI-EL<br/>ASHLEY<br/>AUGUST</span></div>
           <div class="staff-card"><span class="staff-role">Choreography & Performance</span><span class="staff-name-multi">VI<br/>NIVEN<br/>BJORN<br/>JASS</span></div>
-          <div class="staff-card"><span class="staff-role">Press & Communications</span><span class="staff-name">TBA</span></div>
         </div>
       </div>
     </div>
@@ -883,6 +970,15 @@
   </footer>
 
   <script>
+    // LOADING SCREEN
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loader = document.getElementById('loader');
+        loader.classList.add('hidden');
+        setTimeout(() => loader.remove(), 800);
+      }, 1800);
+    });
+
     // CURSOR
     const cursor = document.getElementById('cursor');
     document.addEventListener('mousemove', e => {
