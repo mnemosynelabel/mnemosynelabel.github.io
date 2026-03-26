@@ -180,7 +180,7 @@
 
     /* PULL DIVIDERS */
     .pull-divider {
-      width: 100%; padding: 140px 80px;
+      width: 100%; padding: 160px 80px;
       display: flex; align-items: center; justify-content: center;
       border-top: 1px solid rgba(168,169,173,0.05);
       border-bottom: 1px solid rgba(168,169,173,0.05);
@@ -189,8 +189,8 @@
     .pull-quote-bg {
       position: absolute;
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(100px, 20vw, 260px);
-      color: transparent; -webkit-text-stroke: 1px rgba(201,168,76,0.05);
+      font-size: clamp(120px, 24vw, 320px);
+      color: transparent; -webkit-text-stroke: 1px rgba(201,168,76,0.06);
       user-select: none; pointer-events: none;
       white-space: nowrap; letter-spacing: -4px;
       will-change: transform;
@@ -198,11 +198,11 @@
     }
     .pull-quote {
       font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
-      font-size: clamp(26px, 4.5vw, 60px); color: var(--ivory);
-      text-align: center; letter-spacing: 1px; line-height: 1.3;
-      max-width: 900px; position: relative; z-index: 1;
+      font-size: clamp(32px, 5.5vw, 80px); color: var(--ivory);
+      text-align: center; letter-spacing: 1px; line-height: 1.25;
+      max-width: 1000px; position: relative; z-index: 1;
     }
-    .pull-quote em { color: var(--gold); font-style: normal; }
+    .pull-quote em { color: var(--gold); font-style: normal; font-weight: 300; }
 
     /* ROSTER */
     #roster { border-top: 1px solid rgba(168,169,173,0.08); }
@@ -366,41 +366,96 @@
     .about-body { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; margin-bottom: 120px; }
     .about-text p { font-family: 'Cormorant Garamond', serif; font-size: 19px; line-height: 2; color: rgba(245,240,232,0.7); margin-bottom: 32px; letter-spacing: 0.3px; }
     .about-text p strong { color: var(--gold); font-weight: 400; }
-    .about-stat { padding: 28px 0; border-bottom: 1px solid rgba(168,169,173,0.07); }
+
+    /* Stats — large editorial numbers */
+    .about-stat {
+      padding: 32px 0; border-bottom: 1px solid rgba(168,169,173,0.07);
+      display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 16px;
+    }
     .about-stat:first-child { border-top: 1px solid rgba(168,169,173,0.07); }
-    .stat-label { font-family: 'Raleway', sans-serif; font-size: 9px; letter-spacing: 5px; color: var(--silver); text-transform: uppercase; margin-bottom: 10px; }
-    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--ivory); letter-spacing: 1px; }
+    .stat-label { font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 6px; color: var(--silver); text-transform: uppercase; margin-bottom: 10px; }
+    .stat-value {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(28px, 3.5vw, 48px); color: var(--ivory); letter-spacing: -1px; line-height: 1;
+    }
+    .stat-value.gold { color: var(--gold); }
+
+    /* Staff section */
     .staff-section { margin-top: 100px; padding-top: 60px; border-top: 1px solid rgba(168,169,173,0.08); }
     .staff-title { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 8px; color: var(--silver); text-transform: uppercase; margin-bottom: 60px; text-align: center; text-indent: 8px; }
     .staff-block { margin-bottom: 72px; }
     .staff-block-label { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 32px; padding-bottom: 14px; border-bottom: 1px solid rgba(201,168,76,0.12); }
+
+    /* Leadership — full-width prominent cards */
     .staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(168,169,173,0.06); }
+    .staff-grid.leadership { grid-template-columns: repeat(3, 1fr); gap: 12px; background: none; }
     .staff-card {
-      background: var(--black); padding: 40px 36px;
-      display: flex; flex-direction: column; gap: 12px;
-      transition: background 0.3s ease; position: relative;
+      background: var(--black); padding: 36px 32px;
+      display: flex; flex-direction: column; gap: 10px;
+      transition: background 0.3s ease, border-color 0.3s ease; position: relative;
+      border-left: 2px solid transparent;
     }
-    .staff-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(to right, var(--gold), transparent);
-      opacity: 0; transition: opacity 0.3s ease;
+    .staff-card:hover { background: rgba(201,168,76,0.025); border-left-color: rgba(201,168,76,0.4); }
+
+    /* Leadership card overrides — bigger, more prominent */
+    .staff-grid.leadership .staff-card {
+      border: 1px solid rgba(168,169,173,0.08);
+      border-left: 2px solid rgba(201,168,76,0.2);
+      padding: 48px 40px;
+      background: rgba(201,168,76,0.015);
     }
-    .staff-card:hover { background: rgba(201,168,76,0.025); }
-    .staff-card:hover::before { opacity: 1; }
-    .staff-role { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 4px; color: var(--silver); text-transform: uppercase; }
-    .staff-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--ivory); letter-spacing: 1px; line-height: 1.2; }
-    .staff-name-multi { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: rgba(245,240,232,0.75); letter-spacing: 0.5px; line-height: 1.8; }
+    .staff-grid.leadership .staff-card:hover {
+      background: rgba(201,168,76,0.04);
+      border-left-color: var(--gold);
+      border-color: rgba(201,168,76,0.2);
+    }
+    .staff-grid.leadership .staff-card .staff-role {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px;
+      letter-spacing: 6px; color: var(--gold); text-transform: uppercase; opacity: 0.7;
+    }
+    .staff-grid.leadership .staff-card .staff-name {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.5vw, 32px);
+      color: var(--ivory); letter-spacing: 2px; line-height: 1;
+    }
+    .staff-grid.leadership .staff-card:hover .staff-name { color: var(--gold); }
+
+    .staff-card .staff-role {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px;
+      letter-spacing: 5px; color: rgba(201,168,76,0.5); text-transform: uppercase;
+    }
+    .staff-card .staff-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 26px;
+      color: var(--ivory); letter-spacing: 1px; line-height: 1.1;
+    }
+    .staff-card .staff-name-multi {
+      font-family: 'Cormorant Garamond', serif; font-size: 17px;
+      color: rgba(245,240,232,0.7); letter-spacing: 0.5px; line-height: 2;
+    }
+
+    /* Ornamental section divider */
+    .ornament {
+      display: flex; align-items: center; justify-content: center; gap: 20px;
+      padding: 20px 80px; opacity: 0.3;
+    }
+    .ornament-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(201,168,76,0.6)); }
+    .ornament-line.rev { background: linear-gradient(to left, transparent, rgba(201,168,76,0.6)); }
+    .ornament-symbol { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--gold); letter-spacing: 8px; }
 
     /* CONTACT */
     #contact { border-top: 1px solid rgba(168,169,173,0.08); text-align: center; }
     .contact-intro { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: var(--silver); margin-bottom: 80px; letter-spacing: 1px; }
     .contact-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(168,169,173,0.07); margin-bottom: 80px; }
-    .contact-item { background: var(--black); padding: 52px 32px; transition: background 0.3s ease; }
+    .contact-item {
+      background: var(--black); padding: 56px 32px;
+      transition: background 0.3s ease;
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+    }
     .contact-item:hover { background: rgba(201,168,76,0.03); }
-    .contact-type { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 18px; }
-    .contact-email { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--ivory); letter-spacing: 1px; }
-    .contact-location { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 11px; letter-spacing: 6px; color: var(--silver); text-transform: uppercase; margin-bottom: 16px; }
-    .contact-handle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--gold); letter-spacing: 1px; }
+    .contact-type { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px; letter-spacing: 6px; color: rgba(201,168,76,0.6); text-transform: uppercase; }
+    .contact-divider { width: 24px; height: 1px; background: rgba(201,168,76,0.25); }
+    .contact-email { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2vw, 26px); color: var(--ivory); letter-spacing: 1px; line-height: 1.2; }
+    .contact-location { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 6px; color: var(--silver); text-transform: uppercase; margin-bottom: 8px; }
+    .contact-handle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; color: var(--gold); letter-spacing: 1px; }
 
     /* FOOTER */
     footer { border-top: 1px solid rgba(168,169,173,0.08); padding: 72px 80px; text-align: center; }
@@ -415,13 +470,15 @@
     @media (max-width: 960px) {
       .hero-wordmark { letter-spacing: 8px !important; }
       .hero-bg-text { font-size: 60px !important; }
-      .pull-quote { font-size: 22px !important; }
+      .pull-quote { font-size: 28px !important; }
       .about-pull { font-size: 24px !important; }
+      .ornament { padding: 16px 32px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-email { font-size: 20px !important; }
       nav { padding: 24px 32px; } nav.scrolled { padding: 16px 32px; }
       .nav-links { display: none; } .hamburger { display: flex; }
       section { padding: 100px 32px; } .pull-divider { padding: 100px 32px; }
       .about-body { grid-template-columns: 1fr; gap: 60px; }
-      .contact-grid { grid-template-columns: 1fr; }
       footer { padding: 60px 32px; }
       .modal { grid-template-columns: 1fr; max-width: 400px; }
       .modal-img { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
@@ -453,20 +510,24 @@
       .artist-role { font-size: 9px !important; letter-spacing: 3px; }
       .artist-number { font-size: 11px; }
 
-      .pull-divider { padding: 60px 24px; }
-      .pull-quote { font-size: 18px !important; letter-spacing: 0.5px; }
+      .pull-divider { padding: 80px 24px; }
+      .pull-quote { font-size: 22px !important; letter-spacing: 0.5px; }
       .pull-quote-bg { font-size: 70px !important; -webkit-text-stroke: 1px rgba(201,168,76,0.18) !important; }
+      .ornament { padding: 12px 24px; }
 
       .about-pull { font-size: 20px !important; }
+      .about-body { grid-template-columns: 1fr; gap: 48px; }
       .about-text p { font-size: 16px; }
-      .stat-value { font-size: 18px; }
+      .stat-value { font-size: clamp(22px, 6vw, 32px) !important; }
 
-      /* Staff grid — avoid role/name class conflict with artist-role/artist-name */
       .staff-grid { grid-template-columns: repeat(2, 1fr); }
-      .staff-card { padding: 24px 18px; gap: 8px; }
-      .staff-card .staff-name { font-size: 17px !important; letter-spacing: 0.5px; }
+      .staff-grid.leadership { grid-template-columns: 1fr; gap: 8px; }
+      .staff-grid.leadership .staff-card { padding: 32px 24px; }
+      .staff-grid.leadership .staff-card .staff-name { font-size: 24px !important; }
+      .staff-card { padding: 24px 18px; }
+      .staff-card .staff-name { font-size: 20px !important; }
       .staff-card .staff-name-multi { font-size: 13px !important; }
-      .staff-card .staff-role { font-size: 8px !important; letter-spacing: 3px; }
+      .staff-card .staff-role { font-size: 7px !important; letter-spacing: 3px; }
 
       .release-entry { grid-template-columns: 76px 1fr; gap: 20px; padding: 32px 0; }
       .release-entry.featured { grid-template-columns: 96px 1fr; padding: 48px 0; }
@@ -474,7 +535,7 @@
 
       .contact-grid { grid-template-columns: 1fr; }
       .contact-item { padding: 36px 24px; }
-      .contact-email { font-size: 13px; word-break: break-all; }
+      .contact-email { font-size: 18px !important; }
 
       /* Modal — centered, square image, scrollable for long bios */
       .modal-overlay { padding: 24px; align-items: center; }
@@ -613,12 +674,12 @@
     <div class="wave reveal">
       <p class="wave-label">— The Founders</p>
       <div class="artist-grid">
-        <div class="artist-card" onclick="openModal('The Founders','CI-EL','Artist · CEO · Co-Founder','The architect of Mnemosyne\'s public face. Built this label because she spent years making music inside a machine that owned everything she created.','@dcielgzb','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg')">
+        <div class="artist-card" onclick="openModal('The Founders','CI-EL','Artist · CEO & Creative Director','The architect of Mnemosyne\'s public face. Built this label because she spent years making music inside a machine that owned everything she created.','@dcielgzb','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" />
             <div class="click-hint"><span>view</span></div>
           </div>
-          <div class="artist-info"><p class="artist-number">01</p><p class="artist-name">CI-EL</p><p class="artist-role">Artist · CEO · Co-Founder</p></div>
+          <div class="artist-info"><p class="artist-number">01</p><p class="artist-name">CI-EL</p><p class="artist-role">Artist · CEO & Creative Director</p></div>
         </div>
         <div class="artist-card" onclick="openModal('The Founders','AUGUST','Artist · Co-Founder · Head of Production','Oversees all in-house production and creative output. Came from underground before the industry found him. Never forgot what music felt like before it became a product.','@AUGUST','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg')">
           <div class="artist-img">
@@ -705,6 +766,8 @@
     </div>
   </section>
 
+  <div class="ornament reveal"><div class="ornament-line"></div><span class="ornament-symbol">✦</span><div class="ornament-line rev"></div></div>
+
   <!-- PULL QUOTE 1 -->
   <div class="pull-divider" data-parallax="true">
     <div class="pull-quote-bg" data-speed="0.3">MEMORY</div>
@@ -733,6 +796,8 @@
     </div>
   </section>
 
+  <div class="ornament reveal"><div class="ornament-line"></div><span class="ornament-symbol">✦</span><div class="ornament-line rev"></div></div>
+
   <!-- PULL QUOTE 2 -->
   <div class="pull-divider" data-parallax="true">
     <div class="pull-quote-bg" data-speed="0.25">FIRE</div>
@@ -754,20 +819,22 @@
         <p>This label exists for artists who make things that last.</p>
       </div>
       <div class="about-right reveal">
-        <div class="about-stat"><p class="stat-label">Founded</p><p class="stat-value">2026</p></div>
-        <div class="about-stat"><p class="stat-label">Headquarters</p><p class="stat-value">Seoul, South Korea</p></div>
-        <div class="about-stat"><p class="stat-label">Reach</p><p class="stat-value">International</p></div>
-        <div class="about-stat"><p class="stat-label">Model</p><p class="stat-value">Artist-owned. In-house. Independent.</p></div>
+        <div class="about-stat"><div><p class="stat-label">Founded</p><p class="stat-value gold">2026</p></div></div>
+        <div class="about-stat"><div><p class="stat-label">Headquarters</p><p class="stat-value">Seoul</p></div></div>
+        <div class="about-stat"><div><p class="stat-label">Reach</p><p class="stat-value">International</p></div></div>
+        <div class="about-stat"><div><p class="stat-label">Model</p><p class="stat-value" style="font-size:clamp(16px,2vw,26px); letter-spacing:0px;">Artist-owned.<br/>In-house.<br/>Independent.</p></div></div>
       </div>
     </div>
     <div class="staff-section reveal">
       <p class="staff-title">Leadership & Staff</p>
       <div class="staff-block">
         <p class="staff-block-label">Leadership</p>
-        <div class="staff-grid">
-          <div class="staff-card"><span class="staff-role">CEO & Co-Founder</span><span class="staff-name">CI-EL</span></div>
+        <div class="staff-grid leadership">
+          <div class="staff-card"><span class="staff-role">CEO & Creative Director</span><span class="staff-name">CI-EL</span></div>
           <div class="staff-card"><span class="staff-role">Co-Founder & Head of Production</span><span class="staff-name">AUGUST</span></div>
           <div class="staff-card"><span class="staff-role">A&R & Artist Relations</span><span class="staff-name">AIVEN</span></div>
+          <div class="staff-card"><span class="staff-role">Head of Artistry</span><span class="staff-name">VI</span></div>
+          <div class="staff-card"><span class="staff-role">Media & Communications</span><span class="staff-name">NARI</span></div>
         </div>
       </div>
       <div class="staff-block">
@@ -777,12 +844,13 @@
           <div class="staff-card"><span class="staff-role">Songwriting & Lyrics</span><span class="staff-name-multi">CI-EL<br/>AUGUST<br/>BJORN<br/>ASHLEY<br/>ASTER<br/>JASS</span></div>
           <div class="staff-card"><span class="staff-role">Creative Direction & Visual</span><span class="staff-name-multi">CI-EL<br/>ASHLEY<br/>AUGUST</span></div>
           <div class="staff-card"><span class="staff-role">Choreography & Performance</span><span class="staff-name-multi">VI<br/>NIVEN<br/>BJORN<br/>JASS</span></div>
-          <div class="staff-card"><span class="staff-role">Social Media Manager</span><span class="staff-name">TBA</span></div>
           <div class="staff-card"><span class="staff-role">Press & Communications</span><span class="staff-name">TBA</span></div>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="ornament reveal"><div class="ornament-line"></div><span class="ornament-symbol">✦</span><div class="ornament-line rev"></div></div>
 
   <!-- PULL QUOTE 3 -->
   <div class="pull-divider" data-parallax="true">
@@ -798,9 +866,9 @@
     </div>
     <p class="contact-intro reveal">reach us at the right door.</p>
     <div class="contact-grid reveal">
-      <div class="contact-item"><p class="contact-type">General Inquiries</p><p class="contact-email">mnemosyne.label [at] gmail.com</p></div>
-      <div class="contact-item"><p class="contact-type">Creative Archive</p><p class="contact-email">Ninth Muse</p></div>
-      <div class="contact-item"><p class="contact-type">Live Stages and Merchandise</p><p class="contact-email">Nyne Ground</p></div>
+      <div class="contact-item"><p class="contact-type">General Inquiries</p><div class="contact-divider"></div><p class="contact-email">mnemosyne.label<br/>[at] gmail.com</p></div>
+      <div class="contact-item"><p class="contact-type">Creative Archive</p><div class="contact-divider"></div><p class="contact-email">Ninth Muse</p></div>
+      <div class="contact-item"><p class="contact-type">Live Stages and Merchandise</p><div class="contact-divider"></div><p class="contact-email">Nyne Ground</p></div>
     </div>
     <p class="contact-location reveal">Seoul, South Korea</p>
     <p class="contact-handle reveal">@mnemosyne_label</p>
