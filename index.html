@@ -209,7 +209,6 @@
     .roster-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: var(--silver); margin-top: 14px; letter-spacing: 1px; text-align: center; }
     .wave { margin-bottom: 80px; }
     .wave-label { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 7px; color: var(--gold); text-transform: uppercase; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 1px solid rgba(201,168,76,0.1); text-align: center; text-indent: 7px; }
-    .artist-grid { display: flex; flex-direction: column; gap: 0; }
     /* ARTIST GRID — 2-column card grid, photo on top */
     .artist-grid {
       display: grid;
@@ -225,7 +224,6 @@
       border: 1px solid rgba(168,169,173,0.07);
     }
     .artist-card:hover { background: #1f1e1c; border-color: rgba(201,168,76,0.15); }
-    .wave { margin-bottom: 56px; }
 
     /* Gold top-border reveal on hover */
     .artist-card::before {
@@ -288,17 +286,11 @@
     .artist-role { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 4px; color: var(--silver); text-transform: uppercase; }
     .artist-number { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 12px; color: rgba(201,168,76,0.35); letter-spacing: 1px; }
 
-    /* Coming soon card */
-    .artist-card.coming-soon { cursor: default; pointer-events: none; }
-    .artist-card.coming-soon .artist-img {
-      background: #0f0f0f;
-      border-bottom: 1px solid rgba(168,169,173,0.05);
-    }
-    .artist-card.coming-soon .artist-img::after { background: none; }
+    /* Coming soon card — clickable, styled like New Generation */
+    .artist-card.coming-soon .artist-img { background: #0d0d0d; }
     .coming-soon-inner {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 14px; height: 100%;
-      position: absolute; inset: 0;
+      gap: 14px; position: absolute; inset: 0;
     }
     .coming-soon-line {
       width: 32px; height: 1px;
@@ -306,7 +298,7 @@
     }
     .coming-soon-text {
       font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px;
-      letter-spacing: 6px; color: rgba(201,168,76,0.25); text-transform: uppercase;
+      letter-spacing: 6px; color: rgba(201,168,76,0.3); text-transform: uppercase;
       text-indent: 6px;
     }
 
@@ -420,8 +412,6 @@
     @media (hover: none) { body { cursor: auto; } .cursor { display: none; } }
 
     @media (max-width: 960px) {
-      .artist-card { background: var(--black); }
-      .artist-name { font-size: 28px !important; }
       .hero-wordmark { letter-spacing: 8px !important; }
       .hero-bg-text { font-size: 60px !important; }
       .pull-quote { font-size: 22px !important; }
@@ -435,6 +425,7 @@
       .modal { grid-template-columns: 1fr; max-width: 400px; }
       .modal-img { min-height: 240px; border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
       .modal-img img { max-height: 240px; }
+      .wave { margin-bottom: 48px; }
     }
 
     @media (max-width: 600px) {
@@ -452,14 +443,15 @@
       .marquee-item { font-size: 9px; letter-spacing: 4px; padding: 0 24px; }
 
       section { padding: 80px 24px; }
-      .wave-label { font-size: 8px; letter-spacing: 5px; }
+      .wave { margin-bottom: 40px; }
+      .wave-label { font-size: 8px; letter-spacing: 5px; margin-bottom: 20px; }
       .artist-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
       .artist-img { aspect-ratio: 1 / 1; }
       .artist-img img { object-position: center top; }
-      .artist-info { padding: 12px 14px 16px; gap: 5px; }
-      .artist-name { font-size: 16px !important; letter-spacing: 1px; }
-      .artist-role { font-size: 8px; letter-spacing: 2px; }
-      .artist-number { font-size: 10px; }
+      .artist-info { padding: 10px 12px 14px; gap: 4px; }
+      .artist-name { font-size: 15px !important; letter-spacing: 0.5px; }
+      .artist-role { font-size: 7px !important; letter-spacing: 1.5px; }
+      .artist-number { font-size: 9px; }
 
       .pull-divider { padding: 60px 24px; }
       .pull-quote { font-size: 18px !important; letter-spacing: 0.5px; }
@@ -469,11 +461,12 @@
       .about-text p { font-size: 16px; }
       .stat-value { font-size: 18px; }
 
+      /* Staff grid — avoid role/name class conflict with artist-role/artist-name */
       .staff-grid { grid-template-columns: repeat(2, 1fr); }
-      .staff-card { padding: 28px 20px; }
-      .staff-name { font-size: 18px; }
-      .staff-name-multi { font-size: 14px; }
-      .staff-role { font-size: 8px; letter-spacing: 3px; }
+      .staff-card { padding: 24px 18px; gap: 8px; }
+      .staff-card .staff-name { font-size: 17px !important; letter-spacing: 0.5px; }
+      .staff-card .staff-name-multi { font-size: 13px !important; }
+      .staff-card .staff-role { font-size: 8px !important; letter-spacing: 3px; }
 
       .release-entry { grid-template-columns: 76px 1fr; gap: 20px; padding: 32px 0; }
       .release-entry.featured { grid-template-columns: 96px 1fr; padding: 48px 0; }
@@ -483,14 +476,14 @@
       .contact-item { padding: 36px 24px; }
       .contact-email { font-size: 13px; word-break: break-all; }
 
-      /* Modal slides up from bottom on mobile */
+      /* Modal — slides up from bottom, body scrollable for long bios */
       .modal-overlay { padding: 16px; align-items: flex-end; }
-      .modal { grid-template-columns: 1fr; max-width: 100%; }
-      .modal-img { min-height: 200px; border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
-      .modal-img img { max-height: 200px; }
-      .modal-name { font-size: 28px; }
+      .modal { grid-template-columns: 1fr; max-width: 100%; max-height: 90vh; overflow-y: auto; }
+      .modal-img { min-height: 180px; border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
+      .modal-img img { max-height: 180px; }
+      .modal-name { font-size: 26px; }
       .modal-bio { font-size: 15px; }
-      .modal-body { padding: 32px 24px; gap: 14px; }
+      .modal-body { padding: 28px 22px; gap: 12px; }
 
       footer { padding: 48px 24px; }
       .footer-wordmark { font-size: 10px; letter-spacing: 8px; }
@@ -500,9 +493,10 @@
     }
 
     @media (max-width: 380px) {
-      .artist-grid { grid-template-columns: 1fr; }
-      .artist-name { font-size: 22px !important; }
-      .artist-info { padding: 16px 18px 22px; }
+      .artist-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+      .artist-name { font-size: 13px !important; }
+      .artist-info { padding: 8px 10px 12px; }
+      .staff-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -663,15 +657,16 @@
           </div>
           <div class="artist-info"><p class="artist-number">05</p><p class="artist-name">JASS</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card coming-soon">
+        <div class="artist-card coming-soon" onclick="openModal('The Veterans','—','Coming Soon','Something is being built. Details will follow when they are ready to be known.','—','')">
           <div class="artist-img">
             <div class="coming-soon-inner">
               <div class="coming-soon-line"></div>
               <p class="coming-soon-text">Coming Soon</p>
               <div class="coming-soon-line"></div>
             </div>
+            <div class="click-hint"><span>view</span></div>
           </div>
-          <div class="artist-info"><p class="artist-number">—</p><p class="artist-name" style="color:rgba(245,240,232,0.15)">—</p><p class="artist-role" style="color:rgba(184,185,189,0.2)">To Be Announced</p></div>
+          <div class="artist-info"><p class="artist-number">—</p><p class="artist-name">—</p><p class="artist-role">To Be Announced</p></div>
         </div>
       </div>
     </div>
@@ -700,15 +695,16 @@
           </div>
           <div class="artist-info"><p class="artist-number">08</p><p class="artist-name">ASHLEY</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card coming-soon">
+        <div class="artist-card coming-soon" onclick="openModal('The Architects','—','Coming Soon','Something is being built. Details will follow when they are ready to be known.','—','')">
           <div class="artist-img">
             <div class="coming-soon-inner">
               <div class="coming-soon-line"></div>
               <p class="coming-soon-text">Coming Soon</p>
               <div class="coming-soon-line"></div>
             </div>
+            <div class="click-hint"><span>view</span></div>
           </div>
-          <div class="artist-info"><p class="artist-number">—</p><p class="artist-name" style="color:rgba(245,240,232,0.15)">—</p><p class="artist-role" style="color:rgba(184,185,189,0.2)">To Be Announced</p></div>
+          <div class="artist-info"><p class="artist-number">—</p><p class="artist-name">—</p><p class="artist-role">To Be Announced</p></div>
         </div>
       </div>
     </div>
