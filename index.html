@@ -739,19 +739,32 @@
       .about-text p { font-size: 16px; }
       .stat-value { font-size: clamp(22px, 6vw, 32px) !important; }
 
-      .staff-grid { grid-template-columns: repeat(2, 1fr); }
-      .dept-grid { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 8px; }
-      .dept-name { font-size: 11px; }
-      .staff-grid.leadership { grid-template-columns: 1fr; gap: 8px; }
-      .staff-grid.leadership-secondary { grid-template-columns: 1fr; gap: 8px; }
-      .staff-grid.leadership .staff-card { padding: 32px 24px; }
-      .staff-grid.leadership .staff-card .staff-name { font-size: 26px !important; }
-      .staff-grid.leadership-secondary .staff-card { padding: 24px; }
-      .staff-grid.leadership-secondary .staff-card .staff-name { font-size: 20px !important; }
-      .staff-card { padding: 24px 18px; }
-      .staff-card .staff-name { font-size: 18px !important; }
-      .staff-card .staff-name-multi { font-size: 13px !important; }
-      .staff-card .staff-role { font-size: 7px !important; letter-spacing: 3px; }
+      /* Staff & Leadership — mobile */
+      .staff-section { margin-top: 60px; padding-top: 40px; }
+      .staff-title { margin-bottom: 40px; font-size: 8px; letter-spacing: 6px; }
+      .staff-block { margin-bottom: 48px; }
+      .staff-block-label { font-size: 8px; letter-spacing: 5px; margin-bottom: 20px; }
+
+      /* Leadership primary — stack to 1 col, portrait photos */
+      .staff-grid.leadership { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .staff-grid.leadership .leader-photo { aspect-ratio: 3 / 4; }
+      .leader-info .staff-name { font-size: 18px !important; letter-spacing: 1px; }
+      .leader-info .staff-role { font-size: 7px !important; letter-spacing: 3px; }
+      .leader-info { padding: 14px 14px; }
+
+      /* Leadership secondary — 3 across, compact */
+      .staff-grid.leadership-secondary { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+      .staff-grid.leadership-secondary .leader-photo { aspect-ratio: 3 / 4; }
+      .staff-grid.leadership-secondary .leader-info { padding: 10px 10px; }
+      .staff-grid.leadership-secondary .leader-info .staff-name { font-size: 13px !important; letter-spacing: 0.5px; }
+      .staff-grid.leadership-secondary .leader-info .staff-role { font-size: 6px !important; letter-spacing: 2px; }
+
+      /* In-house dept grid — smaller portraits */
+      .dept-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 6px; }
+      .dept-photo { aspect-ratio: 3 / 4; }
+      .dept-name { font-size: 11px; padding: 8px 6px 7px; letter-spacing: 0.5px; }
+      .dept-label { font-size: 7px; letter-spacing: 4px; margin-bottom: 16px; }
+      .dept-block { margin-bottom: 40px; }
 
       .release-entry { grid-template-columns: 76px 1fr; gap: 20px; padding: 32px 0; }
       .release-entry.featured { grid-template-columns: 96px 1fr; padding: 48px 0; }
@@ -780,7 +793,10 @@
 
     @media (max-width: 380px) {
       .artist-name { font-size: 24px !important; }
-      .staff-grid { grid-template-columns: 1fr; }
+      .staff-grid.leadership { grid-template-columns: 1fr 1fr; gap: 6px; }
+      .staff-grid.leadership-secondary { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+      .staff-grid.leadership-secondary .leader-info .staff-name { font-size: 11px !important; }
+      .dept-grid { grid-template-columns: repeat(auto-fill, minmax(68px, 1fr)); gap: 5px; }
     }
   </style>
 </head>
