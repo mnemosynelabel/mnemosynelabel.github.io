@@ -355,9 +355,9 @@
 
     /* RELEASES */
     #releases { border-top: 1px solid rgba(168,169,173,0.08); }
-    .release-entry { display: grid; grid-template-columns: 130px 1fr; gap: 48px; align-items: center; padding: 48px 0; border-bottom: 1px solid rgba(168,169,173,0.07); }
+    .release-entry { display: grid; grid-template-columns: 200px 1fr; gap: 40px; align-items: center; padding: 36px 0; border-bottom: 1px solid rgba(168,169,173,0.07); }
     .release-entry:first-child { border-top: 1px solid rgba(168,169,173,0.07); }
-    .release-entry.featured { grid-template-columns: 180px 1fr; padding: 72px 0; }
+    .release-entry.featured { grid-template-columns: 260px 1fr; padding: 48px 0; }
     .release-img { aspect-ratio: 1; background: #111; border: 1px solid rgba(168,169,173,0.07); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
     .release-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
@@ -552,15 +552,16 @@
     }
     .dept-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 8px;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      grid-auto-rows: auto;
+      gap: 10px;
     }
     .dept-card {
       display: flex; flex-direction: column;
       cursor: default; position: relative;
     }
     .dept-photo {
-      width: 100%; aspect-ratio: 3 / 4;
+      width: 100%; aspect-ratio: 2 / 3;
       background: #0f0f0f;
       border: 1px solid rgba(168,169,173,0.07);
       overflow: hidden; position: relative;
@@ -704,6 +705,8 @@
       .modal { grid-template-columns: 1fr; max-width: 400px; }
       .modal-img { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
       .wave { margin-bottom: 48px; }
+      .release-entry { grid-template-columns: 160px 1fr; }
+      .release-entry.featured { grid-template-columns: 200px 1fr; }
     }
 
     @media (max-width: 600px) {
@@ -762,14 +765,14 @@
       .staff-grid.leadership-secondary .leader-info .staff-role { font-size: 6px !important; letter-spacing: 2px; }
 
       /* In-house dept grid — smaller portraits */
-      .dept-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 6px; }
+      .dept-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 6px; }
       .dept-photo { aspect-ratio: 3 / 4; }
       .dept-name { font-size: 11px; padding: 8px 6px 7px; letter-spacing: 0.5px; }
       .dept-label { font-size: 7px; letter-spacing: 4px; margin-bottom: 16px; }
       .dept-block { margin-bottom: 40px; }
 
-      .release-entry { grid-template-columns: 76px 1fr; gap: 20px; padding: 32px 0; }
-      .release-entry.featured { grid-template-columns: 96px 1fr; padding: 48px 0; }
+      .release-entry { grid-template-columns: 110px 1fr; gap: 20px; padding: 28px 0; }
+      .release-entry.featured { grid-template-columns: 140px 1fr; padding: 36px 0; }
       .release-title { font-size: 20px !important; }
 
       .contact-grid { grid-template-columns: 1fr; }
@@ -977,7 +980,7 @@
           </div>
           <div class="artist-info"><p class="artist-number">05</p><p class="artist-name">BJORN</p><p class="artist-role">Artist · Producer · Choreographer</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Architects','VI','Artist · Producer','She writes music and creates stages with the same precision she brings to every performance.','@VI','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg')">
+        <div class="artist-card" onclick="openModal('The Architects','VI','Artist · Choreographer · Producer','She writes music and creates stages with the same precision she brings to every performance.','@VI','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg" alt="VI" />
             <div class="click-hint"><span>view</span></div>
@@ -1142,14 +1145,7 @@
           </div>
         </div>
         <div class="staff-grid leadership-secondary">
-         
-            <div class="staff-card">
-            <div class="leader-photo">
-              <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/nari.jpg" alt="NARI" />
-            </div>
-            <div class="leader-info"><span class="staff-role">Media & Communications</span><span class="staff-name">NARI</span></div>
-          </div>
-           <div class="staff-card">
+          <div class="staff-card">
             <div class="leader-photo">
               <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/aiven.jpg" alt="AIVEN" />
             </div>
@@ -1161,7 +1157,12 @@
             </div>
             <div class="leader-info"><span class="staff-role">Head of Artistry</span><span class="staff-name">VI</span></div>
           </div>
-        
+          <div class="staff-card">
+            <div class="leader-photo">
+              <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/nari.jpg" alt="NARI" />
+            </div>
+            <div class="leader-info"><span class="staff-role">Media & Communications</span><span class="staff-name">NARI</span></div>
+          </div>
         </div>
       </div>
       <div class="staff-block">
@@ -1174,6 +1175,7 @@
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg" alt="AUGUST" /><p class="dept-name">AUGUST</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg" alt="BJORN" /><p class="dept-name">BJORN</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg" alt="VI" /><p class="dept-name">VI</p></div></div>
+            <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">IORI</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/orpheus.jpg" alt="ORPHEUS" /><p class="dept-name">ORPHEUS</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/shawn.jpg" alt="SHAWN" /><p class="dept-name">SHAWN</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg" alt="JACKSON" /><p class="dept-name">JACKSON</p></div></div>
@@ -1203,7 +1205,8 @@
 
         <div class="dept-block">
           <p class="dept-label">Choreography & Performance</p>
-          <div class="dept-grid">    
+          <div class="dept-grid">
+            <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg" alt="VI" /><p class="dept-name">VI</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/niven.jpg" alt="NIVEN" /><p class="dept-name">NIVEN</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg" alt="BJORN" /><p class="dept-name">BJORN</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" /><p class="dept-name">JASS</p></div></div>
