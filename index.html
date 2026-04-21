@@ -318,6 +318,7 @@
       max-width: 640px; width: 100%;
       display: grid; grid-template-columns: 220px 1fr;
       position: relative; transform: translateY(20px); transition: transform 0.4s ease;
+      max-height: 90vh; overflow: hidden;
     }
     .modal-overlay.open .modal { transform: translateY(0); }
 
@@ -326,18 +327,21 @@
       display: flex; align-items: center; justify-content: center;
       border-right: 1px solid rgba(201,168,76,0.1);
       overflow: hidden; position: relative;
-      aspect-ratio: 1 / 1;
     }
     .modal-img img {
       width: 100%; height: 100%;
       object-fit: cover; object-position: center top; display: block;
     }
     .modal-img-placeholder { font-size: 8px; letter-spacing: 2px; color: rgba(168,169,173,0.12); text-transform: uppercase; }
-    .modal-body { padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+    .modal-body {
+      padding: 48px 40px;
+      display: flex; flex-direction: column; justify-content: flex-start; gap: 20px;
+      overflow-y: auto;
+    }
     .modal-wave { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
     .modal-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 36px; color: var(--ivory); letter-spacing: 1px; line-height: 1; }
     .modal-role { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 4px; color: var(--silver); text-transform: uppercase; }
-    .modal-divider { width: 40px; height: 1px; background: rgba(201,168,76,0.3); }
+    .modal-divider { width: 40px; height: 1px; background: rgba(201,168,76,0.3); flex-shrink: 0; }
     .modal-bio { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: rgba(245,240,232,0.65); line-height: 1.8; letter-spacing: 0.3px; }
     .modal-lore-label { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 7px; letter-spacing: 6px; color: rgba(201,168,76,0.45); text-transform: uppercase; margin-top: 4px; }
     .modal-lore { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: rgba(245,240,232,0.45); line-height: 1.9; letter-spacing: 0.3px; }
@@ -348,6 +352,7 @@
       font-family: 'Raleway', sans-serif; font-weight: 200;
       font-size: 9px; letter-spacing: 4px; color: var(--silver);
       text-transform: uppercase; transition: color 0.3s ease;
+      z-index: 10;
     }
     .modal-close:hover { color: var(--crimson); }
 
@@ -702,7 +707,12 @@
       .contact-email { font-size: 20px !important; }
 
       .modal { grid-template-columns: 1fr; max-width: 440px; }
-      .modal-img { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); aspect-ratio: 3/2; }
+      .modal-img {
+        border-right: none;
+        border-bottom: 1px solid rgba(201,168,76,0.1);
+        aspect-ratio: 3/2;
+        max-height: 200px;
+      }
       .modal-img img { object-fit: cover; object-position: center top; }
 
       .wave { margin-bottom: 48px; }
@@ -742,15 +752,16 @@
       .wave { margin-bottom: 48px; }
       .wave-label { font-size: 8px; letter-spacing: 4px; margin-bottom: 16px; padding-bottom: 12px; }
 
-      /* ARTIST CARDS — one per row on all grids */
-      .artist-grid,
-      .artist-grid.four { grid-template-columns: 1fr; gap: 12px; }
-      .artist-img { aspect-ratio: 4 / 3; }
+      /* ARTIST CARDS — two per row on mobile, SQUARE images */
+      .artist-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .artist-grid.four { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      /* Keep square aspect ratio — do NOT override to 4/3 */
+      .artist-img { aspect-ratio: 1 / 1; }
       .artist-img img { object-position: center top; }
-      .artist-info { padding: 16px 18px 20px; gap: 5px; }
-      .artist-name { font-size: clamp(22px, 6vw, 30px) !important; letter-spacing: 1px; }
-      .artist-role { font-size: 8px !important; letter-spacing: 3px; }
-      .artist-number { font-size: 10px; }
+      .artist-info { padding: 10px 12px 14px; gap: 4px; }
+      .artist-name { font-size: clamp(14px, 4vw, 20px) !important; letter-spacing: 1px; }
+      .artist-role { font-size: 7px !important; letter-spacing: 2px; }
+      .artist-number { font-size: 9px; }
       .click-hint span { font-size: 8px; letter-spacing: 3px; }
 
       /* PULL DIVIDERS */
@@ -809,23 +820,35 @@
       .contact-location { font-size: 8px; letter-spacing: 4px; }
       .contact-handle { font-size: 18px; }
 
-      /* MODAL */
-      .modal-overlay { padding: 16px; align-items: flex-end; }
+      /* MODAL — centered, scrollable, contained */
+      .modal-overlay {
+        padding: 16px;
+        align-items: center;
+      }
       .modal {
         grid-template-columns: 1fr;
         max-width: 100%;
         width: 100%;
-        max-height: 92vh;
-        overflow-y: auto;
-        border-radius: 0;
+        max-height: 85vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
       }
       .modal-img {
         border-right: none;
         border-bottom: 1px solid rgba(201,168,76,0.1);
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 16 / 7;
+        flex-shrink: 0;
+        max-height: 180px;
       }
       .modal-img img { object-position: center top; }
-      .modal-body { padding: 24px 20px 32px; gap: 10px; }
+      .modal-body {
+        padding: 20px 20px 28px;
+        gap: 10px;
+        overflow-y: auto;
+        flex: 1;
+        -webkit-overflow-scrolling: touch;
+      }
       .modal-wave { font-size: 7px; letter-spacing: 4px; }
       .modal-name { font-size: 24px; }
       .modal-role { font-size: 8px; letter-spacing: 3px; }
@@ -855,8 +878,10 @@
       .hero-tagline { font-size: 12px !important; }
       .hero-bg-text { font-size: 30px !important; }
 
-      .artist-name { font-size: 20px !important; }
-      .artist-img { aspect-ratio: 3 / 2; }
+      /* Keep square on small mobile too */
+      .artist-img { aspect-ratio: 1 / 1; }
+      .artist-name { font-size: clamp(12px, 3.5vw, 16px) !important; }
+      .artist-info { padding: 8px 10px 12px; }
 
       .pull-quote { font-size: 17px !important; }
 
@@ -868,7 +893,7 @@
       .dept-name { font-size: 10px; }
       .dept-grid { gap: 5px; }
 
-      .modal-img { aspect-ratio: 4 / 3; }
+      .modal-img { aspect-ratio: 16 / 7; max-height: 140px; }
       .modal-name { font-size: 20px; }
       .modal-bio { font-size: 13px; }
 
@@ -1030,7 +1055,7 @@
           </div>
           <div class="artist-info"><p class="artist-number">03</p><p class="artist-name">ERIS</p><p class="artist-role">Group</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Canon','SKÆZ','Group','Something is being built. Details will follow when they are ready to be known.','@SKAEZ','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
+        <div class="artist-card" onclick="openModal('The Canon','SKÆZ','Group','Something is being built. Details will follow when they are ready to be known.','','@SKAEZ','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg" alt="SKÆZ" />
             <div class="click-hint"><span>view</span></div>
