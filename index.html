@@ -677,120 +677,202 @@
     /* RESPONSIVE */
     @media (hover: none) { body { cursor: auto; } .cursor { display: none; } }
 
+    /* ── TABLET (≤960px) ── */
     @media (max-width: 960px) {
-      .artist-grid.four { grid-template-columns: repeat(2, 1fr); }
+      nav { padding: 24px 32px; }
+      nav.scrolled { padding: 16px 32px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      section { padding: 100px 40px; }
+      .pull-divider { padding: 100px 40px; }
+
       .hero-wordmark { letter-spacing: 8px !important; }
       .hero-bg-text { font-size: 60px !important; }
+
+      .artist-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .artist-grid.four { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
       .pull-quote { font-size: 28px !important; }
       .about-pull { font-size: 24px !important; }
+      .about-body { grid-template-columns: 1fr; gap: 60px; }
+
       .ornament { padding: 16px 32px; }
       .contact-grid { grid-template-columns: 1fr; }
       .contact-email { font-size: 20px !important; }
-      nav { padding: 24px 32px; } nav.scrolled { padding: 16px 32px; }
-      .nav-links { display: none; } .hamburger { display: flex; }
-      section { padding: 100px 32px; } .pull-divider { padding: 100px 32px; }
-      .about-body { grid-template-columns: 1fr; gap: 60px; }
-      footer { padding: 60px 32px; }
-      .modal { grid-template-columns: 1fr; max-width: 400px; }
-      .modal-img { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
+
+      .modal { grid-template-columns: 1fr; max-width: 440px; }
+      .modal-img { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); aspect-ratio: 3/2; }
+      .modal-img img { object-fit: cover; object-position: center top; }
+
       .wave { margin-bottom: 48px; }
       .release-entry { grid-template-columns: 160px 1fr; }
       .release-entry.featured { grid-template-columns: 200px 1fr; }
+
+      footer { padding: 80px 40px 60px; }
     }
 
+    /* ── MOBILE (≤600px) ── */
     @media (max-width: 600px) {
       body { cursor: auto; }
       .cursor { display: none; }
-      nav { padding: 20px 24px; }
-      nav.scrolled { padding: 14px 24px; }
+
+      /* NAV */
+      nav { padding: 18px 20px; }
+      nav.scrolled { padding: 14px 20px; }
       .nav-logo { font-size: 10px; letter-spacing: 5px; }
 
-      .hero-wordmark { font-size: 20px !important; letter-spacing: 6px !important; text-indent: 6px; }
-      .hero-tagline { font-size: 14px !important; }
-      .hero-sub { font-size: 9px; }
-      .hero-bg-text { font-size: 44px !important; -webkit-text-stroke: 1px rgba(201,168,76,0.14) !important; }
+      /* HERO */
+      .hero-wordmark { font-size: 18px !important; letter-spacing: 5px !important; text-indent: 5px; }
+      .hero-tagline { font-size: 13px !important; letter-spacing: 1px; }
+      .hero-sub { font-size: 8px; letter-spacing: 4px; }
+      .hero-bg-text { font-size: 36px !important; -webkit-text-stroke: 1px rgba(201,168,76,0.12) !important; }
+      .scroll-indicator { bottom: 32px; }
 
-      .marquee-item { font-size: 9px; letter-spacing: 4px; padding: 0 24px; }
+      /* MARQUEE */
+      .marquee-item { font-size: 8px; letter-spacing: 3px; padding: 0 20px; }
 
-      section { padding: 80px 24px; }
-      .wave { margin-bottom: 40px; }
-      .wave-label { font-size: 8px; letter-spacing: 5px; margin-bottom: 20px; }
-      .artist-grid { grid-template-columns: 1fr; gap: 8px; }
-      .artist-grid.four { grid-template-columns: 1fr 1fr; gap: 8px; }
-      .artist-img { aspect-ratio: 1 / 1; }
+      /* SECTIONS */
+      section { padding: 72px 20px; }
+      .section-title { font-size: clamp(36px, 11vw, 56px) !important; margin-bottom: 20px; }
+      .section-eyebrow { font-size: 7px; letter-spacing: 5px; margin-bottom: 14px; }
+      .section-line { width: 80%; }
+
+      /* ROSTER WAVES */
+      .wave { margin-bottom: 48px; }
+      .wave-label { font-size: 8px; letter-spacing: 4px; margin-bottom: 16px; padding-bottom: 12px; }
+
+      /* ARTIST CARDS — one per row on all grids */
+      .artist-grid,
+      .artist-grid.four { grid-template-columns: 1fr; gap: 12px; }
+      .artist-img { aspect-ratio: 4 / 3; }
       .artist-img img { object-position: center top; }
-      .artist-info { padding: 18px 20px 22px; gap: 6px; }
-      .artist-name { font-size: 28px !important; letter-spacing: 1.5px; }
-      .artist-role { font-size: 9px !important; letter-spacing: 3px; }
-      .artist-number { font-size: 11px; }
+      .artist-info { padding: 16px 18px 20px; gap: 5px; }
+      .artist-name { font-size: clamp(22px, 6vw, 30px) !important; letter-spacing: 1px; }
+      .artist-role { font-size: 8px !important; letter-spacing: 3px; }
+      .artist-number { font-size: 10px; }
+      .click-hint span { font-size: 8px; letter-spacing: 3px; }
 
-      .pull-divider { padding: 80px 24px; }
-      .pull-quote { font-size: 22px !important; letter-spacing: 0.5px; }
-      .pull-quote-bg { font-size: 70px !important; -webkit-text-stroke: 1px rgba(201,168,76,0.18) !important; }
-      .ornament { padding: 12px 24px; }
+      /* PULL DIVIDERS */
+      .pull-divider { padding: 72px 20px; }
+      .pull-quote { font-size: 20px !important; letter-spacing: 0.3px; line-height: 1.4; }
+      .pull-quote-bg { font-size: 56px !important; -webkit-text-stroke: 1px rgba(201,168,76,0.15) !important; }
+      .ornament { padding: 10px 20px; }
 
-      .about-pull { font-size: 20px !important; }
-      .about-body { display: flex; flex-direction: column-reverse; gap: 48px; }
-      .about-text p { font-size: 16px; }
-      .stat-value { font-size: clamp(22px, 6vw, 32px) !important; }
+      /* ABOUT */
+      .about-pull { font-size: 18px !important; margin-bottom: 56px; line-height: 1.5; }
+      .about-body { display: flex; flex-direction: column; gap: 40px; }
+      .about-text p { font-size: 15px; line-height: 1.9; margin-bottom: 20px; }
+      .stat-value { font-size: clamp(20px, 5.5vw, 30px) !important; }
+      .about-stat { padding: 24px 0; }
 
-      .staff-section { margin-top: 60px; padding-top: 40px; }
-      .staff-title { margin-bottom: 40px; font-size: 8px; letter-spacing: 6px; }
-      .staff-block { margin-bottom: 48px; }
-      .staff-block-label { font-size: 8px; letter-spacing: 5px; margin-bottom: 20px; }
+      /* STAFF — LEADERSHIP */
+      .staff-section { margin-top: 48px; padding-top: 32px; }
+      .staff-title { font-size: 7px; letter-spacing: 5px; margin-bottom: 32px; }
+      .staff-block { margin-bottom: 40px; }
+      .staff-block-label { font-size: 7px; letter-spacing: 4px; margin-bottom: 16px; padding-bottom: 10px; }
 
       .staff-grid.leadership { grid-template-columns: 1fr 1fr; gap: 8px; }
       .staff-grid.leadership .leader-photo { aspect-ratio: 3 / 4; }
-      .leader-info .staff-name { font-size: 18px !important; letter-spacing: 1px; }
-      .leader-info .staff-role { font-size: 7px !important; letter-spacing: 3px; }
-      .leader-info { padding: 14px 14px; }
+      .leader-info { padding: 12px 12px; }
+      .leader-info .staff-name { font-size: 16px !important; letter-spacing: 1px; }
+      .leader-info .staff-role { font-size: 6px !important; letter-spacing: 3px; margin-bottom: 4px; }
 
-      .staff-grid.leadership-secondary { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+      .staff-grid.leadership-secondary { grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px; }
       .staff-grid.leadership-secondary .leader-photo { aspect-ratio: 3 / 4; }
-      .staff-grid.leadership-secondary .leader-info { padding: 10px 10px; }
-      .staff-grid.leadership-secondary .leader-info .staff-name { font-size: 13px !important; letter-spacing: 0.5px; }
+      .staff-grid.leadership-secondary .leader-info { padding: 8px 8px; }
+      .staff-grid.leadership-secondary .leader-info .staff-name { font-size: 11px !important; letter-spacing: 0.5px; }
       .staff-grid.leadership-secondary .leader-info .staff-role { font-size: 6px !important; letter-spacing: 2px; }
 
-      .dept-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-      .dept-card { width: 100px; flex-shrink: 0; }
+      /* DEPT GRIDS */
+      .dept-block { margin-bottom: 40px; padding-bottom: 40px; }
+      .dept-label { margin-bottom: 16px; }
+      .dept-label-text { font-size: 15px; }
+      .dept-grid { gap: 8px; }
+      .dept-card { width: 88px; flex-shrink: 0; }
       .dept-photo { aspect-ratio: 3 / 4; }
-      .dept-name { font-size: 12px; padding: 10px 8px 8px; }
-      .dept-label { margin-bottom: 20px; }
-      .dept-label-text { font-size: 17px; }
-      .dept-label-count { display: none; }
-      .dept-block { margin-bottom: 48px; padding-bottom: 48px; }
+      .dept-name { font-size: 11px; padding: 8px 6px 7px; }
 
-      .release-entry { grid-template-columns: 110px 1fr; gap: 20px; padding: 28px 0; }
-      .release-entry.featured { grid-template-columns: 140px 1fr; padding: 36px 0; }
-      .release-title { font-size: 20px !important; }
+      /* RELEASES */
+      .release-entry { grid-template-columns: 96px 1fr; gap: 16px; padding: 24px 0; }
+      .release-entry.featured { grid-template-columns: 120px 1fr; padding: 28px 0; }
+      .release-title { font-size: 18px !important; }
+      .release-artist { font-size: 8px; letter-spacing: 4px; }
+      .release-catalog-label { font-size: 10px; }
+      .release-meta { font-size: 8px; letter-spacing: 2px; }
 
+      /* CONTACT */
       .contact-grid { grid-template-columns: 1fr; }
-      .contact-item { padding: 36px 24px; }
-      .contact-email { font-size: 18px !important; }
+      .contact-item { padding: 32px 20px; gap: 12px; }
+      .contact-email { font-size: 17px !important; }
+      .contact-intro { font-size: 16px; margin-bottom: 48px; }
+      .contact-location { font-size: 8px; letter-spacing: 4px; }
+      .contact-handle { font-size: 18px; }
 
-      .modal-overlay { padding: 24px; align-items: center; }
-      .modal { grid-template-columns: 1fr; max-width: 380px; max-height: 90vh; overflow-y: auto; }
-      .modal-img { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); }
-      .modal-name { font-size: 26px; }
-      .modal-bio { font-size: 15px; }
-      .modal-body { padding: 28px 22px; gap: 12px; }
+      /* MODAL */
+      .modal-overlay { padding: 16px; align-items: flex-end; }
+      .modal {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        width: 100%;
+        max-height: 92vh;
+        overflow-y: auto;
+        border-radius: 0;
+      }
+      .modal-img {
+        border-right: none;
+        border-bottom: 1px solid rgba(201,168,76,0.1);
+        aspect-ratio: 16 / 9;
+      }
+      .modal-img img { object-position: center top; }
+      .modal-body { padding: 24px 20px 32px; gap: 10px; }
+      .modal-wave { font-size: 7px; letter-spacing: 4px; }
+      .modal-name { font-size: 24px; }
+      .modal-role { font-size: 8px; letter-spacing: 3px; }
+      .modal-bio { font-size: 14px; line-height: 1.8; }
+      .modal-lore { font-size: 13px; line-height: 1.8; }
+      .modal-lore-label { font-size: 6px; letter-spacing: 5px; }
+      .modal-handle { font-size: 13px; }
+      .modal-close { font-size: 8px; letter-spacing: 3px; top: 14px; right: 16px; }
 
-      footer { padding: 72px 24px 48px; }
-      .footer-wordmark { font-size: 14px; letter-spacing: 10px; }
-      .footer-tagline { font-size: 14px; }
-      .footer-nav { gap: 28px; flex-wrap: wrap; justify-content: center; }
-      .footer-disclaimer { font-size: 10px; letter-spacing: 0.3px; color: rgba(200,201,205,0.3) !important; }
-      .section-title { font-size: clamp(40px, 12vw, 64px) !important; }
-      .section-eyebrow { font-size: 8px; letter-spacing: 6px; }
+      /* FOOTER */
+      footer { padding: 64px 20px 40px; }
+      .footer-wordmark { font-size: 12px; letter-spacing: 8px; text-indent: 8px; }
+      .footer-tagline { font-size: 13px; margin-bottom: 28px; }
+      .footer-nav { gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 32px; }
+      .footer-nav a { font-size: 8px; letter-spacing: 3px; }
+      .footer-meta { font-size: 7px; letter-spacing: 3px; }
+      .footer-disclaimer { font-size: 9px; letter-spacing: 0.2px; line-height: 1.8; }
+      .footer-logo { width: 36px; height: 36px; margin-bottom: 20px; }
     }
 
+    /* ── SMALL MOBILE (≤380px) ── */
     @media (max-width: 380px) {
-      .artist-name { font-size: 24px !important; }
+      section { padding: 60px 16px; }
+      .pull-divider { padding: 60px 16px; }
+
+      .hero-wordmark { font-size: 15px !important; letter-spacing: 4px !important; }
+      .hero-tagline { font-size: 12px !important; }
+      .hero-bg-text { font-size: 30px !important; }
+
+      .artist-name { font-size: 20px !important; }
+      .artist-img { aspect-ratio: 3 / 2; }
+
+      .pull-quote { font-size: 17px !important; }
+
       .staff-grid.leadership { grid-template-columns: 1fr 1fr; gap: 6px; }
       .staff-grid.leadership-secondary { grid-template-columns: repeat(3, 1fr); gap: 4px; }
-      .staff-grid.leadership-secondary .leader-info .staff-name { font-size: 11px !important; }
+      .staff-grid.leadership-secondary .leader-info .staff-name { font-size: 10px !important; }
+
+      .dept-card { width: 72px; }
+      .dept-name { font-size: 10px; }
       .dept-grid { gap: 5px; }
-      .dept-card { width: 76px; }
+
+      .modal-img { aspect-ratio: 4 / 3; }
+      .modal-name { font-size: 20px; }
+      .modal-bio { font-size: 13px; }
+
+      .footer-wordmark { font-size: 10px; letter-spacing: 6px; }
     }
   </style>
 </head>
@@ -941,14 +1023,14 @@
     <div class="wave reveal">
       <p class="wave-label">II &nbsp;&middot;&nbsp; The Canon</p>
       <div class="artist-grid four">
-        <div class="artist-card" onclick="openModal('The Canon','ERIS','Group','Aiven, Niven, Evren, Seren, Celene. Five who rose together. They carry what they survived. What they make now belongs entirely to them.','Shaped beneath Artemis\' gaze yet denied the wings they were promised, ERIS rose as the flaw heaven could not erase. Five voices forged into radiant, corrupted light. Through music, they carve their revenge into every note — turning harmony into a weapon and consequence into something the heavens can no longer silence.','@official_ERIS','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg')">
+        <div class="artist-card" onclick="openModal('The Canon','ERIS','Group','Five voices that rose together and refused to stay quiet. Aiven, Niven, Evren, Seren, Celene — each one a different edge of the same sound. They carry what they survived, and they carve it into everything they make. What they build now belongs entirely to them.','Shaped beneath Artemis\' gaze yet denied the wings they were promised, ERIS rose as the flaw heaven could not erase. Five voices forged into radiant, corrupted light. Through music, they carve their revenge into every note — turning harmony into a weapon and consequence into something the heavens can no longer silence.','@official_ERIS','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg" alt="ERIS" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">03</p><p class="artist-name">ERIS</p><p class="artist-role">Group</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Canon','SKÆZ','Group','They produce it. Write it. Perform it. Own every step of it. No borrowed vision. Entirely themselves.','Chosen by Dionysus the night their perfection started falling apart. What they were split into something else — not one identity, but many. Eight pieces. Eight versions. They were not saved. They were chosen. Every time they step under the lights, it happens all over again.','@SKAEZ','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
+        <div class="artist-card" onclick="openModal('The Canon','SKÆZ','Group','Eight who were built to be perfect and stayed that way — until they didn\'t. The cracks came quietly. Nobody in the crowd noticed. Dionysus did. He found them not at their best but at the moment it started falling apart, and he pulled them further. Not saved. Chosen. They perform now as eight pieces of something that used to be whole.','Chosen by Dionysus the night their perfection started falling apart. What they were split into something else — not one identity, but many. Eight pieces. Eight versions. They were not saved. They were chosen. Every time they step under the lights, it happens all over again.','@SKAEZ','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg" alt="SKÆZ" />
             <div class="click-hint"><span>view</span></div>
@@ -1011,28 +1093,28 @@
     <div class="wave reveal">
       <p class="wave-label">IV &nbsp;&middot;&nbsp; The Verse</p>
       <div class="artist-grid four">
-        <div class="artist-card" onclick="openModal('The Verse','AMORE','Artist · Songwriter','Placeholder bio. Something is being written.','Reborn from Aphrodite and Selene, she carries both love and moonlight within her. Her beauty feels soft, magnetic, almost unreal — awakening longing and calm in those around her. As the moon calls, fragments of her past begin to return. She may be just a mortal. Or a goddess slowly remembering what she is.','@sweetliesangels.','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg')">
+        <div class="artist-card" onclick="openModal('The Verse','AMORE','Artist · Songwriter','She writes about love the way someone writes about light — as if it is always slightly out of reach but impossible to stop looking for. Her sound is soft on the surface and heavier underneath. She has always known the difference between what people hear and what she actually means.','Reborn from Aphrodite and Selene, she carries both love and moonlight within her. Her beauty feels soft, magnetic, almost unreal — awakening longing and calm in those around her. As the moon calls, fragments of her past begin to return. She may be just a mortal. Or a goddess slowly remembering what she is.','@sweetliesangels.','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg" alt="AMORE" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">11</p><p class="artist-name">AMORE</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Verse','ARLE','Artist · Producer','Placeholder bio. Something is being written.','','@ARLE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/1ef6ea258c59a09caefd1452258ee7d827c699ac/images/ARL.jpg')">
+        <div class="artist-card" onclick="openModal('The Verse','ARLE','Artist · Producer','A voice built for dark spaces and loud stages. She spent years refining her sound until she found the genre that fit — and when she did, she fronted it. Vocalist, producer, songwriter. She does not separate the roles because to her, they were never separate to begin with.','','@ARLE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/1ef6ea258c59a09caefd1452258ee7d827c699ac/images/ARL.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/1ef6ea258c59a09caefd1452258ee7d827c699ac/images/ARL.jpg" alt="ARLE" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">12</p><p class="artist-name">ARLE</p><p class="artist-role">Artist · Producer</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Verse','ANNELIESE','Artist · Songwriter','Placeholder bio. Something is being written.','','@ANNELIESE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg')">
+        <div class="artist-card" onclick="openModal('The Verse','ANNELIESE','Artist · Songwriter','Main vocalist who took creative control the moment she had the chance. Her voice has always been the instrument — her pen is what she earned. She writes from the inside out, and every project she releases is more personal than the last. Nothing she makes sounds like it belongs to anyone else.','','@ANNELIESE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg" alt="ANNELIESE" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">13</p><p class="artist-name">ANNELIESE</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Verse','LILA','Artist · Songwriter','Placeholder bio. Something is being written.','','@LILA','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg')">
+        <div class="artist-card" onclick="openModal('The Verse','LILA','Artist · Songwriter','She writes quietly and means every word. Her songs do not announce themselves — they arrive. She has always understood that the most precise feeling is the one that does not need to explain itself.','','@LILA','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg" alt="LILA" />
             <div class="click-hint"><span>view</span></div>
@@ -1046,7 +1128,7 @@
     <div class="wave reveal">
       <p class="wave-label">V &nbsp;&middot;&nbsp; The Echo</p>
       <div class="artist-grid four">
-        <div class="artist-card" onclick="openModal('The Echo','IAN MOONE','Artist · Songwriter','Placeholder bio. Something is being written.','','@IAN','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/IAN.jpg')">
+        <div class="artist-card" onclick="openModal('The Echo','IAN MOONE','Artist · Songwriter','He wrote his way into every room he belongs in. Songwriter, producer, the one who sets the tone before anyone else speaks. His catalog runs deep and keeps running — music is always his first language, and he has never needed anyone to translate.','','@IAN','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/IAN.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/IAN.jpg" alt="IAN MOONE" />
             <div class="click-hint"><span>view</span></div>
@@ -1060,7 +1142,7 @@
           </div>
           <div class="artist-info"><p class="artist-number">16</p><p class="artist-name">ASTER</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Echo','VAUN','Artist · Songwriter','Placeholder bio. Something is being written.','','@VAUN','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg')">
+        <div class="artist-card" onclick="openModal('The Echo','VAUN','Artist · Songwriter','A voice built on warmth and control in equal measure. She writes before she performs — every release is personal by design, never accidental. Her sound balances technical precision with something softer underneath, and she has never let one cancel out the other.','','@VAUN','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg" alt="VAUN" />
             <div class="click-hint"><span>view</span></div>
