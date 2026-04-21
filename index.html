@@ -220,6 +220,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
+    .artist-grid.four { grid-template-columns: repeat(4, 1fr); }
     .artist-card {
       cursor: none;
       display: flex; flex-direction: column;
@@ -675,6 +676,7 @@
     @media (hover: none) { body { cursor: auto; } .cursor { display: none; } }
 
     @media (max-width: 960px) {
+      .artist-grid.four { grid-template-columns: repeat(2, 1fr); }
       .hero-wordmark { letter-spacing: 8px !important; }
       .hero-bg-text { font-size: 60px !important; }
       .pull-quote { font-size: 28px !important; }
@@ -712,6 +714,7 @@
       .wave { margin-bottom: 40px; }
       .wave-label { font-size: 8px; letter-spacing: 5px; margin-bottom: 20px; }
       .artist-grid { grid-template-columns: 1fr; gap: 8px; }
+      .artist-grid.four { grid-template-columns: 1fr 1fr; gap: 8px; }
       .artist-img { aspect-ratio: 1 / 1; }
       .artist-img img { object-position: center top; }
       .artist-info { padding: 18px 20px 22px; gap: 6px; }
@@ -858,28 +861,42 @@
       <span class="marquee-item">CI-EL <span>&middot;</span></span>
       <span class="marquee-item">AUGUST <span>&middot;</span></span>
       <span class="marquee-item">ERIS <span>&middot;</span></span>
+      <span class="marquee-item">SKÆZ <span>&middot;</span></span>
       <span class="marquee-item">JASS <span>&middot;</span></span>
       <span class="marquee-item">VI <span>&middot;</span></span>
-      <span class="marquee-item">BJORN <span>&middot;</span></span>
-      <span class="marquee-item">ASHLEY <span>&middot;</span></span>
-      <span class="marquee-item">ASTER <span>&middot;</span></span>
-      <span class="marquee-item">SKÆZ <span>&middot;</span></span>
-      <span class="marquee-item">KHAI <span>&middot;</span></span>
       <span class="marquee-item">SEN <span>&middot;</span></span>
+      <span class="marquee-item">KHAI <span>&middot;</span></span>
+      <span class="marquee-item">BJORN <span>&middot;</span></span>
+      <span class="marquee-item">YUU <span>&middot;</span></span>
+      <span class="marquee-item">AMORE <span>&middot;</span></span>
+      <span class="marquee-item">ARLE <span>&middot;</span></span>
+      <span class="marquee-item">ANNELIESE <span>&middot;</span></span>
+      <span class="marquee-item">LILA <span>&middot;</span></span>
+      <span class="marquee-item">IAN MOONE <span>&middot;</span></span>
+      <span class="marquee-item">ASTER <span>&middot;</span></span>
+      <span class="marquee-item">VAUN <span>&middot;</span></span>
+      <span class="marquee-item">ASHLEY <span>&middot;</span></span>
       <span class="marquee-item">from memory, everything is made <span>&middot;</span></span>
       <span class="marquee-item">Seoul · Est. 2026 <span>&middot;</span></span>
       <span class="marquee-item">artist-owned. in-house. independent. <span>&middot;</span></span>
       <span class="marquee-item">CI-EL <span>&middot;</span></span>
       <span class="marquee-item">AUGUST <span>&middot;</span></span>
       <span class="marquee-item">ERIS <span>&middot;</span></span>
+      <span class="marquee-item">SKÆZ <span>&middot;</span></span>
       <span class="marquee-item">JASS <span>&middot;</span></span>
       <span class="marquee-item">VI <span>&middot;</span></span>
-      <span class="marquee-item">BJORN <span>&middot;</span></span>
-      <span class="marquee-item">ASHLEY <span>&middot;</span></span>
-      <span class="marquee-item">ASTER <span>&middot;</span></span>
-      <span class="marquee-item">SKÆZ <span>&middot;</span></span>
-      <span class="marquee-item">KHAI <span>&middot;</span></span>
       <span class="marquee-item">SEN <span>&middot;</span></span>
+      <span class="marquee-item">KHAI <span>&middot;</span></span>
+      <span class="marquee-item">BJORN <span>&middot;</span></span>
+      <span class="marquee-item">YUU <span>&middot;</span></span>
+      <span class="marquee-item">AMORE <span>&middot;</span></span>
+      <span class="marquee-item">ARLE <span>&middot;</span></span>
+      <span class="marquee-item">ANNELIESE <span>&middot;</span></span>
+      <span class="marquee-item">LILA <span>&middot;</span></span>
+      <span class="marquee-item">IAN MOONE <span>&middot;</span></span>
+      <span class="marquee-item">ASTER <span>&middot;</span></span>
+      <span class="marquee-item">VAUN <span>&middot;</span></span>
+      <span class="marquee-item">ASHLEY <span>&middot;</span></span>
       <span class="marquee-item">from memory, everything is made <span>&middot;</span></span>
       <span class="marquee-item">Seoul · Est. 2026 <span>&middot;</span></span>
       <span class="marquee-item">artist-owned. in-house. independent. <span>&middot;</span></span>
@@ -895,107 +912,174 @@
       <p class="roster-sub">artists who create everything.</p>
     </div>
 
+    <!-- I — THE ORIGIN -->
     <div class="wave reveal">
-      <p class="wave-label">I &nbsp;&middot;&nbsp; The Founders</p>
+      <p class="wave-label">I &nbsp;&middot;&nbsp; The Origin</p>
       <div class="artist-grid">
-        <div class="artist-card" onclick="openModal('The Founders','CI-EL','Artist . CEO &amp; Creative Director','She built Mnemosyne because the industry owned everything she made. So she left. Then she built something that could not be taken.','@dcielgzb','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg')">
+        <div class="artist-card" onclick="openModal('The Origin','CI-EL','Artist · Producer','She built Mnemosyne because the industry owned everything she made. So she left. Then she built something that could not be taken.','@dcielgzb','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" />
             <div class="click-hint"><span>view</span></div>
           </div>
-          <div class="artist-info"><p class="artist-number">01</p><p class="artist-name">CI-EL</p><p class="artist-role">Artist · CEO &amp; Creative Director</p></div>
+          <div class="artist-info"><p class="artist-number">01</p><p class="artist-name">CI-EL</p><p class="artist-role">Artist · Producer</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Founders','AUGUST','Artist . Producer . Co-Founder','He came from underground. The industry found him. He never let it change him. Every track he makes carries what music felt like before it became a product.','@AUGUST','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg')">
+        <div class="artist-card" onclick="openModal('The Origin','AUGUST','Artist · Producer','He came from underground. The industry found him. He never let it change him. Every track he makes carries what music felt like before it became a product.','@AUGUST','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg" alt="AUGUST" />
             <div class="click-hint"><span>view</span></div>
           </div>
-          <div class="artist-info"><p class="artist-number">02</p><p class="artist-name">AUGUST</p><p class="artist-role">Artist · Producer · Co-Founder</p></div>
+          <div class="artist-info"><p class="artist-number">02</p><p class="artist-name">AUGUST</p><p class="artist-role">Artist · Producer</p></div>
         </div>
       </div>
     </div>
 
+    <!-- II — THE CANON -->
     <div class="wave reveal">
-      <p class="wave-label">II &nbsp;&middot;&nbsp; The Veterans</p>
-      <div class="artist-grid">
-        <div class="artist-card" onclick="openModal('The Veterans','ERIS','Group . Aiven . Niven . Evren . Seren . Celene','Aiven, Niven, Evren, Seren, Celene. Five who rose together. They carry what they survived. What they make now belongs entirely to them.','@official_ERIS','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg')">
+      <p class="wave-label">II &nbsp;&middot;&nbsp; The Canon</p>
+      <div class="artist-grid four">
+        <div class="artist-card" onclick="openModal('The Canon','ERIS','Group','Aiven, Niven, Evren, Seren, Celene. Five who rose together. They carry what they survived. What they make now belongs entirely to them.','@official_ERIS','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg" alt="ERIS" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">03</p><p class="artist-name">ERIS</p><p class="artist-role">Group</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Veterans','JASS','Artist . Songwriter','A voice that has always been hers. Aspiring soloist from LA, California. Travelled to Korea to pursue her love for Korean music, and fulfill her goal to be a freelance songwriter-composer &amp; an international influencer. She also works as a brand ambassador that span platforms including film and television.','@jassaely','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg')">
-          <div class="artist-img">
-            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" />
-            <div class="click-hint"><span>view</span></div>
-          </div>
-          <div class="artist-info"><p class="artist-number">04</p><p class="artist-name">JASS</p><p class="artist-role">Artist · Songwriter</p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="wave reveal">
-      <p class="wave-label">III &nbsp;&middot;&nbsp; The Architects</p>
-      <div class="artist-grid">
-        <div class="artist-card" onclick="openModal('The Architects','BJORN','Artist . Producer . Choreographer','A body in motion and a sound in a speaker are the same conversation. He has always known this. He does not separate the disciplines. He is all of them at once.','@jaybbjorn','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg')">
-          <div class="artist-img">
-            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg" alt="BJORN" />
-            <div class="click-hint"><span>view</span></div>
-          </div>
-          <div class="artist-info"><p class="artist-number">05</p><p class="artist-name">BJORN</p><p class="artist-role">Artist · Producer · Choreographer</p></div>
-        </div>
-        <div class="artist-card" onclick="openModal('The Architects','VIOLET','Artist . Producer . Songwriter','Soft as petals, untamed as nature - Violet becomes the soul of the music he creates. Ferocious yet charming like the color, VI dominates the stage with his lethal performance and playful confidence.','@violetisblue','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg')">
-          <div class="artist-img">
-            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg" alt="VI" />
-            <div class="click-hint"><span>view</span></div>
-          </div>
-          <div class="artist-info"><p class="artist-number">06</p><p class="artist-name">VI</p><p class="artist-role">Artist · Producer · Songwriter</p></div>
-        </div>
-        <div class="artist-card" onclick="openModal('The Architects','ASHLEY','Artist . Songwriter','Genre means nothing to her. She makes what she needs to make, when she needs to make it. Every record is a different skin. The honesty never changes.','@ASHLEY','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/ashley.jpg')">
-          <div class="artist-img">
-            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/ashley.jpg" alt="ASHLEY" />
-            <div class="click-hint"><span>view</span></div>
-          </div>
-          <div class="artist-info"><p class="artist-number">07</p><p class="artist-name">ASHLEY</p><p class="artist-role">Artist · Songwriter</p></div>
-        </div>
-        <div class="artist-card" onclick="openModal('The Architects','SEN','Artist . Singer . Songwriter','From Hong Kong, he now lives in LA. Crossed borders, pushed past his limits until he claimed and owned his stage. Making his dreams his reality.','@heisenberg','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg')">
-          <div class="artist-img">
-            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg" alt="SEN" />
-            <div class="click-hint"><span>view</span></div>
-          </div>
-          <div class="artist-info"><p class="artist-number">08</p><p class="artist-name">SEN</p><p class="artist-role">Artist · Singer · Songwriter</p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="wave reveal">
-      <p class="wave-label">IV &nbsp;&middot;&nbsp; The New Generation</p>
-      <div class="artist-grid">
-        <div class="artist-card" onclick="openModal('The New Generation','ASTER','Artist . Songwriter','He does not stop. Every skill, every sound, every medium - approached with the same relentless commitment. Not to prove anything. Because standing still was never an option.','@ASTER','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg')">
-          <div class="artist-img">
-            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg" alt="ASTER" />
-            <div class="click-hint"><span>view</span></div>
-          </div>
-          <div class="artist-info"><p class="artist-number">09</p><p class="artist-name">ASTER</p><p class="artist-role">Artist · Songwriter</p></div>
-        </div>
-        <div class="artist-card" onclick="openModal('The New Generation','SKAEZ','Group','They produce it. Write it. Perform it. Own every step of it. No borrowed vision. Entirely themselves.','@SKAEZ','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
+        <div class="artist-card" onclick="openModal('The Canon','SKÆZ','Group','They produce it. Write it. Perform it. Own every step of it. No borrowed vision. Entirely themselves.','@SKAEZ','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg" alt="SKÆZ" />
             <div class="click-hint"><span>view</span></div>
           </div>
-          <div class="artist-info"><p class="artist-number">10</p><p class="artist-name">SKÆZ</p><p class="artist-role">Group</p></div>
+          <div class="artist-info"><p class="artist-number">04</p><p class="artist-name">SKÆZ</p><p class="artist-role">Group</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The New Generation','KHAI','Artist . Choreographer . Songwriter','Born and raised in San Francisco, California, music and dancing have always been part of his life, and he took them on as both a profession and something personal. Now a choreographer and dancer, he continues to work on his craft and stay consistent with it.','@eskhalil','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/khai.jpg')">
+        <div class="artist-card" onclick="openModal('The Canon','JASS','Artist · Songwriter','A voice that has always been hers. She travelled to Korea to pursue her love for Korean music and fulfill her goal as a freelance songwriter and international artist.','@jassaely','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg')">
+          <div class="artist-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" />
+            <div class="click-hint"><span>view</span></div>
+          </div>
+          <div class="artist-info"><p class="artist-number">05</p><p class="artist-name">JASS</p><p class="artist-role">Artist · Songwriter</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Canon','VI','Artist · Producer','Soft as petals, untamed as nature. Ferocious yet charming, VI dominates the stage with lethal performance and playful confidence. The sound is his. It always has been.','@violetisblue','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg')">
+          <div class="artist-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg" alt="VI" />
+            <div class="click-hint"><span>view</span></div>
+          </div>
+          <div class="artist-info"><p class="artist-number">06</p><p class="artist-name">VI</p><p class="artist-role">Artist · Producer</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- III — THE CRAFT -->
+    <div class="wave reveal">
+      <p class="wave-label">III &nbsp;&middot;&nbsp; The Craft</p>
+      <div class="artist-grid four">
+        <div class="artist-card" onclick="openModal('The Craft','SEN','Artist · Producer','From Hong Kong, he now lives in LA. Crossed borders, pushed past his limits until he claimed and owned his stage. Making his dreams his reality.','@heisenberg','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg')">
+          <div class="artist-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg" alt="SEN" />
+            <div class="click-hint"><span>view</span></div>
+          </div>
+          <div class="artist-info"><p class="artist-number">07</p><p class="artist-name">SEN</p><p class="artist-role">Artist · Producer</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Craft','KHAI','Artist · Choreographer','Born and raised in San Francisco, music and movement have always been part of his life. A choreographer and dancer, he continues to work on his craft and stay consistent with it.','@eskhalil','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/khai.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/khai.jpg" alt="KHAI" />
             <div class="click-hint"><span>view</span></div>
           </div>
-          <div class="artist-info"><p class="artist-number">11</p><p class="artist-name">KHAI</p><p class="artist-role">Artist · Choreographer · Songwriter</p></div>
+          <div class="artist-info"><p class="artist-number">08</p><p class="artist-name">KHAI</p><p class="artist-role">Artist · Choreographer</p></div>
         </div>
-        <div class="artist-card coming-soon" onclick="openModal('The New Generation','—','Group . Coming Soon','Something is being built. Details will follow when they are ready to be known.','-','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg')">
+        <div class="artist-card" onclick="openModal('The Craft','BJORN','Artist · Producer','A body in motion and a sound in a speaker are the same conversation. He has always known this. He does not separate the disciplines. He is all of them at once.','@jaybbjorn','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg')">
           <div class="artist-img">
-            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg" alt="Coming Soon" />
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg" alt="BJORN" />
+            <div class="click-hint"><span>view</span></div>
+          </div>
+          <div class="artist-info"><p class="artist-number">09</p><p class="artist-name">BJORN</p><p class="artist-role">Artist · Producer</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Craft','YUU','Artist · Songwriter','Placeholder bio. Something is being written.','@YUU','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/YUU.jpg')">
+          <div class="artist-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/YUU.jpg" alt="YUU" />
+            <div class="click-hint"><span>view</span></div>
+          </div>
+          <div class="artist-info"><p class="artist-number">10</p><p class="artist-name">YUU</p><p class="artist-role">Artist · Songwriter</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IV — THE VERSE -->
+    <div class="wave reveal">
+      <p class="wave-label">IV &nbsp;&middot;&nbsp; The Verse</p>
+      <div class="artist-grid four">
+        <div class="artist-card" onclick="openModal('The Verse','AMORE','Artist · Songwriter','Placeholder bio. Something is being written.','@AMORE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg')">
+          <div class="artist-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg" alt="AMORE" />
+            <div class="click-hint"><span>view</span></div>
+          </div>
+          <div class="artist-info"><p class="artist-number">11</p><p class="artist-name">AMORE</p><p class="artist-role">Artist · Songwriter</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Verse','ARLE','Artist · Producer','Placeholder bio. Something is being written.','@ARLE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5403473b52f72803cdb72797be6f83373940a8b9/images/arle.jpg')">
+          <div class="artist-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5403473b52f72803cdb72797be6f83373940a8b9/images/arle.jpg" alt="ARLE" />
+            <div class="click-hint"><span>view</span></div>
+          </div>
+          <div class="artist-info"><p class="artist-number">12</p><p class="artist-name">ARLE</p><p class="artist-role">Artist · Producer</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Verse','ANNELIESE','Artist · Songwriter','Placeholder bio. Something is being written.','@ANNELIESE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg')">
+          <div class="artist-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg" alt="ANNELIESE" />
+            <div class="click-hint"><span>view</span></div>
+          </div>
+          <div class="artist-info"><p class="artist-number">13</p><p class="artist-name">ANNELIESE</p><p class="artist-role">Artist · Songwriter</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Verse','LILA','Artist · Songwriter','Placeholder bio. Something is being written.','@LILA','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg')">
+          <div class="artist-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg" alt="LILA" />
+            <div class="click-hint"><span>view</span></div>
+          </div>
+          <div class="artist-info"><p class="artist-number">14</p><p class="artist-name">LILA</p><p class="artist-role">Artist · Songwriter</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V — THE ECHO -->
+    <div class="wave reveal">
+      <p class="wave-label">V &nbsp;&middot;&nbsp; The Echo</p>
+      <div class="artist-grid four">
+        <div class="artist-card" onclick="openModal('The Echo','IAN MOONE','Artist · Songwriter','Placeholder bio. Something is being written.','@IAN','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/IAN.jpg')">
+          <div class="artist-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/IAN.jpg" alt="IAN MOONE" />
+            <div class="click-hint"><span>view</span></div>
+          </div>
+          <div class="artist-info"><p class="artist-number">15</p><p class="artist-name">IAN MOONE</p><p class="artist-role">Artist · Songwriter</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Echo','ASTER','Artist · Songwriter','He does not stop. Every skill, every sound, every medium approached with the same relentless commitment. Not to prove anything. Because standing still was never an option.','@ASTER','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg')">
+          <div class="artist-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg" alt="ASTER" />
+            <div class="click-hint"><span>view</span></div>
+          </div>
+          <div class="artist-info"><p class="artist-number">16</p><p class="artist-name">ASTER</p><p class="artist-role">Artist · Songwriter</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Echo','VAUN','Artist · Songwriter','Placeholder bio. Something is being written.','@VAUN','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg')">
+          <div class="artist-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg" alt="VAUN" />
+            <div class="click-hint"><span>view</span></div>
+          </div>
+          <div class="artist-info"><p class="artist-number">17</p><p class="artist-name">VAUN</p><p class="artist-role">Artist · Songwriter</p></div>
+        </div>
+        <div class="artist-card" onclick="openModal('The Echo','ASHLEY','Artist · Songwriter','Genre means nothing to her. She makes what she needs to make, when she needs to make it. Every record is a different skin. The honesty never changes.','@ASHLEY','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/ashley.jpg')">
+          <div class="artist-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/ashley.jpg" alt="ASHLEY" />
+            <div class="click-hint"><span>view</span></div>
+          </div>
+          <div class="artist-info"><p class="artist-number">18</p><p class="artist-name">ASHLEY</p><p class="artist-role">Artist · Songwriter</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMING SOON -->
+    <div class="wave reveal">
+      <p class="wave-label">Coming Soon</p>
+      <div class="artist-grid">
+        <div class="artist-card coming-soon" onclick="openModal('Coming Soon','AERA','Group · Coming Soon','Something is being built. Details will follow when they are ready to be known.','-','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg')">
+          <div class="artist-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg" alt="AERA" />
             <div class="coming-soon-inner" style="background:rgba(13,13,13,0.45);">
               <div class="coming-soon-line"></div>
               <p class="coming-soon-text">Coming Soon</p>
@@ -1003,10 +1087,21 @@
             </div>
             <div class="click-hint"><span>view</span></div>
           </div>
-          <div class="artist-info"><p class="artist-number">—</p><p class="artist-name">—</p><p class="artist-role">Group · Coming Soon</p></div>
+          <div class="artist-info"><p class="artist-number">—</p><p class="artist-name">AERA</p><p class="artist-role">Group · Coming Soon</p></div>
+        </div>
+        <div class="artist-card coming-soon" onclick="openModal('Coming Soon','BDC','Group · Coming Soon','Something is being built. Details will follow when they are ready to be known.','-','')">
+          <div class="artist-img">
+            <div class="coming-soon-inner">
+              <div class="coming-soon-line"></div>
+              <p class="coming-soon-text">Coming Soon</p>
+              <div class="coming-soon-line"></div>
+            </div>
+          </div>
+          <div class="artist-info"><p class="artist-number">—</p><p class="artist-name">BDC</p><p class="artist-role">Group · Coming Soon</p></div>
         </div>
       </div>
     </div>
+
   </section>
 
   <div class="ornament reveal"><div class="ornament-line"></div><span class="ornament-symbol">✦</span><div class="ornament-line rev"></div></div>
@@ -1126,7 +1221,7 @@
             <div class="leader-photo">
               <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg" alt="VI" />
             </div>
-            <div class="leader-info"><span class="staff-role">Head of Artistry</span><span class="staff-name">VIOLET</span></div>
+            <div class="leader-info"><span class="staff-role">Head of Artistry</span><span class="staff-name">VI</span></div>
           </div>
         </div>
       </div>
