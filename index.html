@@ -339,6 +339,8 @@
     .modal-role { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 4px; color: var(--silver); text-transform: uppercase; }
     .modal-divider { width: 40px; height: 1px; background: rgba(201,168,76,0.3); }
     .modal-bio { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: rgba(245,240,232,0.65); line-height: 1.8; letter-spacing: 0.3px; }
+    .modal-lore-label { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 7px; letter-spacing: 6px; color: rgba(201,168,76,0.45); text-transform: uppercase; margin-top: 4px; }
+    .modal-lore { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: rgba(245,240,232,0.45); line-height: 1.9; letter-spacing: 0.3px; }
     .modal-handle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--gold); letter-spacing: 1px; }
     .modal-close {
       position: absolute; top: 20px; right: 24px;
@@ -815,6 +817,8 @@
         <p class="modal-role" id="modalRole"></p>
         <div class="modal-divider"></div>
         <p class="modal-bio" id="modalBio"></p>
+        <p class="modal-lore-label" id="modalLoreLabel" style="display:none;">Mnemosyne Lore</p>
+        <p class="modal-lore" id="modalLore" style="display:none;"></p>
         <p class="modal-handle" id="modalHandle"></p>
       </div>
       <button class="modal-close" onclick="closeModalBtn()">&#x2715; &nbsp;close</button>
@@ -916,14 +920,14 @@
     <div class="wave reveal">
       <p class="wave-label">I &nbsp;&middot;&nbsp; The Origin</p>
       <div class="artist-grid">
-        <div class="artist-card" onclick="openModal('The Origin','CI-EL','Artist · Producer','She built Mnemosyne because the industry owned everything she made. So she left. Then she built something that could not be taken.','@dcielgzb','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg')">
+        <div class="artist-card" onclick="openModal('The Origin','CI-EL','Artist · Producer','She built Mnemosyne because the industry owned everything she made. So she left. Then she built something that could not be taken.','Descendant of Mnemosyne, the Titan goddess of memory. She did not inherit divinity — she inherited the weight of remembering. Every system she moved through tried to own what she made. Memory is not just what she carries. It is what she is made of.','@dcielgzb','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">01</p><p class="artist-name">CI-EL</p><p class="artist-role">Artist · Producer</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Origin','AUGUST','Artist · Producer','He came from underground. The industry found him. He never let it change him. Every track he makes carries what music felt like before it became a product.','@AUGUST','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg')">
+        <div class="artist-card" onclick="openModal('The Origin','AUGUST','Artist · Producer','He came from underground. The industry found him. He never let it change him. Every track he makes carries what music felt like before it became a product.','Same bloodline as CI-EL — but the Lethe side, the river of forgetting. Where CI-EL carries memory, AUGUST understands what it means to lose it. He learned what forgetting felt like from the inside, and chose not to. Everything he has made since is proof he never drank from that river.','@dxaugustus','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg" alt="AUGUST" />
             <div class="click-hint"><span>view</span></div>
@@ -937,28 +941,28 @@
     <div class="wave reveal">
       <p class="wave-label">II &nbsp;&middot;&nbsp; The Canon</p>
       <div class="artist-grid four">
-        <div class="artist-card" onclick="openModal('The Canon','ERIS','Group','Aiven, Niven, Evren, Seren, Celene. Five who rose together. They carry what they survived. What they make now belongs entirely to them.','@official_ERIS','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg')">
+        <div class="artist-card" onclick="openModal('The Canon','ERIS','Group','Aiven, Niven, Evren, Seren, Celene. Five who rose together. They carry what they survived. What they make now belongs entirely to them.','Shaped beneath Artemis\' gaze yet denied the wings they were promised, ERIS rose as the flaw heaven could not erase. Five voices forged into radiant, corrupted light. Through music, they carve their revenge into every note — turning harmony into a weapon and consequence into something the heavens can no longer silence.','@official_ERIS','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg" alt="ERIS" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">03</p><p class="artist-name">ERIS</p><p class="artist-role">Group</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Canon','SKÆZ','Group','They produce it. Write it. Perform it. Own every step of it. No borrowed vision. Entirely themselves.','@SKAEZ','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
+        <div class="artist-card" onclick="openModal('The Canon','SKÆZ','Group','They produce it. Write it. Perform it. Own every step of it. No borrowed vision. Entirely themselves.','Chosen by Dionysus the night their perfection started falling apart. What they were split into something else — not one identity, but many. Eight pieces. Eight versions. They were not saved. They were chosen. Every time they step under the lights, it happens all over again.','@SKAEZ','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg" alt="SKÆZ" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">04</p><p class="artist-name">SKÆZ</p><p class="artist-role">Group</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Canon','JASS','Artist · Songwriter','A voice that has always been hers. She travelled to Korea to pursue her love for Korean music and fulfill her goal as a freelance songwriter and international artist.','@jassaely','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg')">
+        <div class="artist-card" onclick="openModal('The Canon','JASS','Artist · Songwriter','A voice that has always been hers. She travelled to Korea to pursue her love for Korean music and fulfill her goal as a freelance songwriter and international artist.','A progeny of Athena, goddess of wisdom and war. She carries authority and calm like armor — graceful, stern, a woman who fights in front. She never needed to be the loudest voice in the room. Only effective enough for the voiceless, for the hopeless.','@jassaely','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">05</p><p class="artist-name">JASS</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Canon','VI','Artist · Producer','Soft as petals, untamed as nature. Ferocious yet charming, VI dominates the stage with lethal performance and playful confidence. The sound is his. It always has been.','@violetisblue','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg')">
+        <div class="artist-card" onclick="openModal('The Canon','VI','Artist · Producer','Soft as petals, untamed as nature. Ferocious yet charming, VI dominates the stage with lethal performance and playful confidence. The sound is his. It always has been.','','@violetisblue','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg" alt="VI" />
             <div class="click-hint"><span>view</span></div>
@@ -972,28 +976,28 @@
     <div class="wave reveal">
       <p class="wave-label">III &nbsp;&middot;&nbsp; The Craft</p>
       <div class="artist-grid four">
-        <div class="artist-card" onclick="openModal('The Craft','SEN','Artist · Producer','From Hong Kong, he now lives in LA. Crossed borders, pushed past his limits until he claimed and owned his stage. Making his dreams his reality.','@heisenberg','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg')">
+        <div class="artist-card" onclick="openModal('The Craft','SEN','Artist · Producer','From Hong Kong, he now lives in LA. Crossed borders, pushed past his limits until he claimed and owned his stage. Making his dreams his reality.','Reincarnation of Hades — not the villain the stories made him, but the one who took his role most seriously. Strict, just, comfortable in stillness. He owns his domain with quiet pride and was never scornful, despite how others choose to paint him.','@heiSenberg','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg" alt="SEN" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">07</p><p class="artist-name">SEN</p><p class="artist-role">Artist · Producer</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Craft','KHAI','Artist · Choreographer','Born and raised in San Francisco, music and movement have always been part of his life. A choreographer and dancer, he continues to work on his craft and stay consistent with it.','@eskhalil','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/khai.jpg')">
+        <div class="artist-card" onclick="openModal('The Craft','KHAI','Artist · Choreographer','Born and raised in San Francisco, music and movement have always been part of his life. A choreographer and dancer, he continues to work on his craft and stay consistent with it.','A child of Apollo — not because he tried to stand out, but because he never had to. Performing was never skill alone; it was instinct, almost sacred. He did not just dance. He translated sound into feeling. On stage, he was not performing. He was remembering who he was meant to be.','@eskhalil','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/khai.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/khai.jpg" alt="KHAI" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">08</p><p class="artist-name">KHAI</p><p class="artist-role">Artist · Choreographer</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Craft','BJORN','Artist · Producer','A body in motion and a sound in a speaker are the same conversation. He has always known this. He does not separate the disciplines. He is all of them at once.','@jaybbjorn','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg')">
+        <div class="artist-card" onclick="openModal('The Craft','BJORN','Artist · Producer','A body in motion and a sound in a speaker are the same conversation. He has always known this. He does not separate the disciplines. He is all of them at once.','Last descendant and reincarnation of Peitho — goddess of persuasion. He inherited only a fraction of her divinity, an imperfect form of her pull, and her contempt for humanity. His presence draws people in, blurring the line between influence and control. He exists between human and god, fully belonging to neither. Desired. Watched. Unable to escape.','@lastbjörn','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg" alt="BJORN" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">09</p><p class="artist-name">BJORN</p><p class="artist-role">Artist · Producer</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Craft','YUU','Artist · Songwriter','Placeholder bio. Something is being written.','@YUU','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/YUU.jpg')">
+        <div class="artist-card" onclick="openModal('The Craft','YUU','Artist · Songwriter','Placeholder bio. Something is being written.','Quietly chosen by Erebus, Yuu became a vessel of living shadow — their power seeping into music that feels heavier, darker, almost alive. Each performance draws from that abyss, distorting sound and memory alike. With every note, Erebus draws closer, waiting for the moment Yuu is no longer the artist but the voice he fully takes over.','@yamiyuu','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/YUU.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/YUU.jpg" alt="YUU" />
             <div class="click-hint"><span>view</span></div>
@@ -1007,28 +1011,28 @@
     <div class="wave reveal">
       <p class="wave-label">IV &nbsp;&middot;&nbsp; The Verse</p>
       <div class="artist-grid four">
-        <div class="artist-card" onclick="openModal('The Verse','AMORE','Artist · Songwriter','Placeholder bio. Something is being written.','@AMORE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg')">
+        <div class="artist-card" onclick="openModal('The Verse','AMORE','Artist · Songwriter','Placeholder bio. Something is being written.','Reborn from Aphrodite and Selene, she carries both love and moonlight within her. Her beauty feels soft, magnetic, almost unreal — awakening longing and calm in those around her. As the moon calls, fragments of her past begin to return. She may be just a mortal. Or a goddess slowly remembering what she is.','@sweetliesangels.','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg" alt="AMORE" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">11</p><p class="artist-name">AMORE</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Verse','ARLE','Artist · Producer','Placeholder bio. Something is being written.','@ARLE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5403473b52f72803cdb72797be6f83373940a8b9/images/arle.jpg')">
+        <div class="artist-card" onclick="openModal('The Verse','ARLE','Artist · Producer','Placeholder bio. Something is being written.','','@ARLE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5403473b52f72803cdb72797be6f83373940a8b9/images/arle.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/1ef6ea258c59a09caefd1452258ee7d827c699ac/images/ARL.jpg" alt="ARLE" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">12</p><p class="artist-name">ARLE</p><p class="artist-role">Artist · Producer</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Verse','ANNELIESE','Artist · Songwriter','Placeholder bio. Something is being written.','@ANNELIESE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg')">
+        <div class="artist-card" onclick="openModal('The Verse','ANNELIESE','Artist · Songwriter','Placeholder bio. Something is being written.','','@ANNELIESE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg" alt="ANNELIESE" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">13</p><p class="artist-name">ANNELIESE</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Verse','LILA','Artist · Songwriter','Placeholder bio. Something is being written.','@LILA','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg')">
+        <div class="artist-card" onclick="openModal('The Verse','LILA','Artist · Songwriter','Placeholder bio. Something is being written.','','@LILA','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg" alt="LILA" />
             <div class="click-hint"><span>view</span></div>
@@ -1042,28 +1046,28 @@
     <div class="wave reveal">
       <p class="wave-label">V &nbsp;&middot;&nbsp; The Echo</p>
       <div class="artist-grid four">
-        <div class="artist-card" onclick="openModal('The Echo','IAN MOONE','Artist · Songwriter','Placeholder bio. Something is being written.','@IAN','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/IAN.jpg')">
+        <div class="artist-card" onclick="openModal('The Echo','IAN MOONE','Artist · Songwriter','Placeholder bio. Something is being written.','','@IAN','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/IAN.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/IAN.jpg" alt="IAN MOONE" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">15</p><p class="artist-name">IAN MOONE</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Echo','ASTER','Artist · Songwriter','He does not stop. Every skill, every sound, every medium approached with the same relentless commitment. Not to prove anything. Because standing still was never an option.','@ASTER','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg')">
+        <div class="artist-card" onclick="openModal('The Echo','ASTER','Artist · Songwriter','He does not stop. Every skill, every sound, every medium approached with the same relentless commitment. Not to prove anything. Because standing still was never an option.','Son of the river god Asterion, he carries the current in everything he makes — relentless, always moving, never still. River gods do not stop for anything. Neither does he. Every sound, every medium approached like water finding its way through stone. Not force. Inevitability.','@ASTER','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg" alt="ASTER" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">16</p><p class="artist-name">ASTER</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Echo','VAUN','Artist · Songwriter','Placeholder bio. Something is being written.','@VAUN','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg')">
+        <div class="artist-card" onclick="openModal('The Echo','VAUN','Artist · Songwriter','Placeholder bio. Something is being written.','','@VAUN','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg" alt="VAUN" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">17</p><p class="artist-name">VAUN</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Echo','ASHLEY','Artist · Songwriter','Genre means nothing to her. She makes what she needs to make, when she needs to make it. Every record is a different skin. The honesty never changes.','@ASHLEY','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/ashley.jpg')">
+        <div class="artist-card" onclick="openModal('The Echo','ASHLEY','Artist · Songwriter','Genre means nothing to her. She makes what she needs to make, when she needs to make it. Every record is a different skin. The honesty never changes.','','@ASHLEY','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/ashley.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/ashley.jpg" alt="ASHLEY" />
             <div class="click-hint"><span>view</span></div>
@@ -1077,7 +1081,7 @@
     <div class="wave reveal">
       <p class="wave-label">Coming Soon</p>
       <div class="artist-grid">
-        <div class="artist-card coming-soon" onclick="openModal('Coming Soon','AERA','Group · Coming Soon','Something is being built. Details will follow when they are ready to be known.','-','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg')">
+        <div class="artist-card coming-soon" onclick="openModal('Coming Soon','AERA','Group · Coming Soon','Something is being built. Details will follow when they are ready to be known.','','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg" alt="AERA" />
             <div class="coming-soon-inner" style="background:rgba(13,13,13,0.45);">
@@ -1089,7 +1093,7 @@
           </div>
           <div class="artist-info"><p class="artist-number">—</p><p class="artist-name">AERA</p><p class="artist-role">Group · Coming Soon</p></div>
         </div>
-        <div class="artist-card coming-soon" onclick="openModal('Coming Soon','BDC','Group · Coming Soon','Something is being built. Details will follow when they are ready to be known.','-','')">
+        <div class="artist-card coming-soon" onclick="openModal('Coming Soon','BDC','Group · Coming Soon','Something is being built. Details will follow when they are ready to be known.','','—','')">
           <div class="artist-img">
             <div class="coming-soon-inner">
               <div class="coming-soon-line"></div>
@@ -1238,8 +1242,11 @@
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/orpheus.jpg" alt="ORPHEUS" /><p class="dept-name">ORPHEUS</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/shawn.jpg" alt="SHAWN" /><p class="dept-name">SHAWN</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg" alt="SEN" /><p class="dept-name">SEN</p></div></div>
-            <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5403473b52f72803cdb72797be6f83373940a8b9/images/arle.jpg" alt="ARLE" /><p class="dept-name">ARLE</p></div></div>
+            <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/1ef6ea258c59a09caefd1452258ee7d827c699ac/images/ARL.jpg" alt="ARLE" /><p class="dept-name">ARLE</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5403473b52f72803cdb72797be6f83373940a8b9/images/phantom.jpg" alt="PHANTOM" /><p class="dept-name">PHANTOM</p></div></div>
+            <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">ADAM</p></div></div>
+            <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">XAVIER</p></div></div>
+            <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">AKIO</p></div></div>
           </div>
         </div>
 
@@ -1252,6 +1259,9 @@
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/ashley.jpg" alt="ASHLEY" /><p class="dept-name">ASHLEY</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg" alt="ASTER" /><p class="dept-name">ASTER</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" /><p class="dept-name">JASS</p></div></div>
+            <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">ADAM</p></div></div>
+            <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">XAVIER</p></div></div>
+            <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">AKIO</p></div></div>
           </div>
         </div>
 
@@ -1271,6 +1281,17 @@
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg" alt="BJORN" /><p class="dept-name">BJORN</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" /><p class="dept-name">JASS</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/khai.jpg" alt="KHAI" /><p class="dept-name">KHAI</p></div></div>
+            <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">RYO</p></div></div>
+            <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">LEO</p></div></div>
+            <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">NOLAN</p></div></div>
+          </div>
+        </div>
+
+        <div class="dept-block">
+          <div class="dept-label"><span class="dept-label-text">Vocals</span><div class="dept-label-line"></div></div>
+          <div class="dept-grid">
+            <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">FELIX</p></div></div>
+            <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">RUI</p></div></div>
           </div>
         </div>
 
@@ -1386,12 +1407,24 @@
     }
 
     // MODAL
-    function openModal(wave, name, role, bio, handle, imgSrc) {
+    function openModal(wave, name, role, bio, lore, handle, imgSrc) {
       document.getElementById('modalWave').textContent   = '— ' + wave;
       document.getElementById('modalName').textContent   = name;
       document.getElementById('modalRole').textContent   = role;
       document.getElementById('modalBio').textContent    = bio;
       document.getElementById('modalHandle').textContent = handle;
+
+      const loreEl = document.getElementById('modalLore');
+      const loreLabelEl = document.getElementById('modalLoreLabel');
+      if (lore) {
+        loreEl.textContent = lore;
+        loreEl.style.display = '';
+        loreLabelEl.style.display = '';
+      } else {
+        loreEl.textContent = '';
+        loreEl.style.display = 'none';
+        loreLabelEl.style.display = 'none';
+      }
 
       const container   = document.getElementById('modalImgContainer');
       const placeholder = document.getElementById('modalImgPlaceholder');
