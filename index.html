@@ -464,6 +464,10 @@
       background: #0d0d0d; overflow: hidden; position: relative;
       display: flex; align-items: center; justify-content: center;
     }
+    .staff-grid.leadership .leader-photo { aspect-ratio: 3 / 4; }
+    .staff-grid.leadership .leader-info { padding: 28px 32px; }
+    .staff-grid.leadership .leader-info .staff-name { font-size: clamp(28px, 3vw, 44px); }
+    .staff-grid.leadership .leader-info .staff-role { font-size: 9px; letter-spacing: 5px; }
     .leader-photo img {
       width: 100%; height: 100%;
       object-fit: cover; object-position: center top; display: block;
@@ -747,7 +751,7 @@
       .staff-title { font-size: 7px; letter-spacing: 5px; margin-bottom: 32px; }
       .staff-block { margin-bottom: 40px; }
       .staff-block-label { font-size: 7px; letter-spacing: 4px; margin-bottom: 16px; padding-bottom: 10px; }
-      .staff-grid.leadership { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .staff-grid.leadership { grid-template-columns: repeat(2, 1fr) !important; gap: 8px; }
       .staff-grid.leadership .leader-photo { aspect-ratio: 3 / 4; }
       .leader-info { padding: 12px 12px; }
       .leader-info .staff-name { font-size: 16px !important; letter-spacing: 1px; }
@@ -1420,21 +1424,13 @@
       <p class="staff-title">Leadership &amp; Staff</p>
       <div class="staff-block">
         <p class="staff-block-label">Leadership</p>
-        <div class="staff-grid leadership">
+        <div class="staff-grid leadership" style="grid-template-columns: repeat(2, 1fr);">
           <div class="staff-card">
             <div class="leader-photo">
               <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" />
             </div>
             <div class="leader-info"><span class="staff-role">CEO &amp; Creative Director</span><span class="staff-name">CI-EL</span></div>
           </div>
-          <div class="staff-card">
-            <div class="leader-photo">
-              <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg" alt="AUGUST" />
-            </div>
-            <div class="leader-info"><span class="staff-role">Head of Production</span><span class="staff-name">AUGUST</span></div>
-          </div>
-        </div>
-        <div class="staff-grid leadership-secondary" style="grid-template-columns: repeat(5, 1fr);">
           <div class="staff-card">
             <div class="leader-photo">
               <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/aiven.jpg" alt="AIVEN" />
@@ -1452,6 +1448,14 @@
               <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/nari.jpg" alt="NARI" />
             </div>
             <div class="leader-info"><span class="staff-role">Media &amp; Communications</span><span class="staff-name">NARI</span></div>
+          </div>
+        </div>
+        <div class="staff-grid leadership-secondary" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="staff-card">
+            <div class="leader-photo">
+              <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg" alt="AUGUST" />
+            </div>
+            <div class="leader-info"><span class="staff-role">Head of Production</span><span class="staff-name">AUGUST</span></div>
           </div>
           <div class="staff-card">
             <div class="leader-photo">
