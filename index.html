@@ -544,7 +544,6 @@
       flex: 1; height: 1px;
       background: linear-gradient(to right, rgba(168,169,173,0.2), transparent);
     }
-    .dept-label-count { display: none; }
 
     .dept-grid {
       display: flex;
@@ -682,80 +681,52 @@
     /* RESPONSIVE */
     @media (hover: none) { body { cursor: auto; } .cursor { display: none; } }
 
-    /* ── TABLET (≤960px) ── */
     @media (max-width: 960px) {
       nav { padding: 24px 32px; }
       nav.scrolled { padding: 16px 32px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-
       section { padding: 100px 40px; }
       .pull-divider { padding: 100px 40px; }
-
       .hero-wordmark { letter-spacing: 8px !important; }
       .hero-bg-text { font-size: 60px !important; }
-
       .artist-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .artist-grid.four { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-
       .pull-quote { font-size: 28px !important; }
       .about-pull { font-size: 24px !important; }
       .about-body { grid-template-columns: 1fr; gap: 60px; }
-
       .ornament { padding: 16px 32px; }
       .contact-grid { grid-template-columns: 1fr; }
       .contact-email { font-size: 20px !important; }
-
       .modal { grid-template-columns: 1fr; max-width: 440px; }
-      .modal-img {
-        border-right: none;
-        border-bottom: 1px solid rgba(201,168,76,0.1);
-        aspect-ratio: 3/2;
-        max-height: 200px;
-      }
+      .modal-img { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); aspect-ratio: 3/2; max-height: 200px; }
       .modal-img img { object-fit: cover; object-position: center top; }
-
       .wave { margin-bottom: 48px; }
       .release-entry { grid-template-columns: 160px 1fr; }
       .release-entry.featured { grid-template-columns: 200px 1fr; }
-
       footer { padding: 80px 40px 60px; }
     }
 
-    /* ── MOBILE (≤600px) ── */
     @media (max-width: 600px) {
       body { cursor: auto; }
       .cursor { display: none; }
-
-      /* NAV */
       nav { padding: 18px 20px; }
       nav.scrolled { padding: 14px 20px; }
       .nav-logo { font-size: 10px; letter-spacing: 5px; }
-
-      /* HERO */
       .hero-wordmark { font-size: 18px !important; letter-spacing: 5px !important; text-indent: 5px; }
       .hero-tagline { font-size: 13px !important; letter-spacing: 1px; }
       .hero-sub { font-size: 8px; letter-spacing: 4px; }
       .hero-bg-text { font-size: 36px !important; -webkit-text-stroke: 1px rgba(201,168,76,0.12) !important; }
       .scroll-indicator { bottom: 32px; }
-
-      /* MARQUEE */
       .marquee-item { font-size: 8px; letter-spacing: 3px; padding: 0 20px; }
-
-      /* SECTIONS */
       section { padding: 72px 20px; }
       .section-title { font-size: clamp(36px, 11vw, 56px) !important; margin-bottom: 20px; }
       .section-eyebrow { font-size: 7px; letter-spacing: 5px; margin-bottom: 14px; }
       .section-line { width: 80%; }
-
-      /* ROSTER WAVES */
       .wave { margin-bottom: 48px; }
       .wave-label { font-size: 8px; letter-spacing: 4px; margin-bottom: 16px; padding-bottom: 12px; }
-
-      /* ARTIST CARDS — two per row on mobile, SQUARE images */
       .artist-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .artist-grid.four { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-      /* Keep square aspect ratio — do NOT override to 4/3 */
       .artist-img { aspect-ratio: 1 / 1; }
       .artist-img img { object-position: center top; }
       .artist-info { padding: 10px 12px 14px; gap: 4px; }
@@ -763,39 +734,29 @@
       .artist-role { font-size: 7px !important; letter-spacing: 2px; }
       .artist-number { font-size: 9px; }
       .click-hint span { font-size: 8px; letter-spacing: 3px; }
-
-      /* PULL DIVIDERS */
       .pull-divider { padding: 72px 20px; }
       .pull-quote { font-size: 20px !important; letter-spacing: 0.3px; line-height: 1.4; }
       .pull-quote-bg { font-size: 56px !important; -webkit-text-stroke: 1px rgba(201,168,76,0.15) !important; }
       .ornament { padding: 10px 20px; }
-
-      /* ABOUT */
       .about-pull { font-size: 18px !important; margin-bottom: 56px; line-height: 1.5; }
       .about-body { display: flex; flex-direction: column; gap: 40px; }
       .about-text p { font-size: 15px; line-height: 1.9; margin-bottom: 20px; }
       .stat-value { font-size: clamp(20px, 5.5vw, 30px) !important; }
       .about-stat { padding: 24px 0; }
-
-      /* STAFF — LEADERSHIP */
       .staff-section { margin-top: 48px; padding-top: 32px; }
       .staff-title { font-size: 7px; letter-spacing: 5px; margin-bottom: 32px; }
       .staff-block { margin-bottom: 40px; }
       .staff-block-label { font-size: 7px; letter-spacing: 4px; margin-bottom: 16px; padding-bottom: 10px; }
-
       .staff-grid.leadership { grid-template-columns: 1fr 1fr; gap: 8px; }
       .staff-grid.leadership .leader-photo { aspect-ratio: 3 / 4; }
       .leader-info { padding: 12px 12px; }
       .leader-info .staff-name { font-size: 16px !important; letter-spacing: 1px; }
       .leader-info .staff-role { font-size: 6px !important; letter-spacing: 3px; margin-bottom: 4px; }
-
-      .staff-grid.leadership-secondary { grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px; }
+      .staff-grid.leadership-secondary { grid-template-columns: repeat(3, 1fr) !important; gap: 6px; margin-top: 8px; }
       .staff-grid.leadership-secondary .leader-photo { aspect-ratio: 3 / 4; }
       .staff-grid.leadership-secondary .leader-info { padding: 8px 8px; }
       .staff-grid.leadership-secondary .leader-info .staff-name { font-size: 11px !important; letter-spacing: 0.5px; }
       .staff-grid.leadership-secondary .leader-info .staff-role { font-size: 6px !important; letter-spacing: 2px; }
-
-      /* DEPT GRIDS */
       .dept-block { margin-bottom: 40px; padding-bottom: 40px; }
       .dept-label { margin-bottom: 16px; }
       .dept-label-text { font-size: 15px; }
@@ -803,52 +764,23 @@
       .dept-card { width: 88px; flex-shrink: 0; }
       .dept-photo { aspect-ratio: 3 / 4; }
       .dept-name { font-size: 11px; padding: 8px 6px 7px; }
-
-      /* RELEASES */
       .release-entry { grid-template-columns: 96px 1fr; gap: 16px; padding: 24px 0; }
       .release-entry.featured { grid-template-columns: 120px 1fr; padding: 28px 0; }
       .release-title { font-size: 18px !important; }
       .release-artist { font-size: 8px; letter-spacing: 4px; }
       .release-catalog-label { font-size: 10px; }
       .release-meta { font-size: 8px; letter-spacing: 2px; }
-
-      /* CONTACT */
       .contact-grid { grid-template-columns: 1fr; }
       .contact-item { padding: 32px 20px; gap: 12px; }
       .contact-email { font-size: 17px !important; }
       .contact-intro { font-size: 16px; margin-bottom: 48px; }
       .contact-location { font-size: 8px; letter-spacing: 4px; }
       .contact-handle { font-size: 18px; }
-
-      /* MODAL — centered, scrollable, contained */
-      .modal-overlay {
-        padding: 16px;
-        align-items: center;
-      }
-      .modal {
-        grid-template-columns: 1fr;
-        max-width: 100%;
-        width: 100%;
-        max-height: 85vh;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-      }
-      .modal-img {
-        border-right: none;
-        border-bottom: 1px solid rgba(201,168,76,0.1);
-        aspect-ratio: 16 / 7;
-        flex-shrink: 0;
-        max-height: 180px;
-      }
+      .modal-overlay { padding: 16px; align-items: center; }
+      .modal { grid-template-columns: 1fr; max-width: 100%; width: 100%; max-height: 85vh; overflow: hidden; display: flex; flex-direction: column; }
+      .modal-img { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.1); aspect-ratio: 16 / 7; flex-shrink: 0; max-height: 180px; }
       .modal-img img { object-position: center top; }
-      .modal-body {
-        padding: 20px 20px 28px;
-        gap: 10px;
-        overflow-y: auto;
-        flex: 1;
-        -webkit-overflow-scrolling: touch;
-      }
+      .modal-body { padding: 20px 20px 28px; gap: 10px; overflow-y: auto; flex: 1; -webkit-overflow-scrolling: touch; }
       .modal-wave { font-size: 7px; letter-spacing: 4px; }
       .modal-name { font-size: 24px; }
       .modal-role { font-size: 8px; letter-spacing: 3px; }
@@ -857,8 +789,6 @@
       .modal-lore-label { font-size: 6px; letter-spacing: 5px; }
       .modal-handle { font-size: 13px; }
       .modal-close { font-size: 8px; letter-spacing: 3px; top: 14px; right: 16px; }
-
-      /* FOOTER */
       footer { padding: 64px 20px 40px; }
       .footer-wordmark { font-size: 12px; letter-spacing: 8px; text-indent: 8px; }
       .footer-tagline { font-size: 13px; margin-bottom: 28px; }
@@ -869,34 +799,25 @@
       .footer-logo { width: 36px; height: 36px; margin-bottom: 20px; }
     }
 
-    /* ── SMALL MOBILE (≤380px) ── */
     @media (max-width: 380px) {
       section { padding: 60px 16px; }
       .pull-divider { padding: 60px 16px; }
-
       .hero-wordmark { font-size: 15px !important; letter-spacing: 4px !important; }
       .hero-tagline { font-size: 12px !important; }
       .hero-bg-text { font-size: 30px !important; }
-
-      /* Keep square on small mobile too */
       .artist-img { aspect-ratio: 1 / 1; }
       .artist-name { font-size: clamp(12px, 3.5vw, 16px) !important; }
       .artist-info { padding: 8px 10px 12px; }
-
       .pull-quote { font-size: 17px !important; }
-
       .staff-grid.leadership { grid-template-columns: 1fr 1fr; gap: 6px; }
-      .staff-grid.leadership-secondary { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+      .staff-grid.leadership-secondary { grid-template-columns: repeat(3, 1fr) !important; gap: 4px; }
       .staff-grid.leadership-secondary .leader-info .staff-name { font-size: 10px !important; }
-
       .dept-card { width: 72px; }
       .dept-name { font-size: 10px; }
       .dept-grid { gap: 5px; }
-
       .modal-img { aspect-ratio: 16 / 7; max-height: 140px; }
       .modal-name { font-size: 20px; }
       .modal-bio { font-size: 13px; }
-
       .footer-wordmark { font-size: 10px; letter-spacing: 6px; }
     }
   </style>
@@ -983,10 +904,10 @@
       <span class="marquee-item">ARLE <span>&middot;</span></span>
       <span class="marquee-item">ANNELIESE <span>&middot;</span></span>
       <span class="marquee-item">LILA <span>&middot;</span></span>
-      <span class="marquee-item">IAN MOONE <span>&middot;</span></span>
       <span class="marquee-item">ASTER <span>&middot;</span></span>
       <span class="marquee-item">VAUN <span>&middot;</span></span>
-      <span class="marquee-item">ASHLEY <span>&middot;</span></span>
+      <span class="marquee-item">AERA <span>&middot;</span></span>
+      <span class="marquee-item">ØISYZ <span>&middot;</span></span>
       <span class="marquee-item">from memory, everything is made <span>&middot;</span></span>
       <span class="marquee-item">Seoul · Est. 2026 <span>&middot;</span></span>
       <span class="marquee-item">artist-owned. in-house. independent. <span>&middot;</span></span>
@@ -1004,10 +925,10 @@
       <span class="marquee-item">ARLE <span>&middot;</span></span>
       <span class="marquee-item">ANNELIESE <span>&middot;</span></span>
       <span class="marquee-item">LILA <span>&middot;</span></span>
-      <span class="marquee-item">IAN MOONE <span>&middot;</span></span>
       <span class="marquee-item">ASTER <span>&middot;</span></span>
       <span class="marquee-item">VAUN <span>&middot;</span></span>
-      <span class="marquee-item">ASHLEY <span>&middot;</span></span>
+      <span class="marquee-item">AERA <span>&middot;</span></span>
+      <span class="marquee-item">ØISYZ <span>&middot;</span></span>
       <span class="marquee-item">from memory, everything is made <span>&middot;</span></span>
       <span class="marquee-item">Seoul · Est. 2026 <span>&middot;</span></span>
       <span class="marquee-item">artist-owned. in-house. independent. <span>&middot;</span></span>
@@ -1027,14 +948,14 @@
     <div class="wave reveal">
       <p class="wave-label">I &nbsp;&middot;&nbsp; The Origin</p>
       <div class="artist-grid">
-        <div class="artist-card" onclick="openModal('The Origin','CI-EL','Artist · Producer','She built Mnemosyne because the industry owned everything she made. So she left. Then she built something that could not be taken.','Descendant of Mnemosyne, the Titan goddess of memory. She did not inherit divinity — she inherited the weight of remembering. Every system she moved through tried to own what she made. Memory is not just what she carries. It is what she is made of.','@dcielgzb','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg')">
+        <div class="artist-card" onclick="openModal('The Origin','CI-EL','Artist · Producer · CEO','She built Mnemosyne because the industry owned everything she made. So she left. Then she built something that could not be taken.','Descendant of Mnemosyne, the Titan goddess of memory. She did not inherit divinity — she inherited the weight of remembering. Every system she moved through tried to own what she made. She left. She built something from what she refused to give up. Memory is not just what she carries. It is what she is made of.','@dcielgzb','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">01</p><p class="artist-name">CI-EL</p><p class="artist-role">Artist · Producer</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Origin','AUGUST','Artist · Producer','He came from underground. The industry found him. He never let it change him. Every track he makes carries what music felt like before it became a product.','Same bloodline as CI-EL — but the Lethe side, the river of forgetting. Where CI-EL carries memory, AUGUST understands what it means to lose it. He learned what forgetting felt like from the inside, and chose not to. Everything he has made since is proof he never drank from that river.','@dxaugustus','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg')">
+        <div class="artist-card" onclick="openModal('The Origin','AUGUST','Artist · Producer · Co-Founder','He came from underground. The industry found him. He never let it change him. Every track he makes carries what music felt like before it became a product.','Same bloodline as CI-EL — but the Lethe side, the river of forgetting. Where CI-EL carries memory, AUGUST understands what it means to lose it. He learned what forgetting felt like from the inside, and chose not to. Everything he has made since is proof he never drank from that river.','@dxaugustus','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg" alt="AUGUST" />
             <div class="click-hint"><span>view</span></div>
@@ -1048,28 +969,28 @@
     <div class="wave reveal">
       <p class="wave-label">II &nbsp;&middot;&nbsp; The Canon</p>
       <div class="artist-grid four">
-        <div class="artist-card" onclick="openModal('The Canon','ERIS','Group','Five voices that rose together and refused to stay quiet. Aiven, Niven, Evren, Seren, Celene — each one a different edge of the same sound. They carry what they survived, and they carve it into everything they make. What they build now belongs entirely to them.','Shaped beneath Artemis\' gaze yet denied the wings they were promised, ERIS rose as the flaw heaven could not erase. Five voices forged into radiant, corrupted light. Through music, they carve their revenge into every note — turning harmony into a weapon and consequence into something the heavens can no longer silence.','@official_ERIS','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg')">
+        <div class="artist-card" onclick="openModal('The Canon','ERIS','Group','Five voices that rose together and refused to stay quiet. AIVEN, EVREN, NIVEN, SEREN, CELENE — each one a different edge of the same sound. They carry what they survived, and they carve it into everything they make.','Shaped beneath Artemis\'s gaze yet denied the wings they were promised, ERIS rose as the flaw heaven could not erase. Five voices forged into radiant, corrupted light. Through music, they carve their revenge into every note — turning harmony into a weapon and consequence into something the heavens can no longer silence.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg" alt="ERIS" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">03</p><p class="artist-name">ERIS</p><p class="artist-role">Group</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Canon','SKÆZ','Group','Something is being built. Details will follow when they are ready to be known.','Chosen by Dionysus the night their perfection started falling apart. What they were split into something else — not one identity, but many. Eight pieces. Eight versions. They were not saved. They were chosen. Every time they step under the lights, it happens all over again.','@SKAEZ','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
+        <div class="artist-card" onclick="openModal('The Canon','SKÆZ','Group','Eight voices. Eight versions. They were not saved. They were chosen. Every time they step under the lights, it happens all over again.','Before they were SKÆZ, they were voices trained to be perfect. Dionysus found them when perfection began to fracture — splitting them into eight identities: obsession, noise, guilt, judgment, laughter, worship, detachment, and awakening. ADAM · RYO · XAVIER · LEO · AKIO · NOLAN · FELIX · RUI.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg" alt="SKÆZ" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">04</p><p class="artist-name">SKÆZ</p><p class="artist-role">Group</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Canon','JASS','Artist · Songwriter','A voice that has always been hers. She travelled to Korea to pursue her love for Korean music and fulfill her goal as a freelance songwriter and international artist.','A progeny of Athena, goddess of wisdom and war. She carries authority and calm like armor — graceful, stern, a woman who fights in front. She never needed to be the loudest voice in the room. Only effective enough for the voiceless, for the hopeless.','@jassaely','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg')">
+        <div class="artist-card" onclick="openModal('The Canon','JASS','Artist · Songwriter','A voice that has always been hers. She travelled to Korea to pursue her love for Korean music and fulfill her goal as a freelance songwriter and international artist.','A progeny of Athena, she carries wisdom and peace like an armor. She emanates an aura of authority and calmness — graceful yet stern, a woman who fights in front. Created melodies for the brave, her sphere is her nous, the ability to reason and strategize; while her aegis is her ingenuity.','@jassaely','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">05</p><p class="artist-name">JASS</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Canon','VI','Artist · Producer','Soft as petals, untamed as nature. Ferocious yet charming, VI dominates the stage with lethal performance and playful confidence. The sound is his. It always has been.','','@violetisblue','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg')">
+        <div class="artist-card" onclick="openModal('The Canon','VI','Artist · Producer','Soft as petals, untamed as nature. Ferocious yet charming, VI dominates the stage with lethal performance and playful confidence.','Vi emerged from the crumpled stalk of violet that Persephone planted where death and spring pressed closest together. Molded from earth that imprisons the fallen and from warmth where life blooms, Vi carries both the melody of the dead and the living.','@violetisblue','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg" alt="VI" />
             <div class="click-hint"><span>view</span></div>
@@ -1083,28 +1004,28 @@
     <div class="wave reveal">
       <p class="wave-label">III &nbsp;&middot;&nbsp; The Craft</p>
       <div class="artist-grid four">
-        <div class="artist-card" onclick="openModal('The Craft','SEN','Artist · Producer','From Hong Kong, he now lives in LA. Crossed borders, pushed past his limits until he claimed and owned his stage. Making his dreams his reality.','Reincarnation of Hades — not the villain the stories made him, but the one who took his role most seriously. Strict, just, comfortable in stillness. He owns his domain with quiet pride and was never scornful, despite how others choose to paint him.','@heiSenberg','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg')">
+        <div class="artist-card" onclick="openModal('The Craft','SEN','Artist · Producer','From Hong Kong, he now lives in LA. Crossed borders, pushed past his limits until he claimed and owned his stage. Making his dreams his reality.','Reincarnated as the one who ruled from the fiery pits and endless chasms of the Underworld. Hades was deemed malevolent, yet he took his duties most seriously — keeping the dead within his realm with strictness, justice, and pride. Comfortable in stillness. Owner of his domain.','@heiSenberg','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg" alt="SEN" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">07</p><p class="artist-name">SEN</p><p class="artist-role">Artist · Producer</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Craft','KHAI','Artist · Choreographer','Born and raised in San Francisco, music and movement have always been part of his life. A choreographer and dancer, he continues to work on his craft and stay consistent with it.','A child of Apollo — not because he tried to stand out, but because he never had to. Performing was never skill alone; it was instinct, almost sacred. He did not just dance. He translated sound into feeling. On stage, he was not performing. He was remembering who he was meant to be.','@eskhalil','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/khai.jpg')">
+        <div class="artist-card" onclick="openModal('The Craft','KHAI','Artist · Choreographer','Born and raised in San Francisco, music and movement have always been part of his life. A choreographer and dancer, he continues to work on his craft and stay consistent with it.','A child of Apollo — not because he tried to stand out, but because he never had to. Performing was never skill alone; it was instinct, almost sacred. Music lived in his pulse, breath, and movement. He translated sound into feeling. On stage, he was not performing. He was remembering who he was meant to be.','@eskhalil','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/khai.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/khai.jpg" alt="KHAI" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">08</p><p class="artist-name">KHAI</p><p class="artist-role">Artist · Choreographer</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Craft','BJORN','Artist · Producer','A body in motion and a sound in a speaker are the same conversation. He has always known this. He does not separate the disciplines. He is all of them at once.','Last descendant and reincarnation of Peitho — goddess of persuasion. He inherited only a fraction of her divinity, an imperfect form of her pull, and her contempt for humanity. His presence draws people in, blurring the line between influence and control. He exists between human and god, fully belonging to neither. Desired. Watched. Unable to escape.','@lastbjörn','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg')">
+        <div class="artist-card" onclick="openModal('The Craft','BJORN','Artist · Producer','A body in motion and a sound in a speaker are the same conversation. He has always known this. He does not separate the disciplines. He is all of them at once.','The last descendant and reincarnation of Peitho — goddess of persuasion. He inherited only a fraction of her divinity, an imperfect form of her pull, and her contempt for humanity. His presence draws people in, blurring the line between influence and control. He exists between human and god, fully belonging to neither. Desired. Watched. Unable to escape.','@lastbjörn','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg" alt="BJORN" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">09</p><p class="artist-name">BJORN</p><p class="artist-role">Artist · Producer</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Craft','YUU','Artist · Songwriter','Something is being built. Details will follow when they are ready to be known.','Quietly chosen by Erebus, Yuu became a vessel of living shadow — their power seeping into music that feels heavier, darker, almost alive. Each performance draws from that abyss, distorting sound and memory alike. With every note, Erebus draws closer, waiting for the moment Yuu is no longer the artist but the voice he fully takes over.','@yamiyuu','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/YUU.jpg')">
+        <div class="artist-card" onclick="openModal('The Craft','YUU','Artist · Songwriter','Born in Osaka. Moved across borders to make music on his own terms. He writes and performs like someone who has been building toward something in the dark for a long time — and finally decided to show it. His sound is heavy where others are light, and deliberate where others are impulsive.','Quietly chosen by Erebus, Yuu became a vessel of living shadow — their power seeping into music that feels heavier, darker, almost alive. Each performance draws from that abyss, distorting sound and memory alike. With every note, Erebus draws closer, waiting for the moment Yuu is no longer the artist but the voice he fully takes over.','@yamiyuu','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/YUU.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/YUU.jpg" alt="YUU" />
             <div class="click-hint"><span>view</span></div>
@@ -1118,28 +1039,28 @@
     <div class="wave reveal">
       <p class="wave-label">IV &nbsp;&middot;&nbsp; The Verse</p>
       <div class="artist-grid four">
-        <div class="artist-card" onclick="openModal('The Verse','AMORE','Artist · Songwriter','She writes about love the way someone writes about light — as if it is always slightly out of reach but impossible to stop looking for. Her sound is soft on the surface and heavier underneath. She has always known the difference between what people hear and what she actually means.','Reborn from Aphrodite and Selene, she carries both love and moonlight within her. Her beauty feels soft, magnetic, almost unreal — awakening longing and calm in those around her. As the moon calls, fragments of her past begin to return. She may be just a mortal. Or a goddess slowly remembering what she is.','@sweetliesangels.','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg')">
+        <div class="artist-card" onclick="openModal('The Verse','AMORE','Artist · Songwriter','She writes about love the way someone writes about light — as if it is always slightly out of reach but impossible to stop looking for. Her sound is soft on the surface and heavier underneath.','Reborn from Aphrodite and Selene, she carries both love and moonlight within her. A quiet muse in the modern world, her beauty feels soft, magnetic, almost unreal — awakening longing and calm in those around her. As the moon calls, fragments of her past begin to return. She may be just a mortal. Or a goddess slowly remembering what she is.','@sweetliesangels.','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg" alt="AMORE" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">11</p><p class="artist-name">AMORE</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Verse','ARLE','Artist · Producer','Something is being built. Details will follow when they are ready to be known.','','@ARLE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/1ef6ea258c59a09caefd1452258ee7d827c699ac/images/ARL.jpg')">
+        <div class="artist-card" onclick="openModal('The Verse','ARLE','Artist · Producer','She does not make music that asks for permission. Her sound is dense and precise — built to burn. A producer and artist who treats production like a ritual and every track like an invocation.','Born from a bloodline of witches said to descend from Hecate. She refused the coven\'s destiny and wove enchantment through music — turning melody into invocation and voice into flame.','@hexinno','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/1ef6ea258c59a09caefd1452258ee7d827c699ac/images/ARL.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/1ef6ea258c59a09caefd1452258ee7d827c699ac/images/ARL.jpg" alt="ARLE" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">12</p><p class="artist-name">ARLE</p><p class="artist-role">Artist · Producer</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Verse','ANNELIESE','Artist · Songwriter','Something is being built. Details will follow when they are ready to be known.','','@ANNELIESE','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg')">
+        <div class="artist-card" onclick="openModal('The Verse','ANNELIESE','Artist · Songwriter','A singer-songwriter who builds her music from the ground up — melody, lyric, and arrangement all shaped by the same hand. Her voice carries the kind of precision that only comes from someone who has always known exactly what she wants to say.','Born from the lineage of Nike, Anneliese claimed the title of Goddess of Victory not by bloodright, but through the transformative power of her music. Known as The Winged Lyricist.','@annliweitz','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg" alt="ANNELIESE" />
             <div class="click-hint"><span>view</span></div>
           </div>
           <div class="artist-info"><p class="artist-number">13</p><p class="artist-name">ANNELIESE</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Verse','LILA','Artist · Songwriter','Something is being built. Details will follow when they are ready to be known.','','@LILA','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg')">
+        <div class="artist-card" onclick="openModal('The Verse','LILA','Artist · Songwriter','Thai artist based in South Korea. A pianist at heart — she writes and composes her music, weaving her voice into both her own releases and the stories she helps bring to life.','Chosen by Persephone as the space where brightness and darkness could both exist. From then on, her music moved in two voices — one blooming with light and one steeped in shadow, each revealing a different side of her becoming.','@lilalaland','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg" alt="LILA" />
             <div class="click-hint"><span>view</span></div>
@@ -1153,42 +1074,21 @@
     <div class="wave reveal">
       <p class="wave-label">V &nbsp;&middot;&nbsp; The Echo</p>
       <div class="artist-grid four">
-        <div class="artist-card" onclick="openModal('The Echo','IAN MOONE','Artist · Songwriter','Something is being built. Details will follow when they are ready to be known.','','@IAN','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/IAN.jpg')">
-          <div class="artist-img">
-            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/IAN.jpg" alt="IAN MOONE" />
-            <div class="click-hint"><span>view</span></div>
-          </div>
-          <div class="artist-info"><p class="artist-number">15</p><p class="artist-name">IAN MOONE</p><p class="artist-role">Artist · Songwriter</p></div>
-        </div>
-        <div class="artist-card" onclick="openModal('The Echo','ASTER','Artist · Songwriter','He does not stop. Every skill, every sound, every medium approached with the same relentless commitment. Not to prove anything. Because standing still was never an option.','Son of the river god Asterion, he carries the current in everything he makes — relentless, always moving, never still. River gods do not stop for anything. Neither does he. Every sound, every medium approached like water finding its way through stone. Not force. Inevitability.','@ASTER','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg')">
+        <div class="artist-card" onclick="openModal('The Echo','ASTER','Artist · Songwriter','He does not stop. Every skill, every sound, every medium approached with the same relentless commitment. Not to prove anything. Because standing still was never an option.','Son of the river god Asterion, he carries the current in everything he makes — relentless, always moving, never still. River gods do not stop for anything. Neither does he. Every sound, every medium approached like water finding its way through stone. Not force. Inevitability.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg" alt="ASTER" />
             <div class="click-hint"><span>view</span></div>
           </div>
-          <div class="artist-info"><p class="artist-number">16</p><p class="artist-name">ASTER</p><p class="artist-role">Artist · Songwriter</p></div>
+          <div class="artist-info"><p class="artist-number">15</p><p class="artist-name">ASTER</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Echo','VAUN','Artist · Songwriter','Something is being built. Details will follow when they are ready to be known.','','@VAUN','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg')">
+        <div class="artist-card" onclick="openModal('The Echo','VAUN','Artist · Songwriter','A visual artist and songwriter who moves between disciplines without needing to justify it. Her music is fluid, layered, and emotionally exact — the kind that reveals something different every time you return to it. She creates with her hands and her gut simultaneously.','Vaun carries the lingering imprint of Dionysus — a fragment of divine chaos that distorts everything she creates into something unstable, vivid, and alive. She does not create to be understood. She creates to unsettle reality itself.','@evidusk','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg" alt="VAUN" />
             <div class="click-hint"><span>view</span></div>
           </div>
-          <div class="artist-info"><p class="artist-number">17</p><p class="artist-name">VAUN</p><p class="artist-role">Artist · Songwriter</p></div>
+          <div class="artist-info"><p class="artist-number">16</p><p class="artist-name">VAUN</p><p class="artist-role">Artist · Songwriter</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Echo','ASHLEY','Artist · Songwriter','Genre means nothing to her. She makes what she needs to make, when she needs to make it. Every record is a different skin. The honesty never changes.','','@ASHLEY','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/ashley.jpg')">
-          <div class="artist-img">
-            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/ashley.jpg" alt="ASHLEY" />
-            <div class="click-hint"><span>view</span></div>
-          </div>
-          <div class="artist-info"><p class="artist-number">18</p><p class="artist-name">ASHLEY</p><p class="artist-role">Artist · Songwriter</p></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- COMING SOON -->
-    <div class="wave reveal">
-      <p class="wave-label">Coming Soon</p>
-      <div class="artist-grid">
-        <div class="artist-card coming-soon" onclick="openModal('Coming Soon','AERA','Group · Coming Soon','Something is being built. Details will follow when they are ready to be known.','','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg')">
+        <div class="artist-card coming-soon" onclick="openModal('The Echo','AERA','Group','Four artists. One sound still being assembled. REA, HARBIN, DAISY, and LUNE — each one a distinct presence, together something larger. Their music exists at the intersection of digital and mythological, built for a world that runs on both. When they arrive, they will not ease in.','Chosen by Hera when the Black Mamba began corrupting the Digital Olympus. Known as The Four Pillars of Hera\'s Temple — REA, HARBIN, DAISY, and LUNE. Their ae-characters act as protectors of the Greek world, the Digital Olympus.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg" alt="AERA" />
             <div class="coming-soon-inner" style="background:rgba(13,13,13,0.45);">
@@ -1198,9 +1098,9 @@
             </div>
             <div class="click-hint"><span>view</span></div>
           </div>
-          <div class="artist-info"><p class="artist-number">—</p><p class="artist-name">AERA</p><p class="artist-role">Group · Coming Soon</p></div>
+          <div class="artist-info"><p class="artist-number">17</p><p class="artist-name">AERA</p><p class="artist-role">Group · Coming Soon</p></div>
         </div>
-        <div class="artist-card coming-soon" onclick="openModal('Coming Soon','BDC','Group · Coming Soon','Something is being built. Details will follow when they are ready to be known.','','—','')">
+        <div class="artist-card coming-soon" onclick="openModal('The Echo','ØISYZ','Group','Four voices shaped from shared ache. YNES, MINTY, MIA, and BONNIE — each one a different weight of emotion, together a sound that does not flinch from what it carries. They make music for everything that never gets said out loud.','A four-member group formed from the lingering presence of Oizys, where emotional pain gathers and takes shape. YNES, MINTY, MIA, and BONNIE emerge as its echoes — each carrying a different shade of hidden emotion. Through their music, ØISYZ turns what aches into sound, letting even the quietest feeling be heard.','—','')">
           <div class="artist-img">
             <div class="coming-soon-inner">
               <div class="coming-soon-line"></div>
@@ -1208,7 +1108,7 @@
               <div class="coming-soon-line"></div>
             </div>
           </div>
-          <div class="artist-info"><p class="artist-number">—</p><p class="artist-name">BDC</p><p class="artist-role">Group · Coming Soon</p></div>
+          <div class="artist-info"><p class="artist-number">18</p><p class="artist-name">ØISYZ</p><p class="artist-role">Group · Trainee</p></div>
         </div>
       </div>
     </div>
@@ -1230,42 +1130,261 @@
       <p class="section-title">Releases</p>
       <div class="section-line"></div>
     </div>
-    <div class="releases-list">
-      <div class="release-entry featured reveal">
-        <div class="release-img">
-          <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/eris%20virtual%20angel.jfif" alt="ERIS — Virtual Angel" />
+
+    <!-- FOUNDERS FEATURE ROW -->
+    <div class="catalog-feature reveal">
+      <div class="catalog-feature-card">
+        <div class="catalog-feature-img">
+          <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/cl%20coming%20soon.jfif" alt="CI-EL — ALPHA" />
+          <div class="catalog-feature-overlay">
+            <span class="catalog-type-badge">Album</span>
+          </div>
         </div>
-        <div class="release-info">
-          <p class="release-artist">ERIS</p>
-          <p class="release-catalog-label">MNM-001 &nbsp;&middot;&nbsp; Single</p>
-          <p class="release-title">Virtual Angel</p>
-          <p class="release-meta">February 2026</p>
-        </div>
-      </div>
-      <div class="release-entry reveal">
-        <div class="release-img">
-          <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/skaez%20do%20it.jfif" alt="SKÆZ — Do It" />
-        </div>
-        <div class="release-info">
-          <p class="release-artist">SKÆZ</p>
-          <p class="release-catalog-label">MNM-002 &nbsp;&middot;&nbsp; Single</p>
-          <p class="release-title">Do It</p>
-          <p class="release-meta">April 2026</p>
+        <div class="catalog-feature-info">
+          <p class="catalog-number">MNM-003</p>
+          <p class="catalog-feature-artist">CI-EL</p>
+          <p class="catalog-feature-title">ALPHA</p>
+          <p class="catalog-feature-date">April 2026</p>
         </div>
       </div>
-      <div class="release-entry reveal">
-        <div class="release-img">
-          <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/cl%20coming%20soon.jfif" alt="CI-EL — Coming Soon" />
+      <div class="catalog-feature-card">
+        <div class="catalog-feature-img">
+          <div class="catalog-img-placeholder">
+            <div class="release-pulse"></div>
+          </div>
+          <div class="catalog-feature-overlay">
+            <span class="catalog-type-badge">Album</span>
+          </div>
         </div>
-        <div class="release-info">
-          <p class="release-artist">CI-EL</p>
-          <p class="release-catalog-label">MNM-003 &nbsp;&middot;&nbsp; Single</p>
-          <p class="release-title">Coming Soon</p>
-          <p class="release-meta">2026</p>
+        <div class="catalog-feature-info">
+          <p class="catalog-number">MNM-004</p>
+          <p class="catalog-feature-artist">AUGUST</p>
+          <p class="catalog-feature-title">D2</p>
+          <p class="catalog-feature-date">April 2026</p>
         </div>
       </div>
     </div>
+
+    <!-- CATALOG GRID -->
+    <div class="catalog-grid reveal">
+      <div class="catalog-card">
+        <div class="catalog-card-img">
+          <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/eris%20virtual%20angel.jfif" alt="ERIS — Virtual Angel" />
+        </div>
+        <div class="catalog-card-info">
+          <div class="catalog-card-meta">
+            <span class="catalog-card-num">MNM-001</span>
+            <span class="catalog-card-type">Single</span>
+          </div>
+          <p class="catalog-card-artist">ERIS</p>
+          <p class="catalog-card-title">Virtual Angel</p>
+          <p class="catalog-card-date">Feb 2026</p>
+        </div>
+      </div>
+      <div class="catalog-card">
+        <div class="catalog-card-img">
+          <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/skaez%20do%20it.jfif" alt="SKÆZ — Do It" />
+        </div>
+        <div class="catalog-card-info">
+          <div class="catalog-card-meta">
+            <span class="catalog-card-num">MNM-002</span>
+            <span class="catalog-card-type">Single</span>
+          </div>
+          <p class="catalog-card-artist">SKÆZ</p>
+          <p class="catalog-card-title">Do It</p>
+          <p class="catalog-card-date">Apr 2026</p>
+        </div>
+      </div>
+      <div class="catalog-card">
+        <div class="catalog-card-img">
+          <div class="catalog-img-placeholder">
+            <div class="release-pulse"></div>
+          </div>
+        </div>
+        <div class="catalog-card-info">
+          <div class="catalog-card-meta">
+            <span class="catalog-card-num">MNM-005</span>
+            <span class="catalog-card-type">Single</span>
+          </div>
+          <p class="catalog-card-artist">JASS</p>
+          <p class="catalog-card-title">With Love, J</p>
+          <p class="catalog-card-date">May 2026</p>
+        </div>
+      </div>
+    </div>
+
   </section>
+
+  <style>
+    /* CATALOG — FEATURE ROW */
+    .catalog-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .catalog-feature-card {
+      position: relative;
+      border: 1px solid rgba(168,169,173,0.08);
+      overflow: hidden;
+      transition: border-color 0.4s ease;
+    }
+    .catalog-feature-card:hover { border-color: rgba(201,168,76,0.2); }
+    .catalog-feature-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      opacity: 0; transition: opacity 0.4s ease; z-index: 3;
+    }
+    .catalog-feature-card:hover::before { opacity: 1; }
+
+    .catalog-feature-img {
+      width: 100%; aspect-ratio: 1 / 1;
+      overflow: hidden; position: relative;
+      background: #0d0d0d;
+    }
+    .catalog-feature-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: grayscale(20%);
+      transition: transform 0.7s ease, filter 0.4s ease;
+    }
+    .catalog-feature-card:hover .catalog-feature-img img {
+      transform: scale(1.04); filter: grayscale(0%);
+    }
+    .catalog-feature-overlay {
+      position: absolute; top: 20px; right: 20px; z-index: 2;
+    }
+    .catalog-type-badge {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px;
+      letter-spacing: 4px; color: var(--gold); text-transform: uppercase;
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 5px 12px; background: rgba(13,13,13,0.7);
+      backdrop-filter: blur(4px);
+    }
+    .catalog-feature-info {
+      padding: 28px 32px 32px;
+      background: var(--black);
+      border-top: 1px solid rgba(168,169,173,0.07);
+    }
+    .catalog-number {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 12px; color: rgba(201,168,76,0.35); letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    .catalog-feature-artist {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px;
+      letter-spacing: 6px; color: var(--gold); text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .catalog-feature-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(28px, 4vw, 52px); color: var(--ivory);
+      letter-spacing: 2px; line-height: 1; margin-bottom: 14px;
+      transition: color 0.3s ease;
+    }
+    .catalog-feature-card:hover .catalog-feature-title { color: var(--gold); }
+    .catalog-feature-date {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px;
+      letter-spacing: 4px; color: var(--silver); text-transform: uppercase;
+    }
+
+    /* CATALOG — CARD GRID */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(168,169,173,0.06);
+    }
+    .catalog-card {
+      background: var(--black);
+      display: flex; flex-direction: column;
+      transition: background 0.3s ease;
+      position: relative;
+    }
+    .catalog-card:hover { background: #161614; }
+    .catalog-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      opacity: 0; transition: opacity 0.4s ease; z-index: 2;
+    }
+    .catalog-card:hover::before { opacity: 1; }
+    .catalog-card-img {
+      width: 100%; aspect-ratio: 1 / 1;
+      overflow: hidden; position: relative;
+      background: #0d0d0d;
+    }
+    .catalog-card-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: grayscale(20%);
+      transition: transform 0.6s ease, filter 0.4s ease;
+    }
+    .catalog-card:hover .catalog-card-img img {
+      transform: scale(1.05); filter: grayscale(0%);
+    }
+    .catalog-img-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .catalog-card-info {
+      padding: 20px 22px 24px;
+      border-top: 1px solid rgba(168,169,173,0.07);
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .catalog-card-meta {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .catalog-card-num {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 11px; color: rgba(201,168,76,0.35); letter-spacing: 1px;
+    }
+    .catalog-card-type {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 7px;
+      letter-spacing: 4px; color: rgba(168,169,173,0.4); text-transform: uppercase;
+      border-left: 1px solid rgba(168,169,173,0.15); padding-left: 12px;
+    }
+    .catalog-card-artist {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px;
+      letter-spacing: 5px; color: var(--gold); text-transform: uppercase;
+    }
+    .catalog-card-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(18px, 2.2vw, 28px); color: var(--ivory);
+      letter-spacing: 1px; line-height: 1.1;
+      transition: color 0.3s ease;
+    }
+    .catalog-card:hover .catalog-card-title { color: var(--gold); }
+    .catalog-card-date {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px;
+      letter-spacing: 3px; color: rgba(168,169,173,0.4); text-transform: uppercase;
+    }
+
+    /* CATALOG RESPONSIVE */
+    @media (max-width: 960px) {
+      .catalog-feature { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .catalog-grid { grid-template-columns: repeat(3, 1fr); }
+      .catalog-feature-info { padding: 20px 22px 24px; }
+      .catalog-feature-title { font-size: clamp(22px, 4vw, 36px); }
+    }
+    @media (max-width: 600px) {
+      .catalog-feature { grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+      .catalog-feature-info { padding: 14px 16px 18px; }
+      .catalog-feature-title { font-size: clamp(18px, 5vw, 26px); }
+      .catalog-feature-artist { font-size: 8px; letter-spacing: 4px; }
+      .catalog-feature-date { font-size: 8px; letter-spacing: 3px; }
+      .catalog-grid { grid-template-columns: repeat(3, 1fr); gap: 1px; }
+      .catalog-card-info { padding: 12px 12px 16px; gap: 4px; }
+      .catalog-card-title { font-size: clamp(13px, 3.5vw, 18px); }
+      .catalog-card-artist { font-size: 7px; letter-spacing: 3px; }
+      .catalog-card-num { font-size: 9px; }
+      .catalog-type-badge { font-size: 7px; letter-spacing: 3px; padding: 4px 8px; }
+      .catalog-feature-overlay { top: 10px; right: 10px; }
+    }
+    @media (max-width: 380px) {
+      .catalog-feature { gap: 6px; }
+      .catalog-grid { grid-template-columns: repeat(3, 1fr); }
+      .catalog-card-title { font-size: clamp(11px, 3vw, 15px); }
+      .catalog-card-info { padding: 8px 8px 12px; }
+    }
+  </style>
 
   <div class="ornament reveal"><div class="ornament-line"></div><span class="ornament-symbol">✦</span><div class="ornament-line rev"></div></div>
 
@@ -1312,16 +1431,10 @@
             <div class="leader-photo">
               <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg" alt="AUGUST" />
             </div>
-            <div class="leader-info"><span class="staff-role">Co-Founder &amp; Head of Production</span><span class="staff-name">AUGUST</span></div>
+            <div class="leader-info"><span class="staff-role">Head of Production</span><span class="staff-name">AUGUST</span></div>
           </div>
         </div>
-        <div class="staff-grid leadership-secondary">
-          <div class="staff-card">
-            <div class="leader-photo">
-              <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/nari.jpg" alt="NARI" />
-            </div>
-            <div class="leader-info"><span class="staff-role">Media &amp; Communications</span><span class="staff-name">NARI</span></div>
-          </div>
+        <div class="staff-grid leadership-secondary" style="grid-template-columns: repeat(5, 1fr);">
           <div class="staff-card">
             <div class="leader-photo">
               <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/aiven.jpg" alt="AIVEN" />
@@ -1334,13 +1447,31 @@
             </div>
             <div class="leader-info"><span class="staff-role">Head of Artistry</span><span class="staff-name">VI</span></div>
           </div>
+          <div class="staff-card">
+            <div class="leader-photo">
+              <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/nari.jpg" alt="NARI" />
+            </div>
+            <div class="leader-info"><span class="staff-role">Media &amp; Communications</span><span class="staff-name">NARI</span></div>
+          </div>
+          <div class="staff-card">
+            <div class="leader-photo">
+              <div class="leader-photo-placeholder"><div class="leader-pulse"></div></div>
+            </div>
+            <div class="leader-info"><span class="staff-role">Performance Director</span><span class="staff-name">REA</span></div>
+          </div>
+          <div class="staff-card">
+            <div class="leader-photo">
+              <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" />
+            </div>
+            <div class="leader-info"><span class="staff-role">Director of External Affairs</span><span class="staff-name">JASS</span></div>
+          </div>
         </div>
       </div>
       <div class="staff-block">
         <p class="staff-block-label">In-House</p>
 
         <div class="dept-block">
-          <div class="dept-label"><span class="dept-label-text">Production &amp; Composition</span><div class="dept-label-line"></div></div>
+          <div class="dept-label"><span class="dept-label-text">Mnemosyne Sound</span><div class="dept-label-line"></div></div>
           <div class="dept-grid">
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" /><p class="dept-name">CI-EL</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg" alt="AUGUST" /><p class="dept-name">AUGUST</p></div></div>
@@ -1358,34 +1489,31 @@
         </div>
 
         <div class="dept-block">
-          <div class="dept-label"><span class="dept-label-text">Songwriting &amp; Lyrics</span><div class="dept-label-line"></div></div>
+          <div class="dept-label"><span class="dept-label-text">Mnemosyne Ink</span><div class="dept-label-line"></div></div>
           <div class="dept-grid">
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" /><p class="dept-name">CI-EL</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg" alt="AUGUST" /><p class="dept-name">AUGUST</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg" alt="BJORN" /><p class="dept-name">BJORN</p></div></div>
-            <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/ashley.jpg" alt="ASHLEY" /><p class="dept-name">ASHLEY</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg" alt="ASTER" /><p class="dept-name">ASTER</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" /><p class="dept-name">JASS</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg" alt="LILA" /><p class="dept-name">LILA</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/YUU.jpg" alt="YUU" /><p class="dept-name">YUU</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg" alt="ANNELIESE" /><p class="dept-name">ANNELIESE</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg" alt="AMORE" /><p class="dept-name">AMORE</p></div></div>
-            <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/IAN.jpg" alt="IAN MOONE" /><p class="dept-name">IAN</p></div></div>
           </div>
         </div>
 
         <div class="dept-block">
-          <div class="dept-label"><span class="dept-label-text">Creative Direction &amp; Visual</span><div class="dept-label-line"></div></div>
+          <div class="dept-label"><span class="dept-label-text">Mnemosyne Visual</span><div class="dept-label-line"></div></div>
           <div class="dept-grid">
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" /><p class="dept-name">CI-EL</p></div></div>
-            <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/ashley.jpg" alt="ASHLEY" /><p class="dept-name">ASHLEY</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg" alt="AUGUST" /><p class="dept-name">AUGUST</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg" alt="VAUN" /><p class="dept-name">VAUN</p></div></div>
           </div>
         </div>
 
         <div class="dept-block">
-          <div class="dept-label"><span class="dept-label-text">Choreography &amp; Performance</span><div class="dept-label-line"></div></div>
+          <div class="dept-label"><span class="dept-label-text">Mnemosyne Motion</span><div class="dept-label-line"></div></div>
           <div class="dept-grid">
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/niven.jpg" alt="NIVEN" /><p class="dept-name">NIVEN</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg" alt="BJORN" /><p class="dept-name">BJORN</p></div></div>
@@ -1397,8 +1525,6 @@
             <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">NOLAN</p></div></div>
           </div>
         </div>
-
-
 
       </div>
     </div>
