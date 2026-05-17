@@ -824,6 +824,71 @@
       .modal-bio { font-size: 13px; }
       .footer-wordmark { font-size: 10px; letter-spacing: 6px; }
     }
+
+    /* NYNE GROUND BANNER */
+    .nyne-banner {
+      display: block; text-decoration: none;
+      width: 100%;
+      border-top: 1px solid rgba(201,168,76,0.12);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      background: rgba(201,168,76,0.03);
+      transition: background 0.4s ease;
+      position: relative; overflow: hidden;
+    }
+    .nyne-banner::before {
+      content: '';
+      position: absolute; top: 0; left: -100%; width: 100%; height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      transition: left 0.6s ease;
+    }
+    .nyne-banner:hover::before { left: 100%; }
+    .nyne-banner:hover { background: rgba(201,168,76,0.06); }
+    .nyne-banner-inner {
+      max-width: 1400px; margin: 0 auto;
+      padding: 52px 80px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nyne-banner-left { display: flex; flex-direction: column; gap: 10px; }
+    .nyne-banner-eyebrow {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px;
+      letter-spacing: 7px; color: rgba(201,168,76,0.5); text-transform: uppercase;
+      text-indent: 7px;
+    }
+    .nyne-banner-name {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(36px, 6vw, 80px); color: var(--ivory);
+      letter-spacing: 2px; line-height: 1;
+      transition: color 0.3s ease;
+    }
+    .nyne-banner:hover .nyne-banner-name { color: var(--gold); }
+    .nyne-banner-sub {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px;
+      letter-spacing: 5px; color: rgba(168,169,173,0.4); text-transform: uppercase;
+    }
+    .nyne-banner-right {
+      display: flex; align-items: center; gap: 16px; flex-shrink: 0;
+    }
+    .nyne-banner-cta {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px;
+      letter-spacing: 5px; color: var(--gold); text-transform: uppercase;
+      text-indent: 5px;
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+      padding-bottom: 3px;
+      transition: border-color 0.3s ease;
+    }
+    .nyne-banner:hover .nyne-banner-cta { border-color: var(--gold); }
+
+    @media (max-width: 960px) {
+      .nyne-banner-inner { padding: 40px 40px; }
+      .nyne-banner-name { font-size: clamp(28px, 5vw, 52px); }
+    }
+    @media (max-width: 600px) {
+      .nyne-banner-inner { padding: 32px 20px; flex-direction: column; align-items: flex-start; gap: 24px; }
+      .nyne-banner-name { font-size: clamp(32px, 9vw, 48px); }
+      .nyne-banner-eyebrow { font-size: 8px; letter-spacing: 5px; }
+      .nyne-banner-sub { font-size: 8px; letter-spacing: 4px; }
+      .nyne-banner-cta { font-size: 9px; letter-spacing: 4px; }
+    }
   </style>
 </head>
 <body>
@@ -863,6 +928,7 @@
     <a href="#releases" onclick="closeMobileNav()">Releases</a>
     <a href="#about" onclick="closeMobileNav()">About</a>
     <a href="#contact" onclick="closeMobileNav()">Contact</a>
+    <a href="https://mnemosynelabel.github.io/nyneground" target="_blank" style="color:var(--gold);">Store</a>
   </div>
 
   <!-- NAV -->
@@ -873,6 +939,7 @@
       <li><a href="#releases" data-section="releases">Releases</a></li>
       <li><a href="#about" data-section="about">About</a></li>
       <li><a href="#contact" data-section="contact">Contact</a></li>
+      <li><a href="https://mnemosynelabel.github.io/nyneground" target="_blank" style="color:var(--gold);">Store</a></li>
     </ul>
     <button class="hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
@@ -1097,14 +1164,14 @@
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg" alt="AERA" />
             <div class="click-hint"><span>view</span></div>
           </div>
-          <div class="artist-info"><p class="artist-number">17</p><p class="artist-name">AERA</p><p class="artist-role">Group</p></div>
+          <div class="artist-info"><p class="artist-number">17</p><p class="artist-name">AERA</p><p class="artist-role">Group · Coming Soon</p></div>
         </div>
         <div class="artist-card" onclick="openModal('The Echo','ØISYZ','Group','Four voices shaped from shared ache. YNES, MINTY, MIA, and BONNIE — each one a different weight of emotion, together a sound that does not flinch from what it carries. They make music for everything that never gets said out loud.','A four-member group formed from the lingering presence of Oizys, where emotional pain gathers and takes shape. YNES, MINTY, MIA, and BONNIE emerge as its echoes — each carrying a different shade of hidden emotion. Through their music, ØISYZ turns what aches into sound, letting even the quietest feeling be heard.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/oisyz.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/oisyz.jpg" alt="ØISYZ" />
             <div class="click-hint"><span>view</span></div>
           </div>
-          <div class="artist-info"><p class="artist-number">18</p><p class="artist-name">ØISYZ</p><p class="artist-role">Group</p></div>
+          <div class="artist-info"><p class="artist-number">18</p><p class="artist-name">ØISYZ</p><p class="artist-role">Group · Trainee</p></div>
         </div>
       </div>
     </div>
@@ -1380,6 +1447,23 @@
 
   <div class="ornament reveal"><div class="ornament-line"></div><span class="ornament-symbol">✦</span><div class="ornament-line rev"></div></div>
 
+  <!-- NYNE GROUND BANNER -->
+  <a href="https://mnemosynelabel.github.io/nyneground" target="_blank" class="nyne-banner reveal">
+    <div class="nyne-banner-inner">
+      <div class="nyne-banner-left">
+        <span class="nyne-banner-eyebrow">Stage &amp; Store</span>
+        <p class="nyne-banner-name">Nyne Ground</p>
+        <p class="nyne-banner-sub">성수동, 서울 &nbsp;&middot;&nbsp; Seongsu-dong, Seoul</p>
+      </div>
+      <div class="nyne-banner-right">
+        <span class="nyne-banner-cta">Visit the Store</span>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="#C9A84C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </a>
+
   <!-- PULL QUOTE 2 -->
   <div class="pull-divider" data-parallax="true">
     <div class="pull-quote-bg" data-speed="0.25">FIRE</div>
@@ -1474,6 +1558,7 @@
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg" alt="SEN" /><p class="dept-name">SEN</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/1ef6ea258c59a09caefd1452258ee7d827c699ac/images/ARL.jpg" alt="ARLE" /><p class="dept-name">ARLE</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/4be724f934b0883eaee1ef3b5a5c4d5e790e132b/images/PHANT.jpg" alt="PHANTOM" /><p class="dept-name">PHANTOM</p></div></div>
+            <div class="dept-card"><div class="dept-photo"><div class="dept-photo-placeholder"><div class="dept-photo-pulse"></div></div><p class="dept-name">ADAM</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/Xavier.jpg" alt="XAVIER" /><p class="dept-name">XAVIER</p></div></div>
             <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/Akio.jpg" alt="AKIO" /><p class="dept-name">AKIO</p></div></div>
           </div>
@@ -1559,6 +1644,7 @@
       <li><a href="#releases">Releases</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="https://mnemosynelabel.github.io/nyneground" target="_blank" style="color:var(--gold);">Nyne Ground</a></li>
     </ul>
     <div class="footer-divider"></div>
     <p class="footer-meta">Seoul &nbsp;&middot;&nbsp; Est. 2026 &nbsp;&middot;&nbsp; @mnemosyne_label</p>
