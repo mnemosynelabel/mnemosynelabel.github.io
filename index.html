@@ -83,6 +83,8 @@
       60%{transform:translate(4%,-2%)} 70%{transform:translate(-2%,1%)} 80%{transform:translate(3%,-3%)} 90%{transform:translate(-1%,2%)}
     }
 
+
+
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -164,29 +166,34 @@
       padding: 0 60px 80px; max-width: 100%;
       position: relative; overflow: hidden;
     }
-    .hero-bg {
-      position: absolute; inset: 0; pointer-events: none;
+    .hero-photo-bg {
+      position: absolute; inset: 0; z-index: 0;
     }
-    /* Diagonal red accent */
-    .hero-bg::before {
-      content: '';
-      position: absolute; top: -20%; right: -10%; width: 55%; height: 130%;
-      background: linear-gradient(135deg, transparent 40%, rgba(139,26,26,0.07) 100%);
-      transform: skewX(-8deg);
+    .hero-photo-bg img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center;
+      display: block; filter: grayscale(30%);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        to right,
+        rgba(10,10,10,0.88) 0%,
+        rgba(10,10,10,0.70) 50%,
+        rgba(10,10,10,0.40) 100%
+      );
     }
     .hero-wordmark-bg {
       position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
       font-family: 'Cormorant Garamond', serif; font-weight: 600;
       font-size: clamp(100px, 22vw, 320px);
       color: transparent;
-      -webkit-text-stroke: 1px rgba(201,168,76,0.05);
+      -webkit-text-stroke: 1px rgba(201,168,76,0.04);
       white-space: nowrap; letter-spacing: -4px;
-      animation: bgFade 3s ease forwards; user-select: none;
+      animation: bgFade 3s ease forwards; user-select: none; z-index: 2;
     }
     @keyframes bgFade { from{opacity:0} to{opacity:1} }
 
-    .hero-content { position: relative; z-index: 2; }
-    .hero-logo { width: clamp(64px, 8vw, 100px); height: auto; object-fit: contain; opacity: 0.9; margin-bottom: 36px; display: block; animation: hFade 1.5s ease forwards; opacity: 0; }
+    .hero-content { position: relative; z-index: 3; }
     .hero-label {
       font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px;
       letter-spacing: 8px; text-indent: 8px; color: var(--crimson);
@@ -208,7 +215,7 @@
       animation: hFade 2s ease .6s forwards; opacity: 0;
     }
     .hero-bottom {
-      position: absolute; bottom: 80px; right: 60px; z-index: 2;
+      position: absolute; bottom: 80px; right: 60px; z-index: 3;
       display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
       animation: hFade 2.5s ease .9s forwards; opacity: 0;
     }
@@ -223,6 +230,15 @@
       align-self: center; animation: scrollPulse 2.5s ease infinite;
     }
     @keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:1} }
+    /* Hero logo inline */
+    .hero-logo-inline {
+      width: clamp(48px, 6vw, 80px);
+      height: auto; object-fit: contain;
+      opacity: 0.92;
+      display: block; margin-bottom: 24px;
+      filter: drop-shadow(0 2px 16px rgba(201,168,76,0.15));
+      animation: hFade 1.8s ease .2s forwards; opacity: 0;
+    }
 
     /* ── MARQUEE ── */
     .marquee-wrap {
@@ -342,7 +358,7 @@
     /* Red flash on hover */
     .artist-card-img::before {
       content: ''; position: absolute; inset: 0; z-index: 2;
-      background: linear-gradient(to top, rgba(201,168,76,0.15) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(139,26,26,0.5) 0%, transparent 50%);
       opacity: 0; transition: opacity .4s ease;
     }
     .artist-card:hover .artist-card-img::before { opacity: 1; }
@@ -709,16 +725,19 @@
     }
 
     /* Leadership top row */
+    /* CI-EL + AIVEN top row — CI-EL wider */
+    .leadership-top {
+      display: grid; grid-template-columns: 3fr 2fr; gap: 2px; margin-bottom: 2px;
+    }
+    .leader-ciel .leader-photo { aspect-ratio: 3/4; }
+    .leader-ciel .leader-name { font-size: clamp(32px, 4vw, 56px) !important; letter-spacing: 3px; }
+    .leader-ciel .leader-role { font-size: 11px !important; letter-spacing: 6px; margin-bottom: 10px; }
+    .leader-ciel .leader-info { padding: 32px 32px 28px !important; }
+
+    /* VI + NARI below — 2 equal cols */
     .leadership-primary {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 2px; margin-bottom: 2px;
+      display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; margin-bottom: 2px;
     }
-    .leader-card.primary-hero {
-      grid-row: 1 / 3;
-    }
-    .leader-card.primary-hero .leader-photo { aspect-ratio: 2/3; }
     .leadership-secondary {
       display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
     }
@@ -751,16 +770,16 @@
     }
     .leader-info {
       position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
-      padding: 24px 24px 22px;
+      padding: 28px 28px 24px;
     }
     .leader-role {
-      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px;
-      letter-spacing: 4px; color: rgba(201,168,76,0.55); text-transform: uppercase;
-      display: block; margin-bottom: 6px;
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px;
+      letter-spacing: 5px; color: rgba(201,168,76,0.65); text-transform: uppercase;
+      display: block; margin-bottom: 8px;
     }
     .leader-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(20px, 2.5vw, 32px); color: var(--ivory);
+      font-size: clamp(24px, 3vw, 40px); color: var(--ivory);
       letter-spacing: 2px; line-height: 1; display: block;
       transition: color .3s ease;
     }
@@ -774,8 +793,9 @@
 
     /* Secondary smaller */
     .leadership-secondary .leader-photo { aspect-ratio: 3/4; }
-    .leadership-secondary .leader-info { padding: 16px 18px 14px; }
-    .leadership-secondary .leader-name { font-size: clamp(16px, 2vw, 24px); }
+    .leadership-secondary .leader-info { padding: 20px 22px 18px; }
+    .leadership-secondary .leader-name { font-size: clamp(20px, 2.5vw, 32px); }
+    .leadership-secondary .leader-role { font-size: 9px; letter-spacing: 4px; }
 
     /* Dept grids */
     .dept-block { margin-bottom: 72px; padding-bottom: 72px; border-bottom: 1px solid rgba(154,155,159,0.06); }
@@ -937,9 +957,6 @@
     @media (hover: none) { body { cursor: auto; } .cursor { display: none; } }
 
     @media (max-width: 1100px) {
-      .leadership-primary { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-      .leader-card.primary-hero { grid-row: 1; grid-column: 1 / -1; }
-      .leader-card.primary-hero .leader-photo { aspect-ratio: 3/2; max-height: 420px; overflow: hidden; }
       .nav-center { display: none; }
       .hamburger { display: flex; }
       nav { padding: 0 40px; }
@@ -959,8 +976,6 @@
     }
 
     @media (max-width: 768px) {
-      .hero-logo { width: clamp(52px, 10vw, 72px); margin-bottom: 24px; }
-      .hero-title { font-size: clamp(52px, 14vw, 100px); }
       nav { padding: 0 24px; }
       nav.scrolled { padding: 16px 24px; }
       #hero { padding: 0 24px 64px; }
@@ -973,6 +988,7 @@
       .artist-grid-4 { grid-template-columns: repeat(2,1fr); }
       .catalog-feature { grid-template-columns: 1fr 1fr; }
       .catalog-grid { grid-template-columns: repeat(3,1fr); }
+      .leadership-top { grid-template-columns: 1fr 1fr; }
       .leadership-primary { grid-template-columns: repeat(2,1fr); }
       .leadership-secondary { grid-template-columns: repeat(3,1fr); }
       .contact-item { padding: 40px 28px; }
@@ -982,14 +998,9 @@
     }
 
     @media (max-width: 500px) {
-      .leadership-primary { grid-template-columns: 1fr 1fr; }
-      .leader-card.primary-hero { grid-column: 1 / -1; }
-      .leader-card.primary-hero .leader-photo { aspect-ratio: 3/2; max-height: 300px; }
-      .hero-logo { width: 52px; margin-bottom: 20px; }
-      .hero-title { font-size: clamp(44px, 13vw, 72px); }
-      .contact-third { flex-direction: column; gap: 24px; }
-      .contact-third .contact-handle { text-align: left; }
       .hero-title { font-size: clamp(48px, 13vw, 80px); }
+      .hero-photo-bg img { object-position: 60% center; }
+      .hero-overlay { background: linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.80) 100%); }
       .artist-grid-2 { grid-template-columns: repeat(2,1fr); gap: 2px; }
       .artist-grid-4 { grid-template-columns: repeat(2,1fr); gap: 2px; }
       .catalog-feature { grid-template-columns: 1fr 1fr; gap: 2px; }
@@ -1045,6 +1056,7 @@
     <a href="https://mnemosynelabel.github.io/nyneground" target="_blank" class="store-link" onclick="closeMobileNav()">↗ Nyne Ground</a>
   </div>
 
+
   <!-- NAV -->
   <nav id="nav">
     <a href="#hero" class="nav-logo">Mnemosyne</a>
@@ -1062,10 +1074,18 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-bg"></div>
+    <!-- Background photo -->
+    <div class="hero-photo-bg">
+      <img src="https://images.unsplash.com/photo-1546874177-9e664107314e?auto=format&fit=crop&w=1920&q=80" alt="" />
+    </div>
+    <!-- Dark overlay so text reads clean -->
+    <div class="hero-overlay"></div>
+    <!-- Faint ghost wordmark -->
     <div class="hero-wordmark-bg">MNEMOSYNE</div>
+
     <div class="hero-content reveal-left">
-      <img src="https://raw.githubusercontent.com/mnemosynelabel/this-is-mnemosyne/69929eb252888a9286d7f510ea75b6d5055f2cad/images/logo.png" alt="Mnemosyne" class="hero-logo" />
+      <!-- Logo above label -->
+      <img src="https://raw.githubusercontent.com/mnemosynelabel/this-is-mnemosyne/69929eb252888a9286d7f510ea75b6d5055f2cad/images/logo.png" alt="Mnemosyne" class="hero-logo-inline" />
       <p class="hero-label">Seoul · Est. 2026 · Independent</p>
       <h1 class="hero-title">MNEM<span>O</span>SYNE</h1>
       <p class="hero-tagline">from memory, everything is made.</p>
@@ -1074,7 +1094,6 @@
       <span class="hero-bottom-line">Scroll to explore</span>
       <div class="hero-scroll"></div>
     </div>
-
   </section>
 
   <!-- MARQUEE -->
@@ -1417,9 +1436,13 @@
       <div class="staff-section reveal">
         <div class="staff-block">
           <p class="staff-block-label">Leadership</p>
-          <div class="leadership-primary">
-            <div class="leader-card primary-hero"><div class="leader-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" /></div><div class="leader-info"><span class="leader-role">CEO &amp; Creative Director</span><span class="leader-name">CI-EL</span></div></div>
+          <!-- TOP ROW: CI-EL (wider) + AIVEN -->
+          <div class="leadership-top">
+            <div class="leader-card leader-ciel"><div class="leader-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" /></div><div class="leader-info"><span class="leader-role">CEO &amp; Creative Director</span><span class="leader-name">CI-EL</span></div></div>
             <div class="leader-card"><div class="leader-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/aiven.jpg" alt="AIVEN" /></div><div class="leader-info"><span class="leader-role">A&amp;R &amp; Artist Relations</span><span class="leader-name">AIVEN</span></div></div>
+          </div>
+          <!-- BOTTOM ROW: VI · NARI -->
+          <div class="leadership-primary">
             <div class="leader-card"><div class="leader-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg" alt="VI" /></div><div class="leader-info"><span class="leader-role">Head of Artistry</span><span class="leader-name">VI</span></div></div>
             <div class="leader-card"><div class="leader-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/nari.jpg" alt="NARI" /></div><div class="leader-info"><span class="leader-role">Media &amp; Communications</span><span class="leader-name">NARI</span></div></div>
           </div>
@@ -1522,11 +1545,11 @@
         </div>
         <div class="contact-third">
           <div>
-            <span class="contact-type">Live Stage &amp; Store</span>
-            <p class="contact-email" style="margin-top:8px;"><a href="https://mnemosynelabel.github.io/nyneground" target="_blank" style="color:inherit;text-decoration:none;transition:color .3s ease;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">Nyne Ground ↗</a></p>
-            <p style="font-family:'Raleway',sans-serif;font-weight:200;font-size:10px;letter-spacing:4px;color:var(--silver);text-transform:uppercase;margin-top:10px;">Seongsu-dong, Seoul · 성수동, 서울</p>
+            <span class="contact-type">Stage &amp; Store</span>
+            <p class="contact-email" style="margin-top:12px;">Nyne Ground</p>
+            <p style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--silver);letter-spacing:.5px;line-height:1.8;margin-top:10px;">Live showcase coverage. Merchandise drops.<br/>Event announcements. Fan updates.<br/>Seongsu-dong, Seoul.</p>
           </div>
-          <p class="contact-handle" style="text-align:right;">@mnemosyne_label</p>
+          <p class="contact-handle">↗ Nyne Ground</p>
         </div>
       </div>
     </div>
