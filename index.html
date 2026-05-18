@@ -232,12 +232,12 @@
     @keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:1} }
     /* Hero logo inline */
     .hero-logo-inline {
-      width: clamp(48px, 6vw, 80px);
+      width: clamp(72px, 9vw, 128px);
       height: auto; object-fit: contain;
-      opacity: 0.92;
-      display: block; margin-bottom: 24px;
-      filter: drop-shadow(0 2px 16px rgba(201,168,76,0.15));
-      animation: hFade 1.8s ease .2s forwards; opacity: 0;
+      opacity: 0.95;
+      display: block; margin-bottom: 32px;
+      filter: drop-shadow(0 4px 32px rgba(201,168,76,0.2));
+      animation: hFade 1.8s ease .2s forwards;
     }
 
     /* ── MARQUEE ── */
@@ -727,12 +727,8 @@
     /* Leadership top row */
     /* CI-EL + AIVEN top row — CI-EL wider */
     .leadership-top {
-      display: grid; grid-template-columns: 3fr 2fr; gap: 2px; margin-bottom: 2px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px;
     }
-    .leader-ciel .leader-photo { aspect-ratio: 3/4; }
-    .leader-ciel .leader-name { font-size: clamp(32px, 4vw, 56px) !important; letter-spacing: 3px; }
-    .leader-ciel .leader-role { font-size: 11px !important; letter-spacing: 6px; margin-bottom: 10px; }
-    .leader-ciel .leader-info { padding: 32px 32px 28px !important; }
 
     /* VI + NARI below — 2 equal cols */
     .leadership-primary {
