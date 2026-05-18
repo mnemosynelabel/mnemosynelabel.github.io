@@ -83,29 +83,9 @@
       60%{transform:translate(4%,-2%)} 70%{transform:translate(-2%,1%)} 80%{transform:translate(3%,-3%)} 90%{transform:translate(-1%,2%)}
     }
 
-    /* ── SEASON STRIP ── */
-    .season-strip {
-      width: 100%; background: var(--crimson);
-      padding: 9px 0; text-align: center; position: relative; z-index: 99;
-      overflow: hidden;
-    }
-    .season-strip::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.08), transparent);
-      animation: shimmer 4s ease infinite;
-    }
-    @keyframes shimmer { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
-    .season-strip-text {
-      font-family: 'Raleway', sans-serif; font-weight: 300; font-size: 9px;
-      letter-spacing: 8px; text-indent: 8px; color: rgba(240,235,225,0.8);
-      text-transform: uppercase; position: relative;
-    }
-    .season-strip-text em { color: var(--gold); font-style: normal; font-weight: 400; }
-
     /* ── NAV ── */
     nav {
-      position: fixed; top: 34px; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 0 60px;
       display: flex; justify-content: space-between; align-items: center;
       transition: top .4s ease, background .4s ease, padding .4s ease, border-color .4s ease;
@@ -206,6 +186,7 @@
     @keyframes bgFade { from{opacity:0} to{opacity:1} }
 
     .hero-content { position: relative; z-index: 2; }
+    .hero-logo { width: clamp(64px, 8vw, 100px); height: auto; object-fit: contain; opacity: 0.9; margin-bottom: 36px; display: block; animation: hFade 1.5s ease forwards; opacity: 0; }
     .hero-label {
       font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px;
       letter-spacing: 8px; text-indent: 8px; color: var(--crimson);
@@ -361,7 +342,7 @@
     /* Red flash on hover */
     .artist-card-img::before {
       content: ''; position: absolute; inset: 0; z-index: 2;
-      background: linear-gradient(to top, rgba(139,26,26,0.5) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(201,168,76,0.15) 0%, transparent 50%);
       opacity: 0; transition: opacity .4s ease;
     }
     .artist-card:hover .artist-card-img::before { opacity: 1; }
@@ -398,7 +379,7 @@
     /* Top red accent line on hover */
     .artist-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(to right, var(--crimson), var(--gold));
+      background: var(--gold);
       z-index: 4; transform: scaleX(0); transform-origin: left;
       transition: transform .4s ease;
     }
@@ -446,7 +427,7 @@
     .modal-overlay.open .modal { transform: translateY(0); }
     .modal::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(to right, var(--crimson), var(--gold));
+      background: var(--gold);
       z-index: 2;
     }
     .modal-img {
@@ -465,7 +446,7 @@
     .modal-wave { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 5px; color: var(--crimson); text-transform: uppercase; }
     .modal-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 42px; color: var(--ivory); letter-spacing: 1px; line-height: 1; }
     .modal-role { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 4px; color: var(--silver); text-transform: uppercase; }
-    .modal-divider { width: 48px; height: 1px; background: linear-gradient(to right, var(--crimson), var(--gold)); flex-shrink: 0; }
+    .modal-divider { width: 48px; height: 1px; background: var(--gold); flex-shrink: 0; }
     .modal-bio { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: rgba(240,235,225,0.72); line-height: 1.9; letter-spacing: .3px; }
     .modal-lore-label { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px; letter-spacing: 6px; color: rgba(201,168,76,0.4); text-transform: uppercase; margin-top: 4px; }
     .modal-lore { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: rgba(240,235,225,0.45); line-height: 1.9; }
@@ -528,7 +509,7 @@
     .catalog-feature-card:hover { background: var(--black-mid); }
     .catalog-feature-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(to right, var(--crimson), var(--gold));
+      background: var(--gold);
       z-index: 3; transform: scaleX(0); transform-origin: left; transition: transform .4s ease;
     }
     .catalog-feature-card:hover::before { transform: scaleX(1); }
@@ -585,7 +566,7 @@
     .catalog-card:hover { background: var(--black-mid); }
     .catalog-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(to right, var(--crimson), var(--gold));
+      background: var(--gold);
       z-index: 2; transform: scaleX(0); transform-origin: left; transition: transform .4s ease;
     }
     .catalog-card:hover::before { transform: scaleX(1); }
@@ -729,8 +710,15 @@
 
     /* Leadership top row */
     .leadership-primary {
-      display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-bottom: 2px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 2px; margin-bottom: 2px;
     }
+    .leader-card.primary-hero {
+      grid-row: 1 / 3;
+    }
+    .leader-card.primary-hero .leader-photo { aspect-ratio: 2/3; }
     .leadership-secondary {
       display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
     }
@@ -779,7 +767,7 @@
     .leader-card:hover .leader-name { color: var(--gold); }
     .leader-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(to right, var(--crimson), var(--gold));
+      background: var(--gold);
       z-index: 3; transform: scaleX(0); transform-origin: left; transition: transform .4s ease;
     }
     .leader-card:hover::before { transform: scaleX(1); }
@@ -851,7 +839,7 @@
     .contact-item:hover { background: var(--black-mid); }
     .contact-item::before {
       content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 2px;
-      background: linear-gradient(to bottom, var(--crimson), var(--gold));
+      background: var(--gold);
       transform: scaleY(0); transform-origin: top; transition: transform .4s ease;
     }
     .contact-item:hover::before { transform: scaleY(1); }
@@ -949,6 +937,9 @@
     @media (hover: none) { body { cursor: auto; } .cursor { display: none; } }
 
     @media (max-width: 1100px) {
+      .leadership-primary { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .leader-card.primary-hero { grid-row: 1; grid-column: 1 / -1; }
+      .leader-card.primary-hero .leader-photo { aspect-ratio: 3/2; max-height: 420px; overflow: hidden; }
       .nav-center { display: none; }
       .hamburger { display: flex; }
       nav { padding: 0 40px; }
@@ -968,6 +959,8 @@
     }
 
     @media (max-width: 768px) {
+      .hero-logo { width: clamp(52px, 10vw, 72px); margin-bottom: 24px; }
+      .hero-title { font-size: clamp(52px, 14vw, 100px); }
       nav { padding: 0 24px; }
       nav.scrolled { padding: 16px 24px; }
       #hero { padding: 0 24px 64px; }
@@ -989,6 +982,13 @@
     }
 
     @media (max-width: 500px) {
+      .leadership-primary { grid-template-columns: 1fr 1fr; }
+      .leader-card.primary-hero { grid-column: 1 / -1; }
+      .leader-card.primary-hero .leader-photo { aspect-ratio: 3/2; max-height: 300px; }
+      .hero-logo { width: 52px; margin-bottom: 20px; }
+      .hero-title { font-size: clamp(44px, 13vw, 72px); }
+      .contact-third { flex-direction: column; gap: 24px; }
+      .contact-third .contact-handle { text-align: left; }
       .hero-title { font-size: clamp(48px, 13vw, 80px); }
       .artist-grid-2 { grid-template-columns: repeat(2,1fr); gap: 2px; }
       .artist-grid-4 { grid-template-columns: repeat(2,1fr); gap: 2px; }
@@ -1045,11 +1045,6 @@
     <a href="https://mnemosynelabel.github.io/nyneground" target="_blank" class="store-link" onclick="closeMobileNav()">↗ Nyne Ground</a>
   </div>
 
-  <!-- SEASON STRIP -->
-  <div class="season-strip">
-    <span class="season-strip-text">Current Season — <em>ANAMNESIS</em> &nbsp;·&nbsp; Seoul, South Korea &nbsp;·&nbsp; Est. 2026</span>
-  </div>
-
   <!-- NAV -->
   <nav id="nav">
     <a href="#hero" class="nav-logo">Mnemosyne</a>
@@ -1070,6 +1065,7 @@
     <div class="hero-bg"></div>
     <div class="hero-wordmark-bg">MNEMOSYNE</div>
     <div class="hero-content reveal-left">
+      <img src="https://raw.githubusercontent.com/mnemosynelabel/this-is-mnemosyne/69929eb252888a9286d7f510ea75b6d5055f2cad/images/logo.png" alt="Mnemosyne" class="hero-logo" />
       <p class="hero-label">Seoul · Est. 2026 · Independent</p>
       <h1 class="hero-title">MNEM<span>O</span>SYNE</h1>
       <p class="hero-tagline">from memory, everything is made.</p>
@@ -1078,7 +1074,7 @@
       <span class="hero-bottom-line">Scroll to explore</span>
       <div class="hero-scroll"></div>
     </div>
-    <img src="https://raw.githubusercontent.com/mnemosynelabel/this-is-mnemosyne/69929eb252888a9286d7f510ea75b6d5055f2cad/images/logo.png" alt="" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) translateX(28%);width:clamp(120px,18vw,280px);height:auto;object-fit:contain;opacity:0.04;pointer-events:none;user-select:none;" />
+
   </section>
 
   <!-- MARQUEE -->
@@ -1422,7 +1418,7 @@
         <div class="staff-block">
           <p class="staff-block-label">Leadership</p>
           <div class="leadership-primary">
-            <div class="leader-card"><div class="leader-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" /></div><div class="leader-info"><span class="leader-role">CEO &amp; Creative Director</span><span class="leader-name">CI-EL</span></div></div>
+            <div class="leader-card primary-hero"><div class="leader-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" /></div><div class="leader-info"><span class="leader-role">CEO &amp; Creative Director</span><span class="leader-name">CI-EL</span></div></div>
             <div class="leader-card"><div class="leader-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/aiven.jpg" alt="AIVEN" /></div><div class="leader-info"><span class="leader-role">A&amp;R &amp; Artist Relations</span><span class="leader-name">AIVEN</span></div></div>
             <div class="leader-card"><div class="leader-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg" alt="VI" /></div><div class="leader-info"><span class="leader-role">Head of Artistry</span><span class="leader-name">VI</span></div></div>
             <div class="leader-card"><div class="leader-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/nari.jpg" alt="NARI" /></div><div class="leader-info"><span class="leader-role">Media &amp; Communications</span><span class="leader-name">NARI</span></div></div>
@@ -1525,8 +1521,12 @@
           <p class="contact-email">Ninth Muse</p>
         </div>
         <div class="contact-third">
-          <p class="contact-location">Seoul, South Korea &nbsp;·&nbsp; @mnemosyne_label</p>
-          <p class="contact-handle">Nyne Ground</p>
+          <div>
+            <span class="contact-type">Live Stage &amp; Store</span>
+            <p class="contact-email" style="margin-top:8px;"><a href="https://mnemosynelabel.github.io/nyneground" target="_blank" style="color:inherit;text-decoration:none;transition:color .3s ease;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">Nyne Ground ↗</a></p>
+            <p style="font-family:'Raleway',sans-serif;font-weight:200;font-size:10px;letter-spacing:4px;color:var(--silver);text-transform:uppercase;margin-top:10px;">Seongsu-dong, Seoul · 성수동, 서울</p>
+          </div>
+          <p class="contact-handle" style="text-align:right;">@mnemosyne_label</p>
         </div>
       </div>
     </div>
