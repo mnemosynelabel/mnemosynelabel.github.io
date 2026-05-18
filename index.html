@@ -3,7 +3,24 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MNEMOSYNE</title>
+  <title>MNEMOSYNE — from memory, everything is made.</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/mnemosynelabel/this-is-mnemosyne/69929eb252888a9286d7f510ea75b6d5055f2cad/images/logo.png"/>
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/mnemosynelabel/this-is-mnemosyne/69929eb252888a9286d7f510ea75b6d5055f2cad/images/logo.png"/>
+
+  <!-- OG / Social -->
+  <meta name="description" content="An independent music label based in Seoul, South Korea. Founded in 2026. For artists who create everything — the sound, the image, the story, the rights."/>
+  <meta property="og:title" content="MNEMOSYNE — from memory, everything is made."/>
+  <meta property="og:description" content="An independent music label based in Seoul, South Korea. Founded in 2026. For artists who create everything."/>
+  <meta property="og:image" content="https://raw.githubusercontent.com/mnemosynelabel/this-is-mnemosyne/69929eb252888a9286d7f510ea75b6d5055f2cad/images/logo.png"/>
+  <meta property="og:url" content="https://mnemosynelabel.github.io"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="MNEMOSYNE — from memory, everything is made."/>
+  <meta name="twitter:description" content="An independent music label based in Seoul, South Korea. Founded in 2026."/>
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/mnemosynelabel/this-is-mnemosyne/69929eb252888a9286d7f510ea75b6d5055f2cad/images/logo.png"/>
+
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Raleway:wght@100;200;300;400&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -65,12 +82,12 @@
       padding: 20px 64px; border-bottom: 1px solid rgba(168,169,173,0.08);
     }
     .nav-logo {
-      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 12px;
-      letter-spacing: 8px; color: var(--gold); text-decoration: none; text-transform: uppercase;
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 13px;
+      letter-spacing: 10px; color: var(--gold); text-decoration: none; text-transform: uppercase;
     }
     .nav-links { display: flex; gap: 52px; list-style: none; }
     .nav-links a {
-      font-family: 'Raleway', sans-serif; font-weight: 300; font-size: 10px;
+      font-family: 'Raleway', sans-serif; font-weight: 300; font-size: 11px;
       letter-spacing: 4px; color: var(--silver); text-decoration: none; text-transform: uppercase;
       position: relative; transition: color 0.3s ease;
     }
@@ -99,7 +116,7 @@
     }
     .mobile-nav.open { display: flex; }
     .mobile-nav a {
-      font-family: 'Cormorant Garamond', serif; font-size: 36px;
+      font-family: 'Cormorant Garamond', serif; font-size: 42px;
       color: var(--ivory); text-decoration: none; letter-spacing: 6px; transition: color 0.3s ease;
     }
     .mobile-nav a:hover { color: var(--gold); }
@@ -112,9 +129,9 @@
     section { padding: 140px 80px; max-width: 1400px; margin: 0 auto; }
     .section-header { margin-bottom: 80px; text-align: center; }
     .section-eyebrow {
-      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px;
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 11px;
       letter-spacing: 8px; color: rgba(201,168,76,0.6); text-transform: uppercase;
-      text-indent: 8px; margin-bottom: 20px; display: block;
+      text-indent: 8px; margin-bottom: 24px; display: block;
     }
     .section-title {
       font-family: 'Cormorant Garamond', serif; font-weight: 300;
@@ -151,11 +168,11 @@
     }
     .hero-tagline {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: clamp(15px, 2vw, 20px); color: var(--silver);
+      font-size: clamp(17px, 2vw, 22px); color: var(--silver);
       letter-spacing: 2px; margin-bottom: 20px; animation: heroFade 3s ease forwards;
     }
     .hero-sub {
-      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px;
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 11px;
       letter-spacing: 6px; color: rgba(168,169,173,0.4); text-transform: uppercase;
       animation: heroFade 3.5s ease forwards;
     }
@@ -178,9 +195,9 @@
     .marquee-track:hover { animation-play-state: paused; }
     @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
     .marquee-item {
-      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px;
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 11px;
       letter-spacing: 6px; color: var(--silver); text-transform: uppercase;
-      padding: 0 40px; white-space: nowrap;
+      padding: 0 44px; white-space: nowrap;
     }
     .marquee-item span { color: var(--gold); margin: 0 12px; }
 
@@ -212,9 +229,9 @@
 
     /* ROSTER */
     #roster { border-top: 1px solid rgba(168,169,173,0.08); }
-    .roster-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: var(--silver); margin-top: 20px; letter-spacing: 1px; text-align: center; }
+    .roster-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: var(--silver); margin-top: 24px; letter-spacing: 1px; text-align: center; }
     .wave { margin-bottom: 80px; }
-    .wave-label { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 7px; color: var(--gold); text-transform: uppercase; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 1px solid rgba(201,168,76,0.1); text-align: center; text-indent: 7px; }
+    .wave-label { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 11px; letter-spacing: 7px; color: var(--gold); text-transform: uppercase; margin-bottom: 40px; padding-bottom: 16px; border-bottom: 1px solid rgba(201,168,76,0.12); text-align: center; text-indent: 7px; }
     .artist-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -277,8 +294,8 @@
     .artist-img-placeholder { font-size: 8px; letter-spacing: 2px; color: rgba(168,169,173,0.12); text-transform: uppercase; }
 
     .artist-info {
-      padding: 22px 26px 28px;
-      display: flex; flex-direction: column; gap: 7px;
+      padding: 24px 28px 30px;
+      display: flex; flex-direction: column; gap: 8px;
       border-top: 1px solid rgba(168,169,173,0.07);
     }
     .artist-name {
@@ -287,8 +304,8 @@
       letter-spacing: 2px; line-height: 1; transition: color 0.3s ease;
     }
     .artist-card:hover .artist-name { color: var(--gold); }
-    .artist-role { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 4px; color: var(--silver); text-transform: uppercase; }
-    .artist-number { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 12px; color: rgba(201,168,76,0.35); letter-spacing: 1px; }
+    .artist-role { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 4px; color: var(--silver); text-transform: uppercase; }
+    .artist-number { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; color: rgba(201,168,76,0.4); letter-spacing: 1px; }
 
     .artist-card.coming-soon .artist-img { background: #0d0d0d; }
     .coming-soon-inner {
@@ -315,8 +332,8 @@
     .modal-overlay.open { opacity: 1; pointer-events: all; }
     .modal {
       background: #111; border: 1px solid rgba(201,168,76,0.15);
-      max-width: 640px; width: 100%;
-      display: grid; grid-template-columns: 220px 1fr;
+      max-width: 720px; width: 100%;
+      display: grid; grid-template-columns: 260px 1fr;
       position: relative; transform: translateY(20px); transition: transform 0.4s ease;
       max-height: 90vh; overflow: hidden;
     }
@@ -334,18 +351,18 @@
     }
     .modal-img-placeholder { font-size: 8px; letter-spacing: 2px; color: rgba(168,169,173,0.12); text-transform: uppercase; }
     .modal-body {
-      padding: 48px 40px;
-      display: flex; flex-direction: column; justify-content: flex-start; gap: 20px;
+      padding: 52px 44px;
+      display: flex; flex-direction: column; justify-content: flex-start; gap: 22px;
       overflow-y: auto;
     }
-    .modal-wave { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
-    .modal-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 36px; color: var(--ivory); letter-spacing: 1px; line-height: 1; }
-    .modal-role { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 4px; color: var(--silver); text-transform: uppercase; }
+    .modal-wave { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
+    .modal-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 40px; color: var(--ivory); letter-spacing: 1px; line-height: 1; }
+    .modal-role { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 11px; letter-spacing: 4px; color: var(--silver); text-transform: uppercase; }
     .modal-divider { width: 40px; height: 1px; background: rgba(201,168,76,0.3); flex-shrink: 0; }
-    .modal-bio { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: rgba(245,240,232,0.65); line-height: 1.8; letter-spacing: 0.3px; }
+    .modal-bio { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: rgba(245,240,232,0.7); line-height: 1.9; letter-spacing: 0.3px; }
     .modal-lore-label { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 7px; letter-spacing: 6px; color: rgba(201,168,76,0.45); text-transform: uppercase; margin-top: 4px; }
-    .modal-lore { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: rgba(245,240,232,0.45); line-height: 1.9; letter-spacing: 0.3px; }
-    .modal-handle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--gold); letter-spacing: 1px; }
+    .modal-lore { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: rgba(245,240,232,0.5); line-height: 1.9; letter-spacing: 0.3px; }
+    .modal-handle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: var(--gold); letter-spacing: 1px; }
     .modal-close {
       position: absolute; top: 20px; right: 24px;
       background: none; border: none; cursor: none;
@@ -421,10 +438,10 @@
 
     /* ABOUT */
     #about { border-top: 1px solid rgba(168,169,173,0.08); }
-    .about-pull { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(26px, 4vw, 50px); color: var(--ivory); letter-spacing: 1px; line-height: 1.3; margin-bottom: 100px; max-width: 900px; }
+    .about-pull { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(28px, 4.5vw, 56px); color: var(--ivory); letter-spacing: 1px; line-height: 1.3; margin-bottom: 100px; max-width: 960px; }
     .about-pull em { color: var(--gold); font-style: normal; }
     .about-body { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; margin-bottom: 120px; }
-    .about-text p { font-family: 'Cormorant Garamond', serif; font-size: 19px; line-height: 2; color: rgba(245,240,232,0.7); margin-bottom: 32px; letter-spacing: 0.3px; }
+    .about-text p { font-family: 'Cormorant Garamond', serif; font-size: 21px; line-height: 2; color: rgba(245,240,232,0.75); margin-bottom: 36px; letter-spacing: 0.3px; }
     .about-text p strong { color: var(--gold); font-weight: 400; }
 
     .about-stat {
@@ -432,7 +449,7 @@
       display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 16px;
     }
     .about-stat:first-child { border-top: 1px solid rgba(168,169,173,0.07); }
-    .stat-label { font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 6px; color: var(--silver); text-transform: uppercase; margin-bottom: 10px; }
+    .stat-label { font-family: 'Raleway', sans-serif; font-size: 9px; letter-spacing: 6px; color: var(--silver); text-transform: uppercase; margin-bottom: 12px; }
     .stat-value {
       font-family: 'Cormorant Garamond', serif; font-weight: 300;
       font-size: clamp(28px, 3.5vw, 48px); color: var(--ivory); letter-spacing: -1px; line-height: 1;
@@ -440,9 +457,9 @@
     .stat-value.gold { color: var(--gold); }
 
     .staff-section { margin-top: 100px; padding-top: 60px; border-top: 1px solid rgba(168,169,173,0.08); }
-    .staff-title { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 8px; color: var(--silver); text-transform: uppercase; margin-bottom: 60px; text-align: center; text-indent: 8px; }
+    .staff-title { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 11px; letter-spacing: 8px; color: var(--silver); text-transform: uppercase; margin-bottom: 60px; text-align: center; text-indent: 8px; }
     .staff-block { margin-bottom: 72px; }
-    .staff-block-label { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 32px; padding-bottom: 14px; border-bottom: 1px solid rgba(201,168,76,0.12); }
+    .staff-block-label { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 36px; padding-bottom: 16px; border-bottom: 1px solid rgba(201,168,76,0.12); }
 
     .staff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(168,169,173,0.06); }
     .staff-grid.leadership { grid-template-columns: repeat(2, 1fr); gap: 12px; background: none; }
@@ -541,7 +558,7 @@
     }
     .dept-label-text {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: 22px; color: var(--ivory); letter-spacing: 1px;
+      font-size: 26px; color: var(--ivory); letter-spacing: 1px;
       white-space: nowrap; flex-shrink: 0;
     }
     .dept-label-line {
@@ -586,7 +603,7 @@
     .dept-name {
       position: absolute; bottom: 0; left: 0; right: 0;
       z-index: 2; padding: 14px 12px 12px;
-      font-family: 'Cormorant Garamond', serif; font-size: 15px;
+      font-family: 'Cormorant Garamond', serif; font-size: 17px;
       color: var(--ivory); letter-spacing: 1px; line-height: 1.2;
       text-align: center; transition: color 0.3s ease;
       text-shadow: 0 1px 4px rgba(0,0,0,0.8);
@@ -623,7 +640,7 @@
 
     /* CONTACT */
     #contact { border-top: 1px solid rgba(168,169,173,0.08); text-align: center; }
-    .contact-intro { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: var(--silver); margin-bottom: 80px; letter-spacing: 1px; }
+    .contact-intro { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 23px; color: var(--silver); margin-bottom: 80px; letter-spacing: 1px; }
     .contact-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(168,169,173,0.07); margin-bottom: 80px; }
     .contact-item {
       background: var(--black); padding: 56px 32px;
@@ -631,11 +648,11 @@
       display: flex; flex-direction: column; align-items: center; gap: 16px;
     }
     .contact-item:hover { background: rgba(201,168,76,0.03); }
-    .contact-type { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px; letter-spacing: 6px; color: rgba(201,168,76,0.6); text-transform: uppercase; }
+    .contact-type { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px; letter-spacing: 6px; color: rgba(201,168,76,0.6); text-transform: uppercase; }
     .contact-divider { width: 24px; height: 1px; background: rgba(201,168,76,0.25); }
     .contact-email { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2vw, 26px); color: var(--ivory); letter-spacing: 1px; line-height: 1.2; }
     .contact-location { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 6px; color: var(--silver); text-transform: uppercase; margin-bottom: 8px; }
-    .contact-handle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; color: var(--gold); letter-spacing: 1px; }
+    .contact-handle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; color: var(--gold); letter-spacing: 1px; }
 
     /* FOOTER */
     footer {
@@ -651,19 +668,19 @@
     .footer-logo { width: 48px; height: 48px; object-fit: contain; opacity: 0.6; margin-bottom: 32px; }
     .footer-wordmark {
       font-family: 'Raleway', sans-serif; font-weight: 100;
-      font-size: 18px; letter-spacing: 16px; text-indent: 16px;
-      color: var(--ivory); margin-bottom: 16px; text-transform: uppercase;
+      font-size: 20px; letter-spacing: 18px; text-indent: 18px;
+      color: var(--ivory); margin-bottom: 20px; text-transform: uppercase;
     }
     .footer-tagline {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: 17px; color: var(--silver); letter-spacing: 1px; margin-bottom: 40px;
+      font-size: 19px; color: var(--silver); letter-spacing: 1px; margin-bottom: 44px;
     }
     .footer-nav {
       display: flex; justify-content: center; gap: 48px;
       list-style: none; margin-bottom: 48px;
     }
     .footer-nav a {
-      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px;
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px;
       letter-spacing: 4px; color: rgba(168,169,173,0.4); text-decoration: none;
       text-transform: uppercase; transition: color 0.3s ease;
     }
@@ -673,7 +690,7 @@
       background: linear-gradient(to bottom, rgba(201,168,76,0.3), transparent);
     }
     .footer-meta {
-      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px;
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px;
       letter-spacing: 4px; color: rgba(168,169,173,0.25); text-transform: uppercase; margin-bottom: 40px;
     }
     .footer-disclaimer {
@@ -1166,7 +1183,7 @@
           </div>
           <div class="artist-info"><p class="artist-number">17</p><p class="artist-name">AERA</p><p class="artist-role">Group · Coming Soon</p></div>
         </div>
-        <div class="artist-card" onclick="openModal('The Echo','ØISYZ','Group','Four voices shaped from shared ache. YNES, MINTY, MIA, and BELLA — each one a different weight of emotion, together a sound that does not flinch from what it carries. They make music for everything that never gets said out loud.','A four-member group formed from the lingering presence of Oizys, where emotional pain gathers and takes shape. YNES, MINTY, MIA, and BELLA emerge as its echoes — each carrying a different shade of hidden emotion. Through their music, ØISYZ turns what aches into sound, letting even the quietest feeling be heard.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/oisyz.jpg')">
+        <div class="artist-card" onclick="openModal('The Echo','ØISYZ','Group','Four voices shaped from shared ache. YNES, MINTY, MIA, and BONNIE — each one a different weight of emotion, together a sound that does not flinch from what it carries. They make music for everything that never gets said out loud.','A four-member group formed from the lingering presence of Oizys, where emotional pain gathers and takes shape. YNES, MINTY, MIA, and BONNIE emerge as its echoes — each carrying a different shade of hidden emotion. Through their music, ØISYZ turns what aches into sound, letting even the quietest feeling be heard.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/oisyz.jpg')">
           <div class="artist-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/oisyz.jpg" alt="ØISYZ" />
             <div class="click-hint"><span>view</span></div>
@@ -1414,6 +1431,90 @@
     .catalog-card-date {
       font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px;
       letter-spacing: 3px; color: rgba(168,169,173,0.4); text-transform: uppercase;
+    }
+
+
+    /* ── ENHANCED UI ── */
+
+    /* Smooth scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.25); border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(201,168,76,0.5); }
+
+    /* Selection color */
+    ::selection { background: rgba(201,168,76,0.2); color: var(--ivory); }
+
+    /* Marquee padding increase */
+    .marquee-wrap { padding: 26px 0; }
+
+    /* Section header more breathing room */
+    .section-header { margin-bottom: 96px; }
+
+    /* Artist card — refined border and shadow on hover */
+    .artist-card:hover {
+      background: #1c1b18;
+      border-color: rgba(201,168,76,0.18);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    }
+
+    /* Click hint — cleaner */
+    .click-hint span {
+      font-size: 10px; letter-spacing: 5px;
+      border-bottom: 1px solid rgba(201,168,76,0.5);
+      padding-bottom: 3px;
+    }
+
+    /* Modal — backdrop blur stronger, border slightly more visible */
+    .modal-overlay { backdrop-filter: blur(20px); }
+    .modal { border: 1px solid rgba(201,168,76,0.2); }
+    .modal-divider { width: 48px; background: rgba(201,168,76,0.4); }
+
+    /* Catalog cards — hover shadow */
+    .catalog-feature-card:hover {
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+    .catalog-card:hover {
+      background: #161513;
+    }
+
+    /* Pull quote — slightly more contrast */
+    .pull-quote { color: rgba(245,240,232,0.95); }
+
+    /* About section — left align the pull quote */
+    .about-pull { line-height: 1.4; }
+
+    /* Contact items — more refined hover */
+    .contact-item:hover {
+      background: rgba(201,168,76,0.04);
+      box-shadow: inset 0 0 0 1px rgba(201,168,76,0.08);
+    }
+
+    /* Footer logo — slightly more visible */
+    .footer-logo { opacity: 0.75; }
+
+    /* Ornament — slightly more visible */
+    .ornament { opacity: 0.45; }
+
+    /* Nyne Ground banner — add subtle bottom line */
+    .nyne-banner-inner {
+      border-top: none;
+    }
+
+    /* Staff card hover — softer */
+    .staff-card:hover {
+      background: rgba(201,168,76,0.02);
+      border-left-color: rgba(201,168,76,0.35);
+    }
+
+    /* Leader photo — slightly stronger gradient */
+    .leader-photo::after {
+      background: linear-gradient(to top, rgba(13,13,13,0.98) 0%, rgba(13,13,13,0.5) 40%, transparent 100%);
+    }
+
+    /* Dept photo gradient — stronger */
+    .dept-photo::after {
+      background: linear-gradient(to top, rgba(13,13,13,0.98) 0%, rgba(13,13,13,0.3) 55%, transparent 100%);
     }
 
     /* CATALOG RESPONSIVE */
