@@ -196,7 +196,7 @@
     .hero-content { position: relative; z-index: 3; }
     .hero-label {
       font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px;
-      letter-spacing: 8px; text-indent: 8px; color: var(--crimson);
+      letter-spacing: 8px; text-indent: 8px; color: var(--gold);
       text-transform: uppercase; margin-bottom: 28px;
       animation: hFade 1.5s ease forwards; opacity: 0;
     }
@@ -232,11 +232,11 @@
     @keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:1} }
     /* Hero logo inline */
     .hero-logo-inline {
-      width: clamp(72px, 9vw, 128px);
+      width: clamp(80px, 11vw, 160px);
       height: auto; object-fit: contain;
-      opacity: 0.95;
-      display: block; margin-bottom: 32px;
-      filter: drop-shadow(0 4px 32px rgba(201,168,76,0.2));
+      opacity: 1;
+      display: block; margin-bottom: 36px;
+      filter: drop-shadow(0 4px 48px rgba(201,168,76,0.3)) brightness(1.05);
       animation: hFade 1.8s ease .2s forwards;
     }
 
@@ -729,6 +729,11 @@
     .leadership-top {
       display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px;
     }
+    /* All top-row cards same size and photo ratio */
+    .leadership-top .leader-photo { aspect-ratio: 2/3; }
+    .leadership-top .leader-name { font-size: clamp(28px, 3.5vw, 52px); letter-spacing: 3px; }
+    .leadership-top .leader-role { font-size: 10px; letter-spacing: 5px; margin-bottom: 8px; }
+    .leadership-top .leader-info { padding: 28px 32px 26px; }
 
     /* VI + NARI below — 2 equal cols */
     .leadership-primary {
@@ -1101,18 +1106,15 @@
       <span class="marquee-item">SKÆZ</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">JASS</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">VI</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">SEN</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">KHAI</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">BJORN</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">YUU</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">AMORE</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">ARLE</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">ANNELIESE</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">LILA</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">ASTER</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">VAUN</span><span class="marquee-item gold">·</span>
+      <span class="marquee-item">ARLE</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">AERA</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">ØISYZ</span><span class="marquee-item gold">·</span>
+      <span class="marquee-item">RITZY</span><span class="marquee-item gold">·</span>
+      <span class="marquee-item">ALETHBL</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">from memory, everything is made</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">artist-owned · in-house · independent</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">CI-EL</span><span class="marquee-item gold">·</span>
@@ -1121,18 +1123,15 @@
       <span class="marquee-item">SKÆZ</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">JASS</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">VI</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">SEN</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">KHAI</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">BJORN</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">YUU</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">AMORE</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">ARLE</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">ANNELIESE</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">LILA</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">ASTER</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">VAUN</span><span class="marquee-item gold">·</span>
+      <span class="marquee-item">ARLE</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">AERA</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">ØISYZ</span><span class="marquee-item gold">·</span>
+      <span class="marquee-item">RITZY</span><span class="marquee-item gold">·</span>
+      <span class="marquee-item">ALETHBL</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">from memory, everything is made</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">artist-owned · in-house · independent</span><span class="marquee-item gold">·</span>
     </div>
@@ -1153,7 +1152,7 @@
         </div>
         <div class="reveal-right" style="display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:16px;">
           <div class="roster-count">
-            <span class="roster-count-num">18</span>
+            <span class="roster-count-num">16</span>
             <span class="roster-count-label">Artists</span>
           </div>
           <p class="roster-intro-text" style="text-align:right;max-width:320px;">artists who create everything — the sound, the image, the story, the rights.</p>
@@ -1167,12 +1166,12 @@
           <span class="wave-name">The Origin</span>
         </div>
         <div class="artist-grid-2">
-          <div class="artist-card" onclick="openModal('The Origin','CI-EL','Artist · Producer · CEO','She built Mnemosyne because the industry owned everything she made. So she left. Then she built something that could not be taken.','Descendant of Mnemosyne, the Titan goddess of memory. She did not inherit divinity — she inherited the weight of remembering. Every system she moved through tried to own what she made. She left. She built something from what she refused to give up. Memory is not just what she carries. It is what she is made of.','@dcielgzb','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg')">
+          <div class="artist-card" onclick="openModal('The Origin','CI-EL','Artist · Producer','She built Mnemosyne because the industry owned everything she made. So she left. Then she built something that could not be taken.','Descendant of Mnemosyne, the Titan goddess of memory. She did not inherit divinity — she inherited the weight of remembering. Every system she moved through tried to own what she made. Memory is not just what she carries. It is what she is made of.','@dcielgzb','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg')">
             <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" /></div>
             <div class="artist-card-overlay"><span class="artist-card-num">01</span><span class="artist-card-name">CI-EL</span><span class="artist-card-role">Artist · Producer</span></div>
             <span class="artist-card-hint">View</span>
           </div>
-          <div class="artist-card" onclick="openModal('The Origin','AUGUST','Artist · Producer · Co-Founder','He came from underground. The industry found him. He never let it change him. Every track he makes carries what music felt like before it became a product.','Same bloodline as CI-EL — but the Lethe side, the river of forgetting. Where CI-EL carries memory, AUGUST understands what it means to lose it. He learned what forgetting felt like from the inside, and chose not to. Everything he has made since is proof he never drank from that river.','@dxaugustus','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg')">
+          <div class="artist-card" onclick="openModal('The Origin','AUGUST','Artist · Producer','He came from underground. The industry found him. He never let it change him. Every track he makes carries what music felt like before it became a product.','Same bloodline as CI-EL — but the Lethe side, the river of forgetting. Where CI-EL carries memory, AUGUST understands what it means to lose it. He learned what forgetting felt like from the inside, and chose not to.','@dxaugustus','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg')">
             <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg" alt="AUGUST" /></div>
             <div class="artist-card-overlay"><span class="artist-card-num">02</span><span class="artist-card-name">AUGUST</span><span class="artist-card-role">Artist · Producer</span></div>
             <span class="artist-card-hint">View</span>
@@ -1187,22 +1186,22 @@
           <span class="wave-name">The Canon</span>
         </div>
         <div class="artist-grid-4">
-          <div class="artist-card" onclick="openModal('The Canon','ERIS','Group','Five voices that rose together and refused to stay quiet. AIVEN, EVREN, NIVEN, SEREN, CELENE — each one a different edge of the same sound. They carry what they survived, and they carve it into everything they make.','Shaped beneath Artemis\'s gaze yet denied the wings they were promised, ERIS rose as the flaw heaven could not erase. Five voices forged into radiant, corrupted light. Through music, they carve their revenge into every note — turning harmony into a weapon and consequence into something the heavens can no longer silence.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg')">
+          <div class="artist-card" onclick="openModal('The Canon','ERIS','Group','Five voices that rose together and refused to stay quiet. AIVEN, EVREN, NIVEN, SEREN, CELENE — each one a different edge of the same sound.','Shaped beneath Artemis\'s gaze yet denied the wings they were promised, ERIS rose as the flaw heaven could not erase. Five voices forged into radiant, corrupted light. Through music, they carve their revenge into every note.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg')">
             <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/eris.jpg" alt="ERIS" /></div>
             <div class="artist-card-overlay"><span class="artist-card-num">03</span><span class="artist-card-name">ERIS</span><span class="artist-card-role">Group</span></div>
             <span class="artist-card-hint">View</span>
           </div>
-          <div class="artist-card" onclick="openModal('The Canon','SKÆZ','Group','Eight voices. Eight versions. They were not saved. They were chosen. Every time they step under the lights, it happens all over again.','Before they were SKÆZ, they were voices trained to be perfect. Dionysus found them when perfection began to fracture — splitting them into eight identities: obsession, noise, guilt, judgment, laughter, worship, detachment, and awakening. ADAM · RYO · XAVIER · LEO · AKIO · NOLAN · FELIX · RUI.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
+          <div class="artist-card" onclick="openModal('The Canon','SKÆZ','Group','Eight voices. Eight versions. They were not saved. They were chosen. Every time they step under the lights, it happens all over again.','Before they were SKÆZ, they were voices trained to be perfect. Dionysus found them when perfection began to fracture — splitting them into eight identities. ADAM · RYO · XAVIER · LEO · AKIO · NOLAN · FELIX · RUI.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
             <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg" alt="SKÆZ" /></div>
             <div class="artist-card-overlay"><span class="artist-card-num">04</span><span class="artist-card-name">SKÆZ</span><span class="artist-card-role">Group</span></div>
             <span class="artist-card-hint">View</span>
           </div>
-          <div class="artist-card" onclick="openModal('The Canon','JASS','Artist · Songwriter','A voice that has always been hers. She travelled to Korea to pursue her love for Korean music and fulfill her goal as a freelance songwriter and international artist.','A progeny of Athena, she carries wisdom and peace like an armor. She emanates an aura of authority and calmness — graceful yet stern, a woman who fights in front. Created melodies for the brave, her sphere is her nous, the ability to reason and strategize; while her aegis is her ingenuity.','@jassaely','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg')">
+          <div class="artist-card" onclick="openModal('The Canon','JASS','Artist · Songwriter','A voice that has always been hers. She travelled to Korea to pursue her love for Korean music and fulfill her goal as a freelance songwriter and international artist.','A progeny of Athena, she carries wisdom and peace like an armor. Graceful yet stern, a woman who fights in front. Her sphere is her nous — the ability to reason and strategize.','@jassaely','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg')">
             <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" /></div>
             <div class="artist-card-overlay"><span class="artist-card-num">05</span><span class="artist-card-name">JASS</span><span class="artist-card-role">Artist · Songwriter</span></div>
             <span class="artist-card-hint">View</span>
           </div>
-          <div class="artist-card" onclick="openModal('The Canon','VI','Artist · Producer','Soft as petals, untamed as nature. Ferocious yet charming, VI dominates the stage with lethal performance and playful confidence.','Vi emerged from the crumpled stalk of violet that Persephone planted where death and spring pressed closest together. Molded from earth that imprisons the fallen and from warmth where life blooms, Vi carries both the melody of the dead and the living.','@violetisblue','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg')">
+          <div class="artist-card" onclick="openModal('The Canon','VI','Artist · Producer','Soft as petals, untamed as nature. Ferocious yet charming, VI dominates the stage with lethal performance and playful confidence.','Vi emerged from the crumpled stalk of violet that Persephone planted where death and spring pressed closest together. Vi carries both the melody of the dead and the living.','@violetisblue','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg')">
             <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg" alt="VI" /></div>
             <div class="artist-card-overlay"><span class="artist-card-num">06</span><span class="artist-card-name">VI</span><span class="artist-card-role">Artist · Producer</span></div>
             <span class="artist-card-hint">View</span>
@@ -1217,24 +1216,24 @@
           <span class="wave-name">The Craft</span>
         </div>
         <div class="artist-grid-4">
-          <div class="artist-card" onclick="openModal('The Craft','SEN','Artist · Producer','From Hong Kong, he now lives in LA. Crossed borders, pushed past his limits until he claimed and owned his stage. Making his dreams his reality.','Reincarnated as the one who ruled from the fiery pits and endless chasms of the Underworld. Hades was deemed malevolent, yet he took his duties most seriously — keeping the dead within his realm with strictness, justice, and pride. Comfortable in stillness. Owner of his domain.','@heiSenberg','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg')">
-            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg" alt="SEN" /></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">07</span><span class="artist-card-name">SEN</span><span class="artist-card-role">Artist · Producer</span></div>
-            <span class="artist-card-hint">View</span>
-          </div>
-          <div class="artist-card" onclick="openModal('The Craft','KHAI','Artist · Choreographer','Born and raised in San Francisco, music and movement have always been part of his life. A choreographer and dancer, he continues to work on his craft and stay consistent with it.','A child of Apollo — not because he tried to stand out, but because he never had to. Performing was never skill alone; it was instinct, almost sacred. Music lived in his pulse, breath, and movement. He translated sound into feeling. On stage, he was not performing. He was remembering who he was meant to be.','@eskhalil','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/khai.jpg')">
-            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/khai.jpg" alt="KHAI" /></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">08</span><span class="artist-card-name">KHAI</span><span class="artist-card-role">Artist · Choreographer</span></div>
-            <span class="artist-card-hint">View</span>
-          </div>
-          <div class="artist-card" onclick="openModal('The Craft','BJORN','Artist · Producer','A body in motion and a sound in a speaker are the same conversation. He has always known this. He does not separate the disciplines. He is all of them at once.','The last descendant and reincarnation of Peitho — goddess of persuasion. He inherited only a fraction of her divinity, an imperfect form of her pull, and his contempt for humanity. His presence draws people in, blurring the line between influence and control. He exists between human and god, fully belonging to neither. Desired. Watched. Unable to escape.','@lastbjörn','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg')">
+          <div class="artist-card" onclick="openModal('The Craft','BJORN','Artist · Producer','A body in motion and a sound in a speaker are the same conversation. He does not separate the disciplines. He is all of them at once.','The last descendant and reincarnation of Peitho — goddess of persuasion. His presence draws people in, blurring the line between influence and control. He exists between human and god, fully belonging to neither.','@lastbjörn','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg')">
             <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg" alt="BJORN" /></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">09</span><span class="artist-card-name">BJORN</span><span class="artist-card-role">Artist · Producer</span></div>
+            <div class="artist-card-overlay"><span class="artist-card-num">07</span><span class="artist-card-name">BJORN</span><span class="artist-card-role">Artist · Producer</span></div>
             <span class="artist-card-hint">View</span>
           </div>
-          <div class="artist-card" onclick="openModal('The Craft','YUU','Artist · Songwriter','Born in Osaka. Moved across borders to make music on his own terms. He writes and performs like someone who has been building toward something in the dark for a long time — and finally decided to show it. His sound is heavy where others are light, and deliberate where others are impulsive.','Quietly chosen by Erebus, Yuu became a vessel of living shadow — their power seeping into music that feels heavier, darker, almost alive. Each performance draws from that abyss, distorting sound and memory alike. With every note, Erebus draws closer, waiting for the moment Yuu is no longer the artist but the voice he fully takes over.','@yamiyuu','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/YUU.jpg')">
-            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/YUU.jpg" alt="YUU" /></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">10</span><span class="artist-card-name">YUU</span><span class="artist-card-role">Artist · Songwriter</span></div>
+          <div class="artist-card" onclick="openModal('The Craft','ANNELIESE','Artist · Songwriter','A singer-songwriter who builds her music from the ground up — melody, lyric, and arrangement all shaped by the same hand.','Born from the lineage of Nike, Anneliese claimed the title of Goddess of Victory not by bloodright, but through the transformative power of her music. Known as The Winged Lyricist.','@annliweitz','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg')">
+            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg" alt="ANNELIESE" /></div>
+            <div class="artist-card-overlay"><span class="artist-card-num">08</span><span class="artist-card-name">ANNELIESE</span><span class="artist-card-role">Artist · Songwriter</span></div>
+            <span class="artist-card-hint">View</span>
+          </div>
+          <div class="artist-card" onclick="openModal('The Craft','LILA','Artist · Songwriter','Thai artist based in South Korea. A pianist at heart — she writes and composes her music, weaving her voice into both her own releases and the stories she helps bring to life.','Chosen by Persephone as the space where brightness and darkness could both exist. Her music moves in two voices — one blooming with light and one steeped in shadow.','@lilalaland','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg')">
+            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg" alt="LILA" /></div>
+            <div class="artist-card-overlay"><span class="artist-card-num">09</span><span class="artist-card-name">LILA</span><span class="artist-card-role">Artist · Songwriter</span></div>
+            <span class="artist-card-hint">View</span>
+          </div>
+          <div class="artist-card" onclick="openModal('The Craft','VAUN','Artist · Songwriter','A visual artist and songwriter who moves between disciplines without needing to justify it. Her music is fluid, layered, and emotionally exact.','Vaun carries the lingering imprint of Dionysus — a fragment of divine chaos that distorts everything she creates into something unstable, vivid, and alive. She does not create to be understood. She creates to unsettle reality itself.','@evidusk','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg')">
+            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg" alt="VAUN" /></div>
+            <div class="artist-card-overlay"><span class="artist-card-num">10</span><span class="artist-card-name">VAUN</span><span class="artist-card-role">Artist · Songwriter</span></div>
             <span class="artist-card-hint">View</span>
           </div>
         </div>
@@ -1247,25 +1246,24 @@
           <span class="wave-name">The Verse</span>
         </div>
         <div class="artist-grid-4">
-          <div class="artist-card" onclick="openModal('The Verse','AMORE','Artist · Songwriter','She writes about love the way someone writes about light — as if it is always slightly out of reach but impossible to stop looking for. Her sound is soft on the surface and heavier underneath.','Reborn from Aphrodite and Selene, she carries both love and moonlight within her. A quiet muse in the modern world, her beauty feels soft, magnetic, almost unreal — awakening longing and calm in those around her. As the moon calls, fragments of her past begin to return. She may be just a mortal. Or a goddess slowly remembering what she is.','@sweetliesangels.','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg')">
-            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg" alt="AMORE" /></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">11</span><span class="artist-card-name">AMORE</span><span class="artist-card-role">Artist · Songwriter</span></div>
-            <span class="artist-card-hint">View</span>
-          </div>
-          <div class="artist-card" onclick="openModal('The Verse','ARLE','Artist · Producer','She does not make music that asks for permission. Her sound is dense and precise — built to burn. A producer and artist who treats production like a ritual and every track like an invocation.','Born from a bloodline of witches said to descend from Hecate. She refused the coven\'s destiny and wove enchantment through music — turning melody into invocation and voice into flame.','@hexinno','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/1ef6ea258c59a09caefd1452258ee7d827c699ac/images/ARL.jpg')">
+          <div class="artist-card" onclick="openModal('The Verse','ARLE','Artist · Producer','She does not make music that asks for permission. Her sound is dense and precise — built to burn. Every track is an invocation.','Born from a bloodline of witches said to descend from Hecate. She refused the coven\'s destiny and wove enchantment through music — turning melody into invocation and voice into flame.','@hexinno','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/1ef6ea258c59a09caefd1452258ee7d827c699ac/images/ARL.jpg')">
             <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/1ef6ea258c59a09caefd1452258ee7d827c699ac/images/ARL.jpg" alt="ARLE" /></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">12</span><span class="artist-card-name">ARLE</span><span class="artist-card-role">Artist · Producer</span></div>
+            <div class="artist-card-overlay"><span class="artist-card-num">11</span><span class="artist-card-name">ARLE</span><span class="artist-card-role">Artist · Producer</span></div>
             <span class="artist-card-hint">View</span>
           </div>
-          <div class="artist-card" onclick="openModal('The Verse','ANNELIESE','Artist · Songwriter','A singer-songwriter who builds her music from the ground up — melody, lyric, and arrangement all shaped by the same hand. Her voice carries the kind of precision that only comes from someone who has always known exactly what she wants to say.','Born from the lineage of Nike, Anneliese claimed the title of Goddess of Victory not by bloodright, but through the transformative power of her music. Known as The Winged Lyricist.','@annliweitz','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg')">
-            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg" alt="ANNELIESE" /></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">13</span><span class="artist-card-name">ANNELIESE</span><span class="artist-card-role">Artist · Songwriter</span></div>
+          <div class="artist-card" onclick="openModal('The Verse','AERA','Group','Four artists. One sound still being assembled. REA, HARBIN, DAISY, and LUNE. When they arrive, they will not ease in.','Chosen by Hera when the Black Mamba began corrupting the Digital Olympus. The Four Pillars of Hera\'s Temple — REA, HARBIN, DAISY, and LUNE. Protectors of the Digital Olympus.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg')">
+            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg" alt="AERA" /></div>
+            <div class="artist-card-overlay"><span class="artist-card-num">12</span><span class="artist-card-name">AERA</span><span class="artist-card-role">Group</span></div>
             <span class="artist-card-hint">View</span>
           </div>
-          <div class="artist-card" onclick="openModal('The Verse','LILA','Artist · Songwriter','Thai artist based in South Korea. A pianist at heart — she writes and composes her music, weaving her voice into both her own releases and the stories she helps bring to life.','Chosen by Persephone as the space where brightness and darkness could both exist. From then on, her music moved in two voices — one blooming with light and one steeped in shadow, each revealing a different side of her becoming.','@lilalaland','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg')">
-            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg" alt="LILA" /></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">14</span><span class="artist-card-name">LILA</span><span class="artist-card-role">Artist · Songwriter</span></div>
+          <div class="artist-card" onclick="openModal('The Verse','ØISYZ','Group','Four voices shaped from shared ache. YNES, MINTY, MIA, and BONNIE. They make music for everything that never gets said out loud.','A four-member group formed from the lingering presence of Oizys. YNES, MINTY, MIA, and BONNIE — each carrying a different shade of hidden emotion. Through their music, ØISYZ turns what aches into sound.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/oisyz.jpg')">
+            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/oisyz.jpg" alt="ØISYZ" /></div>
+            <div class="artist-card-overlay"><span class="artist-card-num">13</span><span class="artist-card-name">ØISYZ</span><span class="artist-card-role">Group</span></div>
             <span class="artist-card-hint">View</span>
+          </div>
+          <div class="artist-card" style="pointer-events:none;">
+            <div class="artist-card-img" style="background:#080808;display:flex;align-items:center;justify-content:center;"><span style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,64px);color:rgba(201,168,76,0.1);letter-spacing:8px;">𖤐</span></div>
+            <div class="artist-card-overlay"><span class="artist-card-num">𖤐</span><span class="artist-card-name" style="color:rgba(201,168,76,0.1);">—</span><span class="artist-card-role"></span></div>
           </div>
         </div>
       </div>
@@ -1276,33 +1274,35 @@
           <span class="wave-num">V</span>
           <span class="wave-name">The Echo</span>
         </div>
-        <div class="artist-grid-4">
-          <div class="artist-card" onclick="openModal('The Echo','ASTER','Artist · Songwriter','He does not stop. Every skill, every sound, every medium approached with the same relentless commitment. Not to prove anything. Because standing still was never an option.','Son of the river god Asterion, he carries the current in everything he makes — relentless, always moving, never still. River gods do not stop for anything. Neither does he. Every sound, every medium approached like water finding its way through stone. Not force. Inevitability.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg')">
-            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg" alt="ASTER" /></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">15</span><span class="artist-card-name">ASTER</span><span class="artist-card-role">Artist · Songwriter</span></div>
+        <div class="artist-grid-2">
+          <div class="artist-card" onclick="openModal('The Echo','RITZY','Group','A five-member girl group. Confident image, strong individuality, dynamic performances. Blending pop, hip-hop, and dance-driven sounds — themes of feminine confidence, self-expression, and authenticity.','Descendants of Ares awakened beneath a crimson moon. Each inherited a fragment of the war god\'s power: courage, instinct, rebellion, ambition, and conquest. Together, they became RITZY — the Crimson Thieves. Outlaws who steal back confidence, freedom, identity, and voice.','@ritzy.all.in.us','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/92adcf2374afad42e852ebed4639953febf9b06a/images/ritzy.jpg')">
+            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/92adcf2374afad42e852ebed4639953febf9b06a/images/ritzy.jpg" alt="RITZY" /></div>
+            <div class="artist-card-overlay"><span class="artist-card-num">15</span><span class="artist-card-name">RITZY</span><span class="artist-card-role">Group</span></div>
             <span class="artist-card-hint">View</span>
           </div>
-          <div class="artist-card" onclick="openModal('The Echo','VAUN','Artist · Songwriter','A visual artist and songwriter who moves between disciplines without needing to justify it. Her music is fluid, layered, and emotionally exact — the kind that reveals something different every time you return to it. She creates with her hands and her gut simultaneously.','Vaun carries the lingering imprint of Dionysus — a fragment of divine chaos that distorts everything she creates into something unstable, vivid, and alive. She does not create to be understood. She creates to unsettle reality itself.','@evidusk','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg')">
-            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg" alt="VAUN" /></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">16</span><span class="artist-card-name">VAUN</span><span class="artist-card-role">Artist · Songwriter</span></div>
+          <div class="artist-card" onclick="openModal('The Echo','ALETHBL','Group','Five members. One vessel. YUAN. JAXON. GUWON. CAIO. SE. Named for Aletheia — the Greek goddess of truth and disclosure. The music is what she sounds like when she finally has a voice.','Named for Aletheia — Ἀλήθεια — the goddess of truth and disclosure. Her name means unconcealedness. Not truth as something spoken. Truth as something that can no longer stay hidden. ἡ ἀλήθεια φωνή ἐστιν. truth is a voice.','@alethbl.mnm','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/92adcf2374afad42e852ebed4639953febf9b06a/images/alethbl.jpg')">
+            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/92adcf2374afad42e852ebed4639953febf9b06a/images/alethbl.jpg" alt="ALETHBL" /></div>
+            <div class="artist-card-overlay"><span class="artist-card-num">16</span><span class="artist-card-name">ALETHBL</span><span class="artist-card-role">Group</span></div>
             <span class="artist-card-hint">View</span>
           </div>
-          <div class="artist-card" onclick="openModal('The Echo','AERA','Group','Four artists. One sound still being assembled. REA, HARBIN, DAISY, and LUNE — each one a distinct presence, together something larger. Their music exists at the intersection of digital and mythological, built for a world that runs on both. When they arrive, they will not ease in.','Chosen by Hera when the Black Mamba began corrupting the Digital Olympus. Known as The Four Pillars of Hera\'s Temple — REA, HARBIN, DAISY, and LUNE. Their ae-characters act as protectors of the Greek world, the Digital Olympus.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg')">
-            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/new%20gen.jpg" alt="AERA" /></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">17</span><span class="artist-card-name">AERA</span><span class="artist-card-role">Group · Coming Soon</span></div>
-            <span class="artist-card-hint">View</span>
+          <div class="artist-card" style="pointer-events:none;">
+            <div class="artist-card-img" style="background:#080808;display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,64px);color:rgba(201,168,76,0.08);">𖤐</span>
+            </div>
+            <div class="artist-card-overlay"><span class="artist-card-num" style="color:rgba(201,168,76,0.1);">𖤐</span><span class="artist-card-name" style="color:rgba(201,168,76,0.08);">—</span></div>
           </div>
-          <div class="artist-card" onclick="openModal('The Echo','ØISYZ','Group','Four voices shaped from shared ache. YNES, MINTY, MIA, and BONNIE — each one a different weight of emotion, together a sound that does not flinch from what it carries. They make music for everything that never gets said out loud.','A four-member group formed from the lingering presence of Oizys, where emotional pain gathers and takes shape. YNES, MINTY, MIA, and BONNIE emerge as its echoes — each carrying a different shade of hidden emotion. Through their music, ØISYZ turns what aches into sound, letting even the quietest feeling be heard.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/oisyz.jpg')">
-            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/oisyz.jpg" alt="ØISYZ" /></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">18</span><span class="artist-card-name">ØISYZ</span><span class="artist-card-role">Group · Coming Soon</span></div>
-            <span class="artist-card-hint">View</span>
+          <div class="artist-card" style="pointer-events:none;">
+            <div class="artist-card-img" style="background:#080808;display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,64px);color:rgba(201,168,76,0.08);">𖤐</span>
+            </div>
+            <div class="artist-card-overlay"><span class="artist-card-num" style="color:rgba(201,168,76,0.1);">𖤐</span><span class="artist-card-name" style="color:rgba(201,168,76,0.08);">—</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PULL QUOTE 1 -->
+    <!-- PULL QUOTE 1 -->
   <div class="pull-divider" style="background:linear-gradient(to right, rgba(139,26,26,0.04), transparent);">
     <div class="pull-quote-bg" data-speed="0.3" style="right:-5%;">MEMORY</div>
     <p class="pull-quote reveal-left">"named after the <em>mother of all muses.</em><br/>origin of every <strong>creative discipline.</strong>"</p>
@@ -1318,10 +1318,10 @@
       </div>
       <div class="releases-intro reveal">
         <h2 class="section-heading">Releases</h2>
-        <p class="releases-intro-right">five releases · 2026</p>
+        <p class="releases-intro-right">six releases · 2026</p>
       </div>
 
-      <div class="catalog-feature reveal">
+      <div class="catalog-feature reveal" style="grid-template-columns: repeat(3,1fr);">
         <div class="catalog-feature-card">
           <div class="catalog-feature-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/cl%20coming%20soon.jfif" alt="CI-EL — ALPHA" />
@@ -1344,6 +1344,18 @@
             <p class="catalog-feature-artist">AUGUST</p>
             <p class="catalog-feature-title">D2</p>
             <p class="catalog-feature-date">April 2026</p>
+          </div>
+        </div>
+        <div class="catalog-feature-card">
+          <div class="catalog-feature-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/nyneground/601787b2fd8b5526806db06b601162258a126d9a/images/VI%20DESCENT.png" alt="VI — DESCENT" />
+            <div class="catalog-feature-overlay"><span class="catalog-type-badge">Mini Album</span></div>
+          </div>
+          <div class="catalog-feature-info">
+            <p class="catalog-num">MNM-006</p>
+            <p class="catalog-feature-artist">VI</p>
+            <p class="catalog-feature-title">DESCENT</p>
+            <p class="catalog-feature-date">May 2026</p>
           </div>
         </div>
       </div>
@@ -1423,7 +1435,7 @@
           <div class="about-stat"><p class="stat-label">Founded</p><p class="stat-value gold">2026</p></div>
           <div class="about-stat"><p class="stat-label">Headquarters</p><p class="stat-value">Seoul</p></div>
           <div class="about-stat"><p class="stat-label">Reach</p><p class="stat-value">International</p></div>
-          <div class="about-stat"><p class="stat-label">Artists</p><p class="stat-value gold">18</p></div>
+          <div class="about-stat"><p class="stat-label">Artists</p><p class="stat-value gold">16</p></div>
           <div class="about-stat"><p class="stat-label">Model</p><p class="stat-value" style="font-size:clamp(16px,1.8vw,26px);letter-spacing:0;line-height:1.5;">Artist-owned.<br/>In-house.<br/>Independent.</p></div>
         </div>
       </div>
@@ -1476,12 +1488,10 @@
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" /><p class="dept-name">CI-EL</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg" alt="AUGUST" /><p class="dept-name">AUGUST</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg" alt="BJORN" /><p class="dept-name">BJORN</p></div></div>
-              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/aster.jpg" alt="ASTER" /><p class="dept-name">ASTER</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" /><p class="dept-name">JASS</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg" alt="LILA" /><p class="dept-name">LILA</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/YUU.jpg" alt="YUU" /><p class="dept-name">YUU</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg" alt="ANNELIESE" /><p class="dept-name">ANNELIESE</p></div></div>
-              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/AMORE.jpg" alt="AMORE" /><p class="dept-name">AMORE</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/Felix.jpg" alt="FELIX" /><p class="dept-name">FELIX</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/Rui.jpg" alt="RUI" /><p class="dept-name">RUI</p></div></div>
             </div>
