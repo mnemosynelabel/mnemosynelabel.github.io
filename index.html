@@ -987,7 +987,7 @@
       .roster-intro { grid-template-columns: 1fr; gap: 32px; }
       .roster-count { text-align: left; }
       .artist-grid-4 { grid-template-columns: repeat(2,1fr); }
-      .catalog-feature { grid-template-columns: 1fr 1fr; }
+      .catalog-feature { grid-template-columns: repeat(4,1fr) !important; }
       .catalog-grid { grid-template-columns: repeat(3,1fr); }
       .leadership-top { grid-template-columns: 1fr 1fr; }
       .leadership-primary { grid-template-columns: repeat(2,1fr); }
@@ -1004,7 +1004,7 @@
       .hero-overlay { background: linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.80) 100%); }
       .artist-grid-2 { grid-template-columns: repeat(2,1fr); gap: 2px; }
       .artist-grid-4 { grid-template-columns: repeat(2,1fr); gap: 2px; }
-      .catalog-feature { grid-template-columns: 1fr 1fr; gap: 2px; }
+      .catalog-feature { grid-template-columns: repeat(2,1fr) !important; gap: 2px; }
       .catalog-feature-title { font-size: clamp(22px, 5vw, 36px); }
       .catalog-grid { grid-template-columns: repeat(3,1fr); gap: 1px; }
       .catalog-card-title { font-size: clamp(13px, 3.5vw, 18px); }
@@ -1280,7 +1280,7 @@
             <div class="artist-card-overlay"><span class="artist-card-num">15</span><span class="artist-card-name">RITZY</span><span class="artist-card-role">Group</span></div>
             <span class="artist-card-hint">View</span>
           </div>
-          <div class="artist-card" onclick="openModal('The Echo','ALETHBL','Group','Five members. One vessel. YUAN. JAXON. GUWON. CAIO. SE. Named for Aletheia — the Greek goddess of truth and disclosure. The music is what she sounds like when she finally has a voice.','Named for Aletheia — Ἀλήθεια — the goddess of truth and disclosure. Her name means unconcealedness. Not truth as something spoken. Truth as something that can no longer stay hidden. ἡ ἀλήθεια φωνή ἐστιν. truth is a voice.','@alethbl.mnm','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/92adcf2374afad42e852ebed4639953febf9b06a/images/alethbl.jpg')">
+          <div class="artist-card" onclick="openModal('The Echo','ALETHBL','Group','A five-member group. YUAN. JAXON. GUWON. CAIO. SE. Five voices, one vessel — each member a distinct presence, together something larger than any name for it.','Named for Aletheia — Ἀλήθεια — the Greek goddess of truth and disclosure. Her name means unconcealedness. Not truth as something spoken. Truth as something that can no longer stay hidden. They carry her in the music. Every note is her finally finding a voice. ἡ ἀλήθεια φωνή ἐστιν. truth is a voice.','@alethbl.mnm','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/92adcf2374afad42e852ebed4639953febf9b06a/images/alethbl.jpg')">
             <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/92adcf2374afad42e852ebed4639953febf9b06a/images/alethbl.jpg" alt="ALETHBL" /></div>
             <div class="artist-card-overlay"><span class="artist-card-num">16</span><span class="artist-card-name">ALETHBL</span><span class="artist-card-role">Group</span></div>
             <span class="artist-card-hint">View</span>
@@ -1318,10 +1318,10 @@
       </div>
       <div class="releases-intro reveal">
         <h2 class="section-heading">Releases</h2>
-        <p class="releases-intro-right">six releases · 2026</p>
+        <p class="releases-intro-right">seven albums · 2026</p>
       </div>
 
-      <div class="catalog-feature reveal" style="grid-template-columns: repeat(3,1fr);">
+      <div class="catalog-feature reveal" style="grid-template-columns: repeat(4,1fr);">
         <div class="catalog-feature-card">
           <div class="catalog-feature-img">
             <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/cl%20coming%20soon.jfif" alt="CI-EL — ALPHA" />
@@ -1358,34 +1358,52 @@
             <p class="catalog-feature-date">May 2026</p>
           </div>
         </div>
-      </div>
-
-      <div class="catalog-grid reveal">
-        <div class="catalog-card">
-          <div class="catalog-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/eris%20virtual%20angel.jfif" alt="ERIS — Virtual Angel" /></div>
-          <div class="catalog-card-info">
-            <div class="catalog-card-meta"><span class="catalog-card-num">MNM-001</span><span class="catalog-card-type">Single</span></div>
-            <p class="catalog-card-artist">ERIS</p>
-            <p class="catalog-card-title">Virtual Angel</p>
-            <p class="catalog-card-date">Feb 2026</p>
+        <div class="catalog-feature-card">
+          <div class="catalog-feature-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/nyneground/601787b2fd8b5526806db06b601162258a126d9a/images/AERA%20BASILEIA.png" alt="AERA — BASILEIA" />
+            <div class="catalog-feature-overlay"><span class="catalog-type-badge">Album</span></div>
+          </div>
+          <div class="catalog-feature-info">
+            <p class="catalog-num">MNM-007</p>
+            <p class="catalog-feature-artist">AERA</p>
+            <p class="catalog-feature-title">BASILEIA</p>
+            <p class="catalog-feature-date">May 2026</p>
           </div>
         </div>
-        <div class="catalog-card">
-          <div class="catalog-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/skaez%20do%20it.jfif" alt="SKÆZ — Do It" /></div>
-          <div class="catalog-card-info">
-            <div class="catalog-card-meta"><span class="catalog-card-num">MNM-002</span><span class="catalog-card-type">Single</span></div>
-            <p class="catalog-card-artist">SKÆZ</p>
-            <p class="catalog-card-title">Do It</p>
-            <p class="catalog-card-date">Apr 2026</p>
+        <div class="catalog-feature-card">
+          <div class="catalog-feature-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/eris%20virtual%20angel.jfif" alt="ERIS — DALL" />
+            <div class="catalog-feature-overlay"><span class="catalog-type-badge">Album</span></div>
+          </div>
+          <div class="catalog-feature-info">
+            <p class="catalog-num">MNM-001</p>
+            <p class="catalog-feature-artist">ERIS</p>
+            <p class="catalog-feature-title">DALL</p>
+            <p class="catalog-feature-date">Feb 2026</p>
           </div>
         </div>
-        <div class="catalog-card">
-          <div class="catalog-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/WithLoveJ.jpg" alt="JASS — With Love, J" /></div>
-          <div class="catalog-card-info">
-            <div class="catalog-card-meta"><span class="catalog-card-num">MNM-005</span><span class="catalog-card-type">Single</span></div>
-            <p class="catalog-card-artist">JASS</p>
-            <p class="catalog-card-title">With Love, J</p>
-            <p class="catalog-card-date">May 2026</p>
+        <div class="catalog-feature-card">
+          <div class="catalog-feature-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/skaez%20do%20it.jfif" alt="SKÆZ — Do It" />
+            <div class="catalog-feature-overlay"><span class="catalog-type-badge">Album</span></div>
+          </div>
+          <div class="catalog-feature-info">
+            <p class="catalog-num">MNM-002</p>
+            <p class="catalog-feature-artist">SKÆZ</p>
+            <p class="catalog-feature-title">Do It</p>
+            <p class="catalog-feature-date">Apr 2026</p>
+          </div>
+        </div>
+        <div class="catalog-feature-card">
+          <div class="catalog-feature-img">
+            <img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/WithLoveJ.jpg" alt="JASS — With Love, J" />
+            <div class="catalog-feature-overlay"><span class="catalog-type-badge">Album</span></div>
+          </div>
+          <div class="catalog-feature-info">
+            <p class="catalog-num">MNM-005</p>
+            <p class="catalog-feature-artist">JASS</p>
+            <p class="catalog-feature-title">With Love, J</p>
+            <p class="catalog-feature-date">May 2026</p>
           </div>
         </div>
       </div>
