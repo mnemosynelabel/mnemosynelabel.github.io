@@ -240,6 +240,36 @@
       animation: hFade 1.8s ease .2s forwards;
     }
 
+
+    /* ── AWAITING VESSEL CARD ── */
+    .vessel-card {
+      position: relative; overflow: hidden;
+      background: #080808;
+      aspect-ratio: 3/4;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 20px;
+    }
+    .vessel-symbol {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 5vw, 64px);
+      color: rgba(201,168,76,0.18);
+      animation: vesselBreathe 4s ease-in-out infinite;
+      display: block; line-height: 1;
+    }
+    .vessel-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(10px, 1.2vw, 14px);
+      color: rgba(201,168,76,0.22);
+      letter-spacing: 4px;
+      animation: vesselBreathe 4s ease-in-out infinite;
+      animation-delay: .4s;
+    }
+    @keyframes vesselBreathe {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.06); }
+    }
+
     /* ── MARQUEE ── */
     .marquee-wrap {
       width: 100%; overflow: hidden;
@@ -1103,7 +1133,7 @@
       <span class="marquee-item">CI-EL</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">AUGUST</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">ERIS</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">SKÆZ</span><span class="marquee-item gold">·</span>
+      <span class="marquee-item" style="color:rgba(201,168,76,0.25);font-style:italic;">awaiting vessel.</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">JASS</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">VI</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">BJORN</span><span class="marquee-item gold">·</span>
@@ -1120,7 +1150,7 @@
       <span class="marquee-item">CI-EL</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">AUGUST</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">ERIS</span><span class="marquee-item gold">·</span>
-      <span class="marquee-item">SKÆZ</span><span class="marquee-item gold">·</span>
+      <span class="marquee-item" style="color:rgba(201,168,76,0.25);font-style:italic;">awaiting vessel.</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">JASS</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">VI</span><span class="marquee-item gold">·</span>
       <span class="marquee-item">BJORN</span><span class="marquee-item gold">·</span>
@@ -1191,10 +1221,12 @@
             <div class="artist-card-overlay"><span class="artist-card-num">03</span><span class="artist-card-name">ERIS</span><span class="artist-card-role">Group</span></div>
             <span class="artist-card-hint">View</span>
           </div>
-          <div class="artist-card" onclick="openModal('The Canon','SKÆZ','Group','Eight voices. Eight versions. They were not saved. They were chosen. Every time they step under the lights, it happens all over again.','Before they were SKÆZ, they were voices trained to be perfect. Dionysus found them when perfection began to fracture — splitting them into eight identities. ADAM · RYO · XAVIER · LEO · AKIO · NOLAN · FELIX · RUI.','—','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg')">
-            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/skaez.jpg" alt="SKÆZ" /></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">04</span><span class="artist-card-name">SKÆZ</span><span class="artist-card-role">Group</span></div>
-            <span class="artist-card-hint">View</span>
+          <div class="artist-card" style="pointer-events:none;">
+            <div class="vessel-card">
+              <span class="vessel-symbol">𖤐</span>
+              <span class="vessel-text">awaiting vessel.</span>
+            </div>
+            <div class="artist-card-overlay" style="background:none;"><span class="artist-card-num" style="color:rgba(201,168,76,0.15);">04</span></div>
           </div>
           <div class="artist-card" onclick="openModal('The Canon','JASS','Artist · Songwriter','A voice that has always been hers. She travelled to Korea to pursue her love for Korean music and fulfill her goal as a freelance songwriter and international artist.','A progeny of Athena, she carries wisdom and peace like an armor. Graceful yet stern, a woman who fights in front. Her sphere is her nous — the ability to reason and strategize.','@jassaely','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg')">
             <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" /></div>
@@ -1262,8 +1294,11 @@
             <span class="artist-card-hint">View</span>
           </div>
           <div class="artist-card" style="pointer-events:none;">
-            <div class="artist-card-img" style="background:#080808;display:flex;align-items:center;justify-content:center;"><span style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,64px);color:rgba(201,168,76,0.1);letter-spacing:8px;">𖤐</span></div>
-            <div class="artist-card-overlay"><span class="artist-card-num">𖤐</span><span class="artist-card-name" style="color:rgba(201,168,76,0.1);">—</span><span class="artist-card-role"></span></div>
+            <div class="vessel-card">
+              <span class="vessel-symbol">𖤐</span>
+              <span class="vessel-text">awaiting vessel.</span>
+            </div>
+            <div class="artist-card-overlay" style="background:none;"><span class="artist-card-num" style="color:rgba(201,168,76,0.15);">𖤐</span></div>
           </div>
         </div>
       </div>
@@ -1275,8 +1310,8 @@
           <span class="wave-name">The Echo</span>
         </div>
         <div class="artist-grid-4">
-          <div class="artist-card" onclick="openModal('The Echo','RITZY','Group','A five-member girl group. Confident image, strong individuality, dynamic performances. Blending pop, hip-hop, and dance-driven sounds — themes of feminine confidence, self-expression, and authenticity.','Descendants of Ares awakened beneath a crimson moon. Each inherited a fragment of the war god\'s power: courage, instinct, rebellion, ambition, and conquest. Together, they became RITZY — the Crimson Thieves. Outlaws who steal back confidence, freedom, identity, and voice.','@ritzy.all.in.us','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/92adcf2374afad42e852ebed4639953febf9b06a/images/ritzy.jpg')">
-            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/92adcf2374afad42e852ebed4639953febf9b06a/images/ritzy.jpg" alt="RITZY" /></div>
+          <div class="artist-card" onclick="openModal('The Echo','RITZY','Group','A five-member girl group. Confident image, strong individuality, dynamic performances. Blending pop, hip-hop, and dance-driven sounds — themes of feminine confidence, self-expression, and authenticity.','Descendants of Ares awakened beneath a crimson moon. Each inherited a fragment of the war god\'s power: courage, instinct, rebellion, ambition, and conquest. Together, they became RITZY — the Crimson Thieves. Outlaws who steal back confidence, freedom, identity, and voice.','@ritzy.all.in.us','https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/f084743f94a0b16dbc6ea34d12f638070a008597/images/RITZY2.jpg')">
+            <div class="artist-card-img"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/f084743f94a0b16dbc6ea34d12f638070a008597/images/RITZY2.jpg" alt="RITZY" /></div>
             <div class="artist-card-overlay"><span class="artist-card-num">15</span><span class="artist-card-name">RITZY</span><span class="artist-card-role">Group</span></div>
             <span class="artist-card-hint">View</span>
           </div>
@@ -1286,16 +1321,18 @@
             <span class="artist-card-hint">View</span>
           </div>
           <div class="artist-card" style="pointer-events:none;">
-            <div class="artist-card-img" style="background:#080808;display:flex;align-items:center;justify-content:center;">
-              <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,64px);color:rgba(201,168,76,0.08);">𖤐</span>
+            <div class="vessel-card">
+              <span class="vessel-symbol">𖤐</span>
+              <span class="vessel-text">awaiting vessel.</span>
             </div>
-            <div class="artist-card-overlay"><span class="artist-card-num" style="color:rgba(201,168,76,0.1);">𖤐</span><span class="artist-card-name" style="color:rgba(201,168,76,0.08);">—</span></div>
+            <div class="artist-card-overlay" style="background:none;"><span class="artist-card-num" style="color:rgba(201,168,76,0.15);">𖤐</span></div>
           </div>
           <div class="artist-card" style="pointer-events:none;">
-            <div class="artist-card-img" style="background:#080808;display:flex;align-items:center;justify-content:center;">
-              <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,64px);color:rgba(201,168,76,0.08);">𖤐</span>
+            <div class="vessel-card">
+              <span class="vessel-symbol">𖤐</span>
+              <span class="vessel-text">awaiting vessel.</span>
             </div>
-            <div class="artist-card-overlay"><span class="artist-card-num" style="color:rgba(201,168,76,0.1);">𖤐</span><span class="artist-card-name" style="color:rgba(201,168,76,0.08);">—</span></div>
+            <div class="artist-card-overlay" style="background:none;"><span class="artist-card-num" style="color:rgba(201,168,76,0.15);">𖤐</span></div>
           </div>
         </div>
       </div>
@@ -1491,11 +1528,9 @@
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/vi.jpg" alt="VI" /><p class="dept-name">VI</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/orpheus.jpg" alt="ORPHEUS" /><p class="dept-name">ORPHEUS</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/shawn.jpg" alt="SHAWN" /><p class="dept-name">SHAWN</p></div></div>
-              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/jackson.jpg" alt="SEN" /><p class="dept-name">SEN</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/1ef6ea258c59a09caefd1452258ee7d827c699ac/images/ARL.jpg" alt="ARLE" /><p class="dept-name">ARLE</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/4be724f934b0883eaee1ef3b5a5c4d5e790e132b/images/PHANT.jpg" alt="PHANTOM" /><p class="dept-name">PHANTOM</p></div></div>
-              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/Xavier.jpg" alt="XAVIER" /><p class="dept-name">XAVIER</p></div></div>
-              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/Akio.jpg" alt="AKIO" /><p class="dept-name">AKIO</p></div></div>
+              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/f084743f94a0b16dbc6ea34d12f638070a008597/images/ARES.jpg" alt="ARÈS" /><p class="dept-name">ARÈS</p></div></div>
             </div>
           </div>
 
@@ -1507,10 +1542,8 @@
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg" alt="BJORN" /><p class="dept-name">BJORN</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" /><p class="dept-name">JASS</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/LILA.jpg" alt="LILA" /><p class="dept-name">LILA</p></div></div>
-              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/YUU.jpg" alt="YUU" /><p class="dept-name">YUU</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/ANNE.jpg" alt="ANNELIESE" /><p class="dept-name">ANNELIESE</p></div></div>
-              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/Felix.jpg" alt="FELIX" /><p class="dept-name">FELIX</p></div></div>
-              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/Rui.jpg" alt="RUI" /><p class="dept-name">RUI</p></div></div>
+              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/f084743f94a0b16dbc6ea34d12f638070a008597/images/ARES.jpg" alt="ARÈS" /><p class="dept-name">ARÈS</p></div></div>
             </div>
           </div>
 
@@ -1520,6 +1553,7 @@
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/ci-el.jpg" alt="CI-EL" /><p class="dept-name">CI-EL</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/august.jpg" alt="AUGUST" /><p class="dept-name">AUGUST</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/5374125991adc84acf1998a7bbf97dc180cbfb54/images/VAUN.jpg" alt="VAUN" /><p class="dept-name">VAUN</p></div></div>
+              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/f084743f94a0b16dbc6ea34d12f638070a008597/images/ARES.jpg" alt="ARÈS" /><p class="dept-name">ARÈS</p></div></div>
             </div>
           </div>
 
@@ -1529,11 +1563,7 @@
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/niven.jpg" alt="NIVEN" /><p class="dept-name">NIVEN</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/3c604fcf81f92d93e99a9b2f28c39bfe5a824409/images/bjorn.jpg" alt="BJORN" /><p class="dept-name">BJORN</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/645b6dae18a54bb677721263110797827a7e585f/images/jass.jpg" alt="JASS" /><p class="dept-name">JASS</p></div></div>
-              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/ac8495ab85e0653340bf946223eac471cc068a44/images/khai.jpg" alt="KHAI" /><p class="dept-name">KHAI</p></div></div>
               <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/rea.jpg" alt="REA" /><p class="dept-name">REA</p></div></div>
-              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/Ryo.jpg" alt="RYO" /><p class="dept-name">RYO</p></div></div>
-              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/Leo.jpg" alt="LEO" /><p class="dept-name">LEO</p></div></div>
-              <div class="dept-card"><div class="dept-photo"><img src="https://raw.githubusercontent.com/mnemosynelabel/mnemosynelabel.github.io/480eff105cb63445cfd357f638ba8eda029a4f37/images/Nolan.jpg" alt="NOLAN" /><p class="dept-name">NOLAN</p></div></div>
             </div>
           </div>
         </div>
