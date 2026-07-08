@@ -544,10 +544,10 @@
 
     /* Text panel beside CI-EL */
     .leader-text-panel {
-      background: var(--black-mid);
+      background: #050505;
       display: flex; flex-direction: column;
-      justify-content: flex-end;
-      padding: 40px 40px 36px;
+      justify-content: space-between;
+      padding: 40px 44px 40px;
       position: relative; overflow: hidden;
       aspect-ratio: 4/5;
     }
@@ -555,42 +555,37 @@
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
       background: var(--gold);
     }
-    .leader-text-panel::after {
-      content: 'MNEMOSYNE';
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%) rotate(-6deg);
-      font-family: 'Cormorant Garamond', serif; font-weight: 600;
-      font-size: clamp(52px, 9vw, 110px);
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(201,168,76,0.1);
-      pointer-events: none; user-select: none;
-      white-space: nowrap; letter-spacing: -2px; line-height: 1;
-      width: 100%; text-align: center;
+    .leader-text-panel::after { content: none; }
+    .leader-text-panel-top { display: flex; flex-direction: column; position: relative; z-index: 1; }
+    .leader-text-panel-logo {
+      width: clamp(48px, 6vw, 68px); height: auto;
+      opacity: 0.85; margin-bottom: 36px;
+      filter: drop-shadow(0 0 16px rgba(201,168,76,0.2));
     }
-    .leader-text-panel-top { display: flex; flex-direction: column; gap: 16px; position: relative; z-index: 1; }
     .leader-text-panel-eyebrow {
       font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px;
       letter-spacing: 7px; text-indent: 7px; color: var(--crimson);
-      text-transform: uppercase;
+      text-transform: uppercase; margin-bottom: 14px;
     }
     .leader-text-panel-name {
       font-family: 'Cormorant Garamond', serif; font-weight: 300;
-      font-size: clamp(52px, 9vw, 120px);
-      color: var(--ivory); letter-spacing: -3px; line-height: .88;
+      font-size: clamp(36px, 5vw, 72px);
+      color: var(--ivory); letter-spacing: -2px; line-height: .88;
+      margin-bottom: 18px;
     }
-    .leader-text-panel-rule { width: 32px; height: 1px; background: rgba(201,168,76,0.4); }
+    .leader-text-panel-rule { width: 32px; height: 1px; background: rgba(201,168,76,0.4); margin-bottom: 18px; }
     .leader-text-panel-body {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: clamp(13px, 1.6vw, 16px); color: var(--ivory-dim);
-      line-height: 1.85; letter-spacing: .3px; max-width: 340px;
+      font-size: clamp(14px, 1.5vw, 17px); color: rgba(240,235,225,0.45);
+      line-height: 1.9; letter-spacing: .3px;
     }
     .leader-text-panel-bottom {
       display: flex; flex-direction: column; gap: 4px;
-      margin-top: 28px; position: relative; z-index: 1;
+      position: relative; z-index: 1;
     }
     .leader-text-panel-meta {
       font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px;
-      letter-spacing: 5px; text-indent: 5px; color: rgba(154,155,159,0.25);
+      letter-spacing: 5px; text-indent: 5px; color: rgba(154,155,159,0.18);
       text-transform: uppercase;
     }
 
@@ -616,9 +611,9 @@
     @media (max-width: 768px) {
       .leadership-solo { grid-template-columns: 1fr; }
       .leadership-solo .leader-photo { aspect-ratio: 4/5; }
-      .leader-text-panel { aspect-ratio: auto; min-height: 300px; padding: 36px 28px 32px; }
-      .leader-text-panel-name { font-size: clamp(44px, 14vw, 80px); letter-spacing: -2px; }
-      .leader-text-panel::after { font-size: clamp(40px, 14vw, 80px); }
+      .leader-text-panel { aspect-ratio: auto; min-height: 300px; padding: 32px 28px 32px; }
+      .leader-text-panel-name { font-size: clamp(32px, 10vw, 56px); letter-spacing: -1px; }
+      .leader-text-panel-logo { width: clamp(36px, 9vw, 52px); margin-bottom: 24px; }
       .leadership-row .leader-role { font-size: 9px; letter-spacing: 3px; }
     }
     .dept-block { margin-bottom: 72px; padding-bottom: 72px; border-bottom: 1px solid rgba(154,155,159,0.06); }
@@ -1148,6 +1143,7 @@
             <div class="leader-card"><div class="leader-photo"><img loading="lazy" src="https://res.cloudinary.com/dksgl7zjr/image/upload/v1783423111/ciel_bikgi9.png" alt="CI-EL" /></div><div class="leader-info"><span class="leader-role">CEO &amp; Creative Director · Co-Founder</span><span class="leader-name">CI-EL</span></div></div>
             <div class="leader-text-panel">
               <div class="leader-text-panel-top">
+                <img src="https://res.cloudinary.com/dksgl7zjr/image/upload/v1783423122/mnm_logo_vzqdvs.png" alt="Mnemosyne" class="leader-text-panel-logo" />
                 <span class="leader-text-panel-eyebrow">Leadership</span>
                 <p class="leader-text-panel-name">MNEMOSYNE</p>
                 <div class="leader-text-panel-rule"></div>
