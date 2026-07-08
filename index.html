@@ -535,11 +535,59 @@
     .staff-block { margin-bottom: 80px; }
     .staff-block-label { font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 10px; letter-spacing: 6px; text-indent: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 40px; padding-bottom: 16px; border-bottom: 1px solid rgba(201,168,76,0.1); }
     /* ── LEADERSHIP — 1 / 2 / 2 / 2 ── */
-    .leadership-solo { margin-bottom: 2px; }
-    .leadership-solo .leader-photo { aspect-ratio: 1/1; }
-    .leadership-solo .leader-name { font-size: clamp(32px, 6vw, 64px); letter-spacing: 4px; }
-    .leadership-solo .leader-role { font-size: 11px; letter-spacing: 6px; margin-bottom: 10px; }
-    .leadership-solo .leader-info { padding: 36px 44px 32px; }
+    /* CI-EL row — same 2-col as other rows, text panel beside her */
+    .leadership-solo { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; margin-bottom: 2px; }
+    .leadership-solo .leader-photo { aspect-ratio: 4/5; }
+    .leadership-solo .leader-name { font-size: clamp(22px, 3vw, 36px); letter-spacing: 2px; }
+    .leadership-solo .leader-role { font-size: clamp(8px, 1.5vw, 10px); letter-spacing: 4px; margin-bottom: 6px; }
+    .leadership-solo .leader-info { padding: 24px 28px 22px; }
+
+    /* Text panel beside CI-EL */
+    .leader-text-panel {
+      background: var(--black-mid);
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+      padding: 52px 48px;
+      position: relative; overflow: hidden;
+    }
+    .leader-text-panel::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--gold);
+    }
+    .leader-text-panel::after {
+      content: 'MNM'; position: absolute; bottom: -20px; right: -10px;
+      font-family: 'Cormorant Garamond', serif; font-weight: 600;
+      font-size: 140px; color: transparent;
+      -webkit-text-stroke: 1px rgba(201,168,76,0.04);
+      pointer-events: none; user-select: none; line-height: 1;
+    }
+    .leader-text-panel-top { display: flex; flex-direction: column; gap: 20px; }
+    .leader-text-panel-eyebrow {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px;
+      letter-spacing: 7px; text-indent: 7px; color: var(--crimson);
+      text-transform: uppercase;
+    }
+    .leader-text-panel-name {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(28px, 4vw, 52px); color: var(--ivory);
+      letter-spacing: -1px; line-height: 1;
+    }
+    .leader-text-panel-rule {
+      width: 32px; height: 1px; background: rgba(201,168,76,0.4);
+    }
+    .leader-text-panel-body {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(15px, 1.8vw, 19px); color: var(--ivory-dim);
+      line-height: 1.85; letter-spacing: .3px;
+    }
+    .leader-text-panel-bottom {
+      display: flex; flex-direction: column; gap: 6px; margin-top: 40px;
+    }
+    .leader-text-panel-meta {
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px;
+      letter-spacing: 5px; text-indent: 5px; color: rgba(154,155,159,0.3);
+      text-transform: uppercase;
+    }
 
     .leadership-row { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; margin-bottom: 2px; }
     .leadership-row .leader-photo { aspect-ratio: 4/5; }
@@ -561,9 +609,10 @@
     .leader-card:hover::before { transform: scaleX(1); }
 
     @media (max-width: 768px) {
-      .leadership-solo .leader-photo { aspect-ratio: 1/1; }
-      .leadership-solo .leader-info { padding: 24px 24px 20px; }
-      .leadership-solo .leader-name { font-size: clamp(28px, 8vw, 48px); }
+      .leadership-solo { grid-template-columns: 1fr; }
+      .leadership-solo .leader-photo { aspect-ratio: 4/5; }
+      .leader-text-panel { padding: 40px 28px; min-height: 280px; }
+      .leader-text-panel-body { font-size: clamp(15px, 4vw, 18px); }
       .leadership-row .leader-role { font-size: 9px; letter-spacing: 3px; }
     }
     .dept-block { margin-bottom: 72px; padding-bottom: 72px; border-bottom: 1px solid rgba(154,155,159,0.06); }
@@ -1088,9 +1137,21 @@
         <div class="staff-block">
           <p class="staff-block-label">Leadership</p>
 
-          <!-- CI-EL — solo full width -->
+          <!-- CI-EL + text panel -->
           <div class="leadership-solo">
             <div class="leader-card"><div class="leader-photo"><img loading="lazy" src="https://res.cloudinary.com/dksgl7zjr/image/upload/v1783423111/ciel_bikgi9.png" alt="CI-EL" /></div><div class="leader-info"><span class="leader-role">CEO &amp; Creative Director · Co-Founder</span><span class="leader-name">CI-EL</span></div></div>
+            <div class="leader-text-panel">
+              <div class="leader-text-panel-top">
+                <span class="leader-text-panel-eyebrow">Leadership</span>
+                <p class="leader-text-panel-name">MNEMOSYNE</p>
+                <div class="leader-text-panel-rule"></div>
+                <p class="leader-text-panel-body">Founded by CI-EL and AUGUST in Seoul, 2026. Built for artists who create everything — the sound, the image, the story, the rights. Every credit belongs to the person who made it.</p>
+              </div>
+              <div class="leader-text-panel-bottom">
+                <span class="leader-text-panel-meta">Seoul · Est. 2026</span>
+                <span class="leader-text-panel-meta">Independent · In-House</span>
+              </div>
+            </div>
           </div>
 
           <!-- Row 1: AIVEN + VI -->
