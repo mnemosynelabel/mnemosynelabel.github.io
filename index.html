@@ -546,46 +546,51 @@
     .leader-text-panel {
       background: var(--black-mid);
       display: flex; flex-direction: column;
-      justify-content: space-between;
-      padding: 52px 48px;
+      justify-content: flex-end;
+      padding: 40px 40px 36px;
       position: relative; overflow: hidden;
+      aspect-ratio: 4/5;
     }
     .leader-text-panel::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
       background: var(--gold);
     }
     .leader-text-panel::after {
-      content: 'MNM'; position: absolute; bottom: -20px; right: -10px;
+      content: 'MNEMOSYNE';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-6deg);
       font-family: 'Cormorant Garamond', serif; font-weight: 600;
-      font-size: 140px; color: transparent;
-      -webkit-text-stroke: 1px rgba(201,168,76,0.04);
-      pointer-events: none; user-select: none; line-height: 1;
+      font-size: clamp(52px, 9vw, 110px);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(201,168,76,0.1);
+      pointer-events: none; user-select: none;
+      white-space: nowrap; letter-spacing: -2px; line-height: 1;
+      width: 100%; text-align: center;
     }
-    .leader-text-panel-top { display: flex; flex-direction: column; gap: 20px; }
+    .leader-text-panel-top { display: flex; flex-direction: column; gap: 16px; position: relative; z-index: 1; }
     .leader-text-panel-eyebrow {
-      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 9px;
+      font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px;
       letter-spacing: 7px; text-indent: 7px; color: var(--crimson);
       text-transform: uppercase;
     }
     .leader-text-panel-name {
       font-family: 'Cormorant Garamond', serif; font-weight: 300;
-      font-size: clamp(28px, 4vw, 52px); color: var(--ivory);
-      letter-spacing: -1px; line-height: 1;
+      font-size: clamp(52px, 9vw, 120px);
+      color: var(--ivory); letter-spacing: -3px; line-height: .88;
     }
-    .leader-text-panel-rule {
-      width: 32px; height: 1px; background: rgba(201,168,76,0.4);
-    }
+    .leader-text-panel-rule { width: 32px; height: 1px; background: rgba(201,168,76,0.4); }
     .leader-text-panel-body {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: clamp(15px, 1.8vw, 19px); color: var(--ivory-dim);
-      line-height: 1.85; letter-spacing: .3px;
+      font-size: clamp(13px, 1.6vw, 16px); color: var(--ivory-dim);
+      line-height: 1.85; letter-spacing: .3px; max-width: 340px;
     }
     .leader-text-panel-bottom {
-      display: flex; flex-direction: column; gap: 6px; margin-top: 40px;
+      display: flex; flex-direction: column; gap: 4px;
+      margin-top: 28px; position: relative; z-index: 1;
     }
     .leader-text-panel-meta {
       font-family: 'Raleway', sans-serif; font-weight: 200; font-size: 8px;
-      letter-spacing: 5px; text-indent: 5px; color: rgba(154,155,159,0.3);
+      letter-spacing: 5px; text-indent: 5px; color: rgba(154,155,159,0.25);
       text-transform: uppercase;
     }
 
@@ -611,8 +616,9 @@
     @media (max-width: 768px) {
       .leadership-solo { grid-template-columns: 1fr; }
       .leadership-solo .leader-photo { aspect-ratio: 4/5; }
-      .leader-text-panel { padding: 40px 28px; min-height: 280px; }
-      .leader-text-panel-body { font-size: clamp(15px, 4vw, 18px); }
+      .leader-text-panel { aspect-ratio: auto; min-height: 300px; padding: 36px 28px 32px; }
+      .leader-text-panel-name { font-size: clamp(44px, 14vw, 80px); letter-spacing: -2px; }
+      .leader-text-panel::after { font-size: clamp(40px, 14vw, 80px); }
       .leadership-row .leader-role { font-size: 9px; letter-spacing: 3px; }
     }
     .dept-block { margin-bottom: 72px; padding-bottom: 72px; border-bottom: 1px solid rgba(154,155,159,0.06); }
@@ -1145,7 +1151,7 @@
                 <span class="leader-text-panel-eyebrow">Leadership</span>
                 <p class="leader-text-panel-name">MNEMOSYNE</p>
                 <div class="leader-text-panel-rule"></div>
-                <p class="leader-text-panel-body">Founded by CI-EL and AUGUST in Seoul, 2026. Built for artists who create everything — the sound, the image, the story, the rights. Every credit belongs to the person who made it.</p>
+                <p class="leader-text-panel-body">Built by artists. Led by artists. Every decision made from inside the work.</p>
               </div>
               <div class="leader-text-panel-bottom">
                 <span class="leader-text-panel-meta">Seoul · Est. 2026</span>
