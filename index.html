@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#0A0A0A"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://res.cloudinary.com"/>
   <title>MNEMOSYNE — from memory, everything is made.</title>
   <link rel="icon" type="image/png" href="https://res.cloudinary.com/dksgl7zjr/image/upload/v1783423122/mnm_logo_vzqdvs.png"/>
   <link rel="apple-touch-icon" href="https://res.cloudinary.com/dksgl7zjr/image/upload/v1783423122/mnm_logo_vzqdvs.png"/>
@@ -88,6 +92,14 @@
     .cursor { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .25s ease, height .25s ease, background .25s ease, border-radius .25s ease; }
     .cursor.hover { width: 36px; height: 36px; background: transparent; border: 1px solid var(--gold); border-radius: 50%; }
     .cursor.click { width: 12px; height: 12px; background: var(--crimson); }
+    /* ── SCROLL PROGRESS ── */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 100%;
+      background: linear-gradient(to right, var(--gold), var(--crimson));
+      transform: scaleX(0); transform-origin: left;
+      z-index: 10000; pointer-events: none;
+      transition: transform .1s linear;
+    }
     .grain { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9998; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); animation: grain 2s steps(1) infinite; will-change: transform; contain: strict; }
     @keyframes grain { 0%{transform:translate(0,0)} 25%{transform:translate(-2%,-2%)} 50%{transform:translate(2%,2%)} 75%{transform:translate(-1%,1%)} }
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 60px; display: flex; justify-content: space-between; align-items: center; transition: top .4s ease, background .4s ease, padding .4s ease, border-color .4s ease; border-bottom: 1px solid transparent; }
@@ -142,13 +154,15 @@
     .reveal-right.visible { opacity: 1; transform: translateX(0); }
     @media (prefers-reduced-motion: reduce) {
       .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
-      .artist-card, .catalog-feature-card, .catalog-card { opacity: 1; transform: none; transition: background .3s ease; }
+      .artist-card, .catalog-feature-card { opacity: 1; transform: none; transition: background .3s ease; }
       .hero-letter { opacity: 1; transform: none; animation: none; }
       .grid-visible .artist-card { transition-delay: 0ms; }
     }
     #hero { min-height: 100vh; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; padding: 0 60px 80px; max-width: 100%; position: relative; overflow: hidden; }
     .hero-photo-bg { position: absolute; inset: 0; z-index: 0; }
-    .hero-photo-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .hero-photo-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; animation: kenBurns 24s ease-in-out infinite alternate; will-change: transform; }
+    @keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.08); } }
+    @media (prefers-reduced-motion: reduce) { .hero-photo-bg img { animation: none; } }
     .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.70) 50%, rgba(10,10,10,0.40) 100%); }
     .hero-wordmark-bg { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(100px, 22vw, 320px); color: transparent; -webkit-text-stroke: 1px rgba(201,168,76,0.04); white-space: nowrap; letter-spacing: -4px; animation: bgFade 3s ease forwards; user-select: none; z-index: 2; }
     @keyframes bgFade { from{opacity:0} to{opacity:1} }
@@ -162,10 +176,6 @@
     .hero-scroll { width: 1px; height: 60px; background: linear-gradient(to bottom, rgba(201,168,76,0.6), transparent); align-self: center; animation: scrollPulse 2.5s ease infinite; }
     @keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:1} }
     .hero-logo-inline { width: clamp(72px, 18vw, 160px); height: auto; object-fit: contain; opacity: 1; display: block; margin-bottom: 36px; filter: drop-shadow(0 4px 48px rgba(201,168,76,0.3)) brightness(1.05); animation: hFade 1.8s ease .2s forwards; }
-    .vessel-card { position: relative; overflow: hidden; background: #080808; aspect-ratio: 3/4; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
-    .vessel-symbol { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 64px); color: rgba(201,168,76,0.18); animation: vesselBreathe 4s ease-in-out infinite; display: block; line-height: 1; }
-    .vessel-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(10px, 1.2vw, 14px); color: rgba(201,168,76,0.22); letter-spacing: 4px; animation: vesselBreathe 4s ease-in-out infinite; animation-delay: .4s; }
-    @keyframes vesselBreathe { 0%,100%{opacity:0.3;transform:scale(1)} 50%{opacity:1;transform:scale(1.06)} }
     .hero-title { overflow: visible; display: flex; gap: 0; }
     .hero-letter { display: inline-block; opacity: 0; transform: translateY(24px); animation: letterReveal .6s ease forwards; animation-delay: calc(var(--i) * 0.07s + 0.3s); will-change: opacity, transform; }
     .gold-letter { color: var(--gold); }
@@ -332,14 +342,14 @@
     }
 
     /* ── CATALOG / RELEASES ── */
-    .catalog-feature-card, .catalog-card { opacity: 0; transform: translateY(20px); transition: opacity .4s ease, transform .4s ease, background .3s ease; will-change: opacity, transform; }
-    .grid-visible .catalog-feature-card, .grid-visible .catalog-card { opacity: 1; transform: translateY(0); }
-    .grid-visible .catalog-feature-card:nth-child(1), .grid-visible .catalog-card:nth-child(1) { transition-delay: 0ms; }
-    .grid-visible .catalog-feature-card:nth-child(2), .grid-visible .catalog-card:nth-child(2) { transition-delay: 70ms; }
-    .grid-visible .catalog-feature-card:nth-child(3), .grid-visible .catalog-card:nth-child(3) { transition-delay: 140ms; }
-    .grid-visible .catalog-feature-card:nth-child(4), .grid-visible .catalog-card:nth-child(4) { transition-delay: 210ms; }
-    .grid-visible .catalog-feature-card:nth-child(5), .grid-visible .catalog-card:nth-child(5) { transition-delay: 70ms; }
-    .grid-visible .catalog-feature-card:nth-child(6), .grid-visible .catalog-card:nth-child(6) { transition-delay: 140ms; }
+    .catalog-feature-card { opacity: 0; transform: translateY(20px); transition: opacity .4s ease, transform .4s ease, background .3s ease; will-change: opacity, transform; }
+    .grid-visible .catalog-feature-card { opacity: 1; transform: translateY(0); }
+    .grid-visible .catalog-feature-card:nth-child(1) { transition-delay: 0ms; }
+    .grid-visible .catalog-feature-card:nth-child(2) { transition-delay: 70ms; }
+    .grid-visible .catalog-feature-card:nth-child(3) { transition-delay: 140ms; }
+    .grid-visible .catalog-feature-card:nth-child(4) { transition-delay: 210ms; }
+    .grid-visible .catalog-feature-card:nth-child(5) { transition-delay: 70ms; }
+    .grid-visible .catalog-feature-card:nth-child(6) { transition-delay: 140ms; }
 
     /* Featured hero row — ØISYZ + RITZY */
     .catalog-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
@@ -422,7 +432,6 @@
     #releases { border-top: none; }
     .releases-intro { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 80px; }
     .releases-intro-right { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--silver); letter-spacing: .5px; }
-    .catalog-feature { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
     .catalog-feature-card { position: relative; overflow: hidden; background: var(--black-soft); transition: background .3s ease; }
     .catalog-feature-card:hover { background: var(--black-mid); }
     .catalog-feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); z-index: 3; transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
@@ -445,7 +454,6 @@
     .catalog-hero .catalog-feature-title { font-size: clamp(36px, 6vw, 80px); letter-spacing: -1px; line-height: .95; margin-bottom: 16px; }
     .catalog-hero .catalog-feature-artist { font-size: 10px; letter-spacing: 8px; margin-bottom: 12px; }
     .catalog-hero .catalog-num { margin-bottom: 12px; }
-    .release-pulse { width: 6px; height: 6px; border-radius: 50%; background: rgba(201,168,76,0.25); animation: rPulse 2.4s ease-in-out infinite; }
     @keyframes rPulse { 0%,100%{opacity:.2;transform:scale(1)} 50%{opacity:.8;transform:scale(1.8);background:rgba(201,168,76,0.5)} }
     .nyne-banner { display: block; text-decoration: none; width: 100%; border-top: 1px solid rgba(139,26,26,0.3); border-bottom: 1px solid rgba(139,26,26,0.3); background: rgba(139,26,26,0.04); transition: background .4s ease; position: relative; overflow: hidden; }
     .nyne-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, transparent 60%, rgba(139,26,26,0.06) 100%); pointer-events: none; }
@@ -701,6 +709,7 @@
     <span class="loader-tagline">from memory, everything is made.</span>
   </div>
 
+  <div class="scroll-progress" id="scrollProgress"></div>
   <div class="grain"></div>
   <div class="cursor" id="cursor"></div>
 
@@ -750,7 +759,7 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-photo-bg">
-      <img loading="lazy" src="https://images.unsplash.com/photo-1546874177-9e664107314e?auto=format&fit=crop&w=1920&q=80" alt="" />
+      <img loading="eager" fetchpriority="high" src="https://res.cloudinary.com/dksgl7zjr/image/upload/v1784807396/mnmhero_adctdu.avif" alt="" />
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-wordmark-bg">MNEMOSYNE</div>
@@ -1336,18 +1345,29 @@
   </footer>
 
   <script>
-    // ── LOADER ──
+    // ── LOADER — full ceremony first visit, quick on return ──
     (function() {
       const loader = document.getElementById('loader');
       document.body.classList.add('loading');
 
-      // Logo at 0.2s, wordmark at 0.8s, tagline at 1.4s
-      // Dismiss at 3.2s — gives tagline time to fully settle before fade
-      setTimeout(() => {
+      let seen = false;
+      try { seen = sessionStorage.getItem('mnm_seen') === '1'; } catch(e) {}
+
+      const dismiss = (delay, fade) => setTimeout(() => {
         loader.classList.add('hidden');
         document.body.classList.remove('loading');
-        setTimeout(() => loader.remove(), 1100);
-      }, 3200);
+        setTimeout(() => loader.remove(), fade);
+      }, delay);
+
+      if (seen) {
+        // Return visit — skip the ceremony, quick fade
+        loader.style.transition = 'opacity .4s ease, visibility .4s ease';
+        dismiss(400, 500);
+      } else {
+        try { sessionStorage.setItem('mnm_seen', '1'); } catch(e) {}
+        // Logo at 0.2s, wordmark at 0.8s, tagline at 1.4s, dismiss at 3.2s
+        dismiss(3200, 1100);
+      }
     })();
 
     const cursor = document.getElementById('cursor');
@@ -1359,14 +1379,20 @@
       document.addEventListener('mousedown', () => cursor.classList.add('click'));
       document.addEventListener('mouseup', () => cursor.classList.remove('click'));
     }
-    document.querySelectorAll('a, button, .artist-card, .catalog-feature-card, .catalog-card, .contact-item').forEach(el => {
+    document.querySelectorAll('a, button, .artist-card, .catalog-feature-card, .contact-item').forEach(el => {
       el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
     });
     const nav = document.getElementById('nav');
+    const scrollProgress = document.getElementById('scrollProgress');
     let st = false;
     window.addEventListener('scroll', () => {
-      if (!st) { requestAnimationFrame(() => { nav.classList.toggle('scrolled', window.scrollY > 60); updateActiveNav(); updateParallax(); st = false; }); st = true; }
+      if (!st) { requestAnimationFrame(() => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        scrollProgress.style.transform = 'scaleX(' + (docH > 0 ? window.scrollY / docH : 0) + ')';
+        updateActiveNav(); updateParallax(); st = false;
+      }); st = true; }
     }, { passive: true });
     const sections = ['roster','releases','about','contact'];
     const navAnchors = document.querySelectorAll('.nav-center a[data-section]');
